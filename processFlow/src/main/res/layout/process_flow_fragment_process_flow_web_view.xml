@@ -26,7 +26,7 @@
                 app:title=""
                 android:visibility="gone"/>
 
-            <kg.devcats.processflow.custom_view.AppWebView
+            <kg.nurtelecom.processflow.custom_view.AppWebView
                 android:id="@+id/webView"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"

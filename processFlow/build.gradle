@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace 'kg.devcats.processflow'
+    namespace 'kg.nurtelecom.processflow'
     compileSdk 34
 
     defaultConfig {

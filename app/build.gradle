@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'kg.devcats.processflowengine'
+    namespace 'kg.nurtelecom.processflowengine'
     compileSdk 34
 
     defaultConfig {
-        applicationId "kg.devcats.processflowengine"
+        applicationId "kg.nurtelecom.processflowengine"
         minSdk 24
         targetSdk 34
         versionCode 1
