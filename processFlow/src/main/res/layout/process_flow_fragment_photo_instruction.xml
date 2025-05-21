@@ -41,6 +41,17 @@
         app:layout_constraintBottom_toTopOf="@id/btn_action"
         tools:src="@drawable/process_flow_ic_instruction_passport_front" />
 
+    <Button
+        android:id="@+id/btn_additional"
+        style="@style/Chili.ButtonStyle.Additional"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/padding_16dp"
+        android:visibility="gone"
+        android:layout_marginBottom="@dimen/padding_8dp"
+        android:text="@string/process_flow_photo_instruction_passport_fron_tunduk"
+        app:layout_constraintBottom_toTopOf="@id/btn_action"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <Button
         android:id="@+id/btn_action"

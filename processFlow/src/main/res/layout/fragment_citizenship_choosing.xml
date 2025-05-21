@@ -1,0 +1,95 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?ChiliSurfaceBackground">
+
+    <ScrollView
+        android:id="@+id/sv_container"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/view_0dp"
+        android:paddingTop="@dimen/view_40dp"
+        android:clipToPadding="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/av_terms">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/padding_16dp"
+                android:paddingBottom="@dimen/padding_12dp"
+                android:gravity="center"
+                android:textAppearance="@style/Chili.H5.Marked.Bold"
+                android:textSize="@dimen/text_24sp"
+                android:visibility="gone"
+                android:text="@string/process_flow_citizenship_choosing_title"/>
+
+            <TextView
+                android:id="@+id/tv_description"
+                style="@style/Chili.H7.Primary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginHorizontal="@dimen/padding_16dp"
+                android:text="@string/process_flow_citizenship_choosing_subtitle"/>
+
+            <ImageView
+                android:id="@+id/iv_citizenship"
+                android:layout_width="@dimen/view_220dp"
+                android:layout_height="@dimen/view_220dp"
+                android:layout_marginTop="@dimen/padding_16dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/process_flow_ic_instruction_passport_front"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <com.design2.chili2.view.common.AgreementView
+        android:id="@+id/av_terms"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_12dp"
+        android:layout_marginEnd="@dimen/padding_16dp"
+        app:layout_constraintBottom_toTopOf="@id/btn_alien_citizen"
+        app:title="@string/terms_personification_data_collection" />
+
+    <Button
+        android:id="@+id/btn_alien_citizen"
+        style="@style/Chili.ButtonStyle.Additional"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_16dp"
+        android:layout_marginEnd="@dimen/padding_16dp"
+        android:layout_marginBottom="@dimen/padding_8dp"
+        app:layout_constraintBottom_toTopOf="@id/btn_kgz_citizen"
+        android:text="@string/process_flow_citizenship_choosing_alien_citizen" />
+
+    <com.design2.chili2.view.buttons.LoaderButton
+        android:id="@+id/btn_kgz_citizen"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="@string/process_flow_citizenship_choosing_kgz_citizen"
+        android:layout_margin="@dimen/padding_16dp"
+        android:enabled="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/unclickable_mask"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

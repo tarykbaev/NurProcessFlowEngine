@@ -30,6 +30,7 @@ import kg.nurtelecom.processflow.model.ContentTypes
 import kg.nurtelecom.processflow.model.Event
 import kg.nurtelecom.processflow.model.ProcessFlowCommit
 import kg.nurtelecom.processflow.model.ProcessFlowScreenData
+import kg.nurtelecom.processflow.model.ScreenKey.CHOOSE_CITIZENSHIP
 import kg.nurtelecom.processflow.model.ScreenKey.FOREIGN_PASSPORT_PHOTO
 import kg.nurtelecom.processflow.model.ScreenKey.INPUT_FIELD
 import kg.nurtelecom.processflow.model.ScreenKey.INPUT_FORM
@@ -53,6 +54,7 @@ import kg.nurtelecom.processflow.model.component.WebViewFileTypes
 import kg.nurtelecom.processflow.model.component.WebViewProperties
 import kg.nurtelecom.processflow.ui.camera.CameraType
 import kg.nurtelecom.processflow.ui.camera.PhotoFlowFragment
+import kg.nurtelecom.processflow.ui.citizenship.CitizenshipChoosingFragment
 import kg.nurtelecom.processflow.ui.input_field.ProcessFlowInputFieldFragment
 import kg.nurtelecom.processflow.ui.input_form.InputFormFragment
 import kg.nurtelecom.processflow.ui.status.ProcessStatusInfoFragment
@@ -62,7 +64,6 @@ import kg.nurtelecom.processflow.ui.web_view.ProcessFlowPdfWebViewFragment
 import kg.nurtelecom.processflow.ui.web_view.ProcessFlowWebViewFragment
 import kg.nurtelecom.processflow.ui.web_view.VideoCallWebViewFragment
 import java.io.File
-import java.lang.Exception
 
 abstract class ProcessFlowActivity<VM: ProcessFlowVM<*>> : AppCompatActivity(), ProcessFlowHolder {
 
@@ -216,6 +217,7 @@ abstract class ProcessFlowActivity<VM: ProcessFlowVM<*>> : AppCompatActivity(), 
 
     open fun resolveNewScreenKey(data: ProcessFlowScreenData) {
         when (data.screenKey) {
+            CHOOSE_CITIZENSHIP -> openChooseCitizenshipScreen(data)
             STATUS_INFO -> openStatusScreen(data)
             VIDEO_CALL -> openWebView(data)
             WEB_VIEW -> openWebView(data)
@@ -373,7 +375,7 @@ abstract class ProcessFlowActivity<VM: ProcessFlowVM<*>> : AppCompatActivity(), 
     }
 
     open fun setScreenData(currentScreen: Fragment, data: ProcessFlowScreenData) {
-        (currentScreen as? kg.nurtelecom.processflow.base.BaseProcessScreenFragment<*>)?.apply {
+        (currentScreen as? BaseProcessScreenFragment<*>)?.apply {
             setScreenData(data)
             setThemeAndLocale(isAppThemeLight(), getAppLocale())
         }
@@ -397,14 +399,14 @@ abstract class ProcessFlowActivity<VM: ProcessFlowVM<*>> : AppCompatActivity(), 
                 millis = retry.getMillsOrNull() ?: retryDelayMills,
                 showLoader = retry.properties?.showLoader ?: false
             )
-            (currentScreen as? kg.nurtelecom.processflow.base.BaseProcessScreenFragment<*>)?.onHandleRetry(retry)
+            (currentScreen as? BaseProcessScreenFragment<*>)?.onHandleRetry(retry)
         } else {
             retryDelayMills = 1000L
             isNeedToExecuteRetry = false
             isRetryLoaderInProgress = false
             retryRequestCounter = 0
             hideLoading()
-            (currentScreen as? kg.nurtelecom.processflow.base.BaseProcessScreenFragment<*>)?.onHandleRetry(null)
+            (currentScreen as? BaseProcessScreenFragment<*>)?.onHandleRetry(null)
         }
     }
 
@@ -442,6 +444,11 @@ abstract class ProcessFlowActivity<VM: ProcessFlowVM<*>> : AppCompatActivity(), 
                 setScreenData(currentScreen as Fragment, ProcessFlowScreenData(screenKey = WEB_VIEW, allowedAnswer = listOf(FlowWebView(id = "OPEN_LINK", url = url))))
             }
         }
+    }
+
+    open fun openChooseCitizenshipScreen(data: ProcessFlowScreenData) {
+        navigateTo(CitizenshipChoosingFragment::class.java)
+        setScreenData(currentScreen as Fragment, data)
     }
 
     open fun openStatusScreen(data: ProcessFlowScreenData) {

@@ -16,7 +16,7 @@ data class FlowResponse(
     @SerializedName("screen_state")
     val screenState: ScreenState? = null,
     @SerializedName("messages")
-    val messages: List<kg.nurtelecom.processflow.model.component.FlowMessage>? = null,
+    val messages: List<FlowMessage>? = null,
     @SerializedName("allowed_answers")
     val allowedAnswer: List<FlowAllowedAnswer>? = null,
     @SerializedName("definition_key")
