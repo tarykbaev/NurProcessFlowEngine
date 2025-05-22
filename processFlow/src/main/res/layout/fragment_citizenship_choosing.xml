@@ -47,7 +47,7 @@
                 android:layout_height="@dimen/view_220dp"
                 android:layout_marginTop="@dimen/padding_16dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/process_flow_ic_instruction_passport_front"/>
+                android:src="@drawable/process_flow_ic_instruction_id_card_front"/>
 
         </LinearLayout>
 
