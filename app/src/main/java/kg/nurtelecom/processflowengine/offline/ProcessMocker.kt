@@ -461,210 +461,259 @@ object ProcessMocker {
         put(
             "OTP_INPUT", """
     {
-       "process_id":"werq-rqwew-rwer-fser",
-       "process_status":"RUNNING",
-       "screen_code":"INPUT_FORM",
-       "screen_state":{
-            "app_bar_text":"Passport data"
-       },
-       "messages":[],
-       "allowed_answers":[
-          {
-            "responseType":"BUTTON",
-            "responseItem":{
-                "disabled":true,
-                "style":"SECONDARY",
-                "properties":null,
-                "buttonId":"start_ident",
-                "text":"Не продолжать идентификацию"
+        "process_id": "werq-rqwew-rwer-fser",
+        "process_status": "RUNNING",
+        "screen_code": "INPUT_FORM",
+        "screen_state": {
+            "app_bar_text": "Passport data"
+        },
+        "messages": [],
+        "allowed_answers": [
+            {
+                "responseType": "BUTTON",
+                "responseItem": {
+                    "disabled": true,
+                    "style": "SECONDARY",
+                    "properties": null,
+                    "buttonId": "start_ident",
+                    "text": "Не продолжать идентификацию"
+                }
+            },
+            {
+                "responseType": "BUTTON",
+                "responseItem": {
+                    "disabled": false,
+                    "style": "SECONDARY",
+                    "properties": null,
+                    "buttonId": "start_ident",
+                    "text": "Продолжить идентификацию"
+                }
+            },
+            {
+                "responseType": "INPUT_FORM",
+                "responseItem": {
+                    "formId": "passport_form",
+                    "formItems": [
+                        {
+                            "formItemType": "LABEL",
+                            "formItem": {
+                                "fieldId": "passport_data",
+                                "label": "ФИО"
+                            }
+                        },
+                        {
+                            "formItemType": "INPUT_FIELD",
+                            "formItem": {
+                                "fieldId": "PHONE",
+                                "label": "Phone",
+                                "validations": [
+                                    {
+                                        "type": "REQUIRED",
+                                        "value": "true"
+                                    }
+                                ],
+                                "value": "996700000697",
+                                "mask": "996 XXX XXX XXX",
+                                "maskSymbols": [
+                                    " "
+                                ],
+                                "inputType": "NUMBER"
+                            }
+                        },
+                        {
+                            "formItemType": "INPUT_FIELD",
+                            "formItem": {
+                                "fieldId": "NAME",
+                                "label": "Имя",
+                                "placeholder": "Имя",
+                                "validations": [
+                                    {
+                                        "type": "REQUIRED",
+                                        "value": "true"
+                                    }
+                                ],
+                                "value": "Prefilled value"
+                            }
+                        },
+                        {
+                            "formItemType": "INPUT_FIELD",
+                            "formItem": {
+                                "fieldId": "SURNAME",
+                                "label": "Фамилия",
+                                "placeholder": "Фамилия",
+                                "validations": [
+                                    {
+                                        "type": "REQUIRED",
+                                        "value": "true"
+                                    }
+                                ],
+                                "value": "Prefilled value"
+                            }
+                        },
+                        {
+                            "formItemType": "LABEL",
+                            "formItem": {
+                                "fieldId": "passport_data",
+                                "label": "Данные паспорта"
+                            }
+                        },
+                        {
+                            "formItemType": "INPUT_FIELD",
+                            "formItem": {
+                                "fieldId": "INN",
+                                "label": "Персональный номер, состоящий из 14 цифр",
+                                "placeholder": "ИНН",
+                                "inputType": "NUMBER",
+                                "validations": [
+                                    {
+                                        "type": "REGEX",
+                                        "value": "^[0-9]*"
+                                    },
+                                    {
+                                        "type": "REQUIRED",
+                                        "value": "true"
+                                    }
+                                ],
+                                "value": "123123123"
+                            }
+                        },
+                        {
+                            "formItemType": "INPUT_FIELD",
+                            "formItem": {
+                                "fieldId": "PASSPORT",
+                                "label": "Номер паспорта",
+                                "placeholder": "Номер паспорта",
+                                "validations": [
+                                    {
+                                        "type": "REQUIRED",
+                                        "value": "true"
+                                    }
+                                ],
+                                "value": "ID1234567"
+                            }
+                        },
+                        {
+                            "formItemType": "DATE_PICKER_FORM_ITEM",
+                            "formItem": {
+                                "fieldId": "PASSPORT_date",
+                                "label": "Дата"
+                            }
+                        },
+                        {
+                            "formItemType": "LABEL",
+                            "formItem": {
+                                "fieldId": "DISPLAY_ONLY_FIELD",
+                                "label": "Display only field"
+                            }
+                        },
+                        {
+                            "formItemType": "DISPLAY_ONLY_FIELD",
+                            "formItem": {
+                                "fieldId": "testField",
+                                "label": "ФИО",
+                                "value": "Асаналиев Асан Асаналиевич",
+                                "disabled": false,
+                                "validations": []
+                            }
+                        },
+                        {
+                            "formItemType": "DISPLAY_ONLY_FIELD",
+                            "formItem": {
+                                "fieldId": "testField",
+                                "label": "Дата рождения",
+                                "value": "01.07.1986",
+                                "disabled": false,
+                                "validations": []
+                            }
+                        },
+                        {
+                            "formItemType": "DISPLAY_ONLY_FIELD",
+                            "formItem": {
+                                "fieldId": "testField",
+                                "label": "ИНН",
+                                "value": "20101199100001",
+                                "disabled": false,
+                                "validations": []
+                            }
+                        },
+                        {
+                            "formItemType": "DISPLAY_ONLY_FIELD",
+                            "formItem": {
+                                "fieldId": "testField",
+                                "label": "Паспорт",
+                                "value": "AN 1234567 выдан 20.03.2015",
+                                "disabled": false,
+                                "validations": []
+                            }
+                        },
+                        {
+                            "formItemType": "LABEL",
+                            "formItem": {
+                                "fieldId": "pair_text_fields",
+                                "label": "Pair text fields"
+                            }
+                        },
+                        {
+                            "formItemType": "PAIR_FIELD",
+                            "formItem": {
+                                "fieldId": "PAIR_FIELD_1",
+                                "startText": "Экспресс кредит",
+                                "endText": "150 343,00 <u>c</u> ",
+                                "isHtml": true
+                            }
+                        },
+                        {
+                            "formItemType": "PAIR_FIELD",
+                            "formItem": {
+                                "fieldId": "PAIR_FIELD_2",
+                                "startText": "Visa Gold \n•••• 2345",
+                                "endText": "150 343,00 <u>c</u> "
+                            }
+                        },
+                        {
+                            "formItemType": "PAIR_FIELD",
+                            "formItem": {
+                                "fieldId": "PAIR_FIELD_3",
+                                "startText": "Депозит 343,00 <u>c</u> ",
+                                "endText": "Депозит Депозит Депозит150 343,00 <u>c</u> ",
+                                "isHtml": true
+                            }
+                        },
+                        {
+                            "formItemType": "PAIR_FIELD",
+                            "formItem": {
+                                "fieldId": "PAIR_FIELD_4",
+                                "startText": "Депозит Депозит Депозит Депозит Депозит ",
+                                "endText": "Депозит_Депозит_Депозит 150 343,00 <u>c</u> "
+                            }
+                        },
+                        {
+                            "formItemType": "GROUP_BUTTON_FORM_ITEM",
+                            "formItem": {
+                                "fieldId": "agreement",
+                                "label": "",
+                                "validations": [
+                                    {
+                                        "type": "REQUIRED",
+                                        "value": "true"
+                                    }
+                                ],
+                                "chooseType": "MULTIPLE",
+                                "buttonType": "CHECK_BOX",
+                                "options": [
+                                    {
+                                        "id": "nda6",
+                                        "isHtmlText": "true",
+                                        "label": "<b><font color='#000000'>Список карт для переноса правильный</font></b> <br>Если у вас есть карты в Halyk Bank, уберите галочку. Оформим заявку на проверку и свяжемся c вами",
+                                        "isSelected": "true"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
             }
-          },
-          {
-            "responseType":"BUTTON",
-            "responseItem":{
-                "disabled":false,
-                "style":"SECONDARY",
-                "properties":null,
-                "buttonId":"start_ident",
-                "text":"Продолжить идентификацию"
-            }
-          },
-          {
-            "responseType":"INPUT_FORM",
-            "responseItem":{
-                "formId":"passport_form",
-                "formItems":[
-                    {
-                        "formItemType":"LABEL",
-                        "formItem":{
-                            "fieldId":"passport_data",
-                            "label":"ФИО"
-                        }
-                    },
-                    {
-                        "formItemType":"INPUT_FIELD",
-                        "formItem":{
-                            "fieldId":"PHONE",
-                            "label":"Phone",
-                            "validations":[
-                                {
-                                    "type":"REQUIRED",
-                                    "value":"true"
-                                }
-                            ],
-                            "value":"996700000697",
-                            "mask":"996 XXX XXX XXX",
-                            "maskSymbols":[" "],
-                            "inputType":"NUMBER"
-                        }
-                    },
-                    {
-                        "formItemType":"INPUT_FIELD",
-                        "formItem":{
-                            "fieldId":"NAME",
-                            "label":"Имя",
-                            "placeholder":"Имя",
-                            "validations":[
-                                {
-                                    "type":"REQUIRED",
-                                    "value":"true"
-                                }
-                            ],
-                            "value":"Prefilled value"
-                        }
-                    },
-                    {
-                        "formItemType":"INPUT_FIELD",
-                        "formItem":{
-                            "fieldId":"SURNAME",
-                            "label":"Фамилия",
-                            "placeholder":"Фамилия",
-                            "validations":[
-                                {
-                                    "type":"REQUIRED",
-                                    "value":"true"
-                                }
-                            ],
-                            "value":"Prefilled value"
-                        }
-                    },
-                    {
-                        "formItemType":"LABEL",
-                        "formItem":{
-                            "fieldId":"passport_data",
-                            "label":"Данные паспорта"
-                        }
-                    },
-                    {
-                        "formItemType":"INPUT_FIELD",
-                        "formItem":{
-                            "fieldId":"INN",
-                            "label":"Персональный номер, состоящий из 14 цифр",
-                            "placeholder":"ИНН",
-                            "inputType":"NUMBER",
-                            "validations":[
-                                {
-                                    "type":"REGEX",
-                                    "value":"^[0-9]*"
-                                },
-                                {
-                                    "type":"REQUIRED",
-                                    "value":"true"
-                                }
-                            ],
-                            "value":"123123123"
-                        }
-                    },
-                    {
-                        "formItemType":"INPUT_FIELD",
-                        "formItem":{
-                            "fieldId":"PASSPORT",
-                            "label":"Номер паспорта",
-                            "placeholder":"Номер паспорта",
-                            "validations":[
-                                {
-                                    "type":"REQUIRED",
-                                    "value":"true"
-                                }
-                            ],
-                            "value":"ID1234567"
-                        }
-                    },
-                    {
-                        "formItemType":"DATE_PICKER_FORM_ITEM",
-                        "formItem":{
-                            "fieldId":"PASSPORT_date",
-                            "label":"Дата"
-                        }
-                    },
-                    {
-                        "formItemType":"LABEL",
-                        "formItem":{
-                            "fieldId":"pair_text_fields",
-                            "label":"Pair text fields"
-                        }
-                    },
-                    {
-                        "formItemType":"PAIR_FIELD",
-                        "formItem":{
-                            "fieldId":"PAIR_FIELD_1",
-                            "startText":"Экспресс кредит",
-                            "endText":"150 343,00 <u>c</u> ",
-                            "isHtml":true
-                        }
-                    },
-                    {
-                        "formItemType":"PAIR_FIELD",
-                        "formItem":{
-                            "fieldId":"PAIR_FIELD_2",
-                            "startText":"Visa Gold \n•••• 2345",
-                            "endText":"150 343,00 <u>c</u> "
-                        }
-                    },
-                    {
-                        "formItemType":"PAIR_FIELD",
-                        "formItem":{
-                            "fieldId":"PAIR_FIELD_3",
-                            "startText":"Депозит 343,00 <u>c</u> ",
-                            "endText":"Депозит Депозит Депозит150 343,00 <u>c</u> ",
-                            "isHtml":true
-                        }
-                    },
-                    {
-                        "formItemType":"PAIR_FIELD",
-                        "formItem":{
-                            "fieldId":"PAIR_FIELD_4",
-                            "startText":"Депозит Депозит Депозит Депозит Депозит ",
-                            "endText":"Депозит_Депозит_Депозит 150 343,00 <u>c</u> "
-                        }
-                    },
-                     {
-                        "formItemType":"GROUP_BUTTON_FORM_ITEM",
-                        "formItem":{
-                            "fieldId":"agreement",
-                            "label":"",
-                            "validations":[
-                                {
-                                    "type":"REQUIRED",
-                                    "value":"true"
-                                }
-                            ],
-                            "chooseType":"MULTIPLE",
-                            "buttonType":"CHECK_BOX",
-                            "options":[
-                                {
-                                    "id":"nda6",
-                                    "isHtmlText":"true",
-                                    "label":"<b><font color='#000000'>Список карт для переноса правильный</font></b> <br>Если у вас есть карты в Halyk Bank, уберите галочку. Оформим заявку на проверку и свяжемся c вами",
-                                    "isSelected":"true"
-                                }
-                            ]
-                        }
-                    }
-                ]
-            }
-          }
-       ]
+        ]
     }
 """.trimIndent()
         )
