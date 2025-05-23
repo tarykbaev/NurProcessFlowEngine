@@ -176,7 +176,7 @@ class PhotoFlowFragment : BaseProcessScreenFragment<ProcessFlowFragmentPhotoFlow
     }
 
     private fun openPhotoCapture() {
-        if (cameraType == CameraType.BACK_PASSPORT_WITH_RECOGNIZER) {
+        if (cameraType == CameraType.BACK_PASSPORT_WITH_RECOGNIZER || cameraType == CameraType.FOREIGN_PASSPORT) {
             openRecognizer()
             return
         }
@@ -185,7 +185,6 @@ class PhotoFlowFragment : BaseProcessScreenFragment<ProcessFlowFragmentPhotoFlow
             addToBackStack(null)
         }
     }
-
 
     private fun getCameraSettings(): CameraSettings {
         return when (cameraType) {
