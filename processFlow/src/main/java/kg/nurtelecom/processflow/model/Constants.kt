@@ -5,7 +5,6 @@ object WebViewIds {
 }
 
 object ScreenKey {
-    const val CHOOSE_CITIZENSHIP = "CHOOSE_CITIZENSHIP"
     const val STATUS_INFO = "STATUS_INFO"
     const val VIDEO_CALL = "VIDEO_CALL"
     const val VIDEO_CALL_PROMO = "VIDEO_CALL_PROMO"
