@@ -5,6 +5,7 @@ import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.CountDownTimer
 import android.provider.Settings
 import android.text.SpannableStringBuilder
 import android.text.Spanned
@@ -42,7 +43,7 @@ fun FragmentActivity.getProcessFlowHolder(): ProcessFlowHolder {
 }
 
 fun Fragment.getProcessFlowHolder(): ProcessFlowHolder {
-    return  requireActivity().getProcessFlowHolder()
+    return requireActivity().getProcessFlowHolder()
 }
 
 fun Context.getThemeColor(colorAttr: Int): Int {
@@ -65,7 +66,12 @@ fun <R> Single<R>.defaultSubscribe(
     return this.subscribe(onSuccess, onError)
 }
 
-fun View.setMargins(@DimenRes leftMargin: Int, @DimenRes topMargin: Int, @DimenRes rightMargin: Int, @DimenRes bottomMargin: Int) {
+fun View.setMargins(
+    @DimenRes leftMargin: Int,
+    @DimenRes topMargin: Int,
+    @DimenRes rightMargin: Int,
+    @DimenRes bottomMargin: Int
+) {
     val params = layoutParams as ViewGroup.MarginLayoutParams
     val marginLeftDp = resources.getDimension(leftMargin).toInt()
     val marginTopDp = resources.getDimension(topMargin).toInt()
@@ -111,9 +117,12 @@ fun Context.showWarningDialog(content: CharSequence, onOkListener: () -> Unit = 
 }
 
 fun Activity.openApplicationSettings() {
-    this.startActivityForResult(Intent(
-        Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-        Uri.parse("package:" + packageName)), 9000)
+    this.startActivityForResult(
+        Intent(
+            Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+            Uri.parse("package:" + packageName)
+        ), 9000
+    )
 }
 
 val Long.toTimeFromMillis: String
@@ -140,16 +149,25 @@ fun ImageView.loadImage(imageUrl: String, @DrawableRes placeholderResId: Int? = 
 }
 
 
-
-fun FragmentActivity.showDialog(themeResId: Int = R.style.AppAlertDialog, builderFunction: android.app.AlertDialog.Builder.() -> Any): android.app.AlertDialog? {
+fun FragmentActivity.showDialog(
+    themeResId: Int = R.style.AppAlertDialog,
+    builderFunction: android.app.AlertDialog.Builder.() -> Any
+): android.app.AlertDialog? {
     return showDialog(lifecycle, themeResId, builderFunction)
 }
 
-fun Fragment.showDialog(themeResId: Int = R.style.AppAlertDialog, builderFunction: android.app.AlertDialog.Builder.() -> Any): android.app.AlertDialog? {
+fun Fragment.showDialog(
+    themeResId: Int = R.style.AppAlertDialog,
+    builderFunction: android.app.AlertDialog.Builder.() -> Any
+): android.app.AlertDialog? {
     return context?.showDialog(lifecycle, themeResId, builderFunction)
 }
 
-private fun Context.showDialog(lifecycle: Lifecycle, themeResId: Int, builderFunction: android.app.AlertDialog.Builder.() -> Any): android.app.AlertDialog {
+private fun Context.showDialog(
+    lifecycle: Lifecycle,
+    themeResId: Int,
+    builderFunction: android.app.AlertDialog.Builder.() -> Any
+): android.app.AlertDialog {
     val builder = android.app.AlertDialog.Builder(this, themeResId).apply {
         setCancelable(false)
     }
@@ -170,15 +188,25 @@ private fun Context.showDialog(lifecycle: Lifecycle, themeResId: Int, builderFun
     return dialog
 }
 
-fun android.app.AlertDialog.Builder.positiveButton(@StringRes btnTextId: Int, handleClick: () -> Unit = {}) {
-    this.setPositiveButton(context.getString(btnTextId).uppercase(Locale.getDefault())) { dialogInterface, _ ->
+fun android.app.AlertDialog.Builder.positiveButton(
+    @StringRes btnTextId: Int,
+    handleClick: () -> Unit = {}
+) {
+    this.setPositiveButton(
+        context.getString(btnTextId).uppercase(Locale.getDefault())
+    ) { dialogInterface, _ ->
         handleClick()
         dialogInterface.dismiss()
     }
 }
 
-fun android.app.AlertDialog.Builder.negativeButton(@StringRes btnTextId: Int, handleClick: () -> Unit = {}) {
-    this.setNegativeButton(context.getString(btnTextId).uppercase(Locale.getDefault())) { dialogInterface, _ ->
+fun android.app.AlertDialog.Builder.negativeButton(
+    @StringRes btnTextId: Int,
+    handleClick: () -> Unit = {}
+) {
+    this.setNegativeButton(
+        context.getString(btnTextId).uppercase(Locale.getDefault())
+    ) { dialogInterface, _ ->
         handleClick()
         dialogInterface.dismiss()
     }
@@ -203,4 +231,3 @@ fun TextView.handleUrlClicks(onClicked: ((String) -> Unit)? = null) {
     }
     movementMethod = LinkMovementMethod.getInstance()
 }
-
