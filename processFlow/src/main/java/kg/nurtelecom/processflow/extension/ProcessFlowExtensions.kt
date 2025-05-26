@@ -203,3 +203,4 @@ fun TextView.handleUrlClicks(onClicked: ((String) -> Unit)? = null) {
     }
     movementMethod = LinkMovementMethod.getInstance()
 }
+
