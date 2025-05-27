@@ -22,6 +22,9 @@ class PersonificationTestProcessFlow : ProcessFlowActivity<PersonificationTestVM
     override val processType: String
         get() = "TEST_TYPE"
 
+    override val phoneNumber: String
+        get() = ""
+
     override fun getProcessFlowStartParams(): Map<String, String> {
         return mapOf("identificationNumber" to "123456678")
     }

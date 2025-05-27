@@ -41,13 +41,13 @@ class TestProcessPrefs(context: Context) {
             }
         }
 
-    var possibleProcessIds: String
+    var phoneNumber: String
         get() {
-            return pref.getString("possibleProcessIds", "") ?: ""
+            return pref.getString("phoneNumber", "") ?: ""
         }
         set(value) {
             pref.edit {
-                putString("possibleProcessIds", value)
+                putString("phoneNumber", value)
             }
         }
 }

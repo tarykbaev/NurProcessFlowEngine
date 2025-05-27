@@ -10,6 +10,7 @@ import kg.nurtelecom.processflowengine.online.OnlineTestProcessFlow.Companion.EX
 import kg.nurtelecom.processflowengine.common.TestProcessPrefs
 import kg.nurtelecom.processflowengine.databinding.ActivityOnlineFlowConfiguratorBinding
 import kg.nurtelecom.processflowengine.online.OnlineTestProcessFlow.Companion.EXTRA_POSSIBLE_PROCESS_FLOWS
+import kg.nurtelecom.processflowengine.online.OnlineTestProcessFlow.Companion.PHONE_NUMBER
 
 class OnlineFlowConfiguratorActivity : AppCompatActivity() {
 
@@ -33,8 +34,8 @@ class OnlineFlowConfiguratorActivity : AppCompatActivity() {
         vb.etProcessFlowId.setText(prefs.process_type.takeIf { it.isNotBlank() } ?: "")
         vb.etProcessFlowId.setupClearTextButton()
 
-        vb.etPossibleProcessFlowId.setText(prefs.possibleProcessIds.takeIf { it.isNotBlank() } ?: "")
-        vb.etPossibleProcessFlowId.setupClearTextButton()
+        vb.phoneNumber.setText(prefs.phoneNumber.takeIf { it.isNotBlank() } ?: "")
+        vb.phoneNumber.setupClearTextButton()
 
         vb.btnStart.setOnSingleClickListener {
             val i = Intent(this, OnlineTestProcessFlow::class.java)
@@ -50,9 +51,9 @@ class OnlineFlowConfiguratorActivity : AppCompatActivity() {
                 prefs.process_type = it
                 i.putExtra(EXTRA_PROCESS_TYPE, it)
             }
-            vb.etPossibleProcessFlowId.getInputText().takeIf { it.isNotBlank() }?.let {
-                prefs.possibleProcessIds = it
-                i.putExtra(EXTRA_POSSIBLE_PROCESS_FLOWS, it)
+            vb.phoneNumber.getInputText().takeIf { it.isNotBlank() }?.let {
+                prefs.phoneNumber = it
+                i.putExtra(PHONE_NUMBER, it)
             }
 
             startActivity(i)

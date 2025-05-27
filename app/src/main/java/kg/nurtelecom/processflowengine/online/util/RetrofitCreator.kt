@@ -8,7 +8,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 
 object RetrofitCreator {
 
-    fun create(token: String, baseUrl: String): Retrofit {
+    fun create(token: String, baseUrl: String, phoneNumber: String): Retrofit {
         val interceptor = HttpLoggingInterceptor()
         interceptor.level = HttpLoggingInterceptor.Level.BODY
 
@@ -18,7 +18,7 @@ object RetrofitCreator {
                 val requestBuilder = it.request().newBuilder()
                 val newRequest = requestBuilder
                     .header("Authorization", token)
-                    .header("X-caller-msisdn", "996700572500")
+                    .header("X-caller-msisdn", phoneNumber)
                     .header("Additional-Information", "{\"imei\":\"custom-123\", \"imsi\":\"\" , \"platform\":\"android\", \"msisdn\":\"\"}")
                     .build()
                 it.proceed(newRequest)

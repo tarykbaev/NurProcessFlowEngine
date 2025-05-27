@@ -86,6 +86,7 @@ abstract class ProcessFlowActivity<VM: ProcessFlowVM<*>> : AppCompatActivity(), 
     abstract val vm: VM
 
     abstract val processType: String
+    abstract val phoneNumber: String
 
     open val possibleProcessTypesToRestore: List<String> by lazy { listOf(processType) }
 
@@ -291,8 +292,8 @@ abstract class ProcessFlowActivity<VM: ProcessFlowVM<*>> : AppCompatActivity(), 
 
     open fun getProcessFlowStartParams(): Map<String, Any> = mapOf(
         "process_type" to processType,
-        "caller" to "996700572500",
-        "msisdn" to "996700572500",
+        "caller" to phoneNumber,
+        "msisdn" to phoneNumber,
         "isIdentNeed" to true,
         "os" to "ANDROID",
         "otp" to "123456"
