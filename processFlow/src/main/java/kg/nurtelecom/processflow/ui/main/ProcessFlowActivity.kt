@@ -3,6 +3,7 @@ package kg.nurtelecom.processflow.ui.main
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.view.LayoutInflater
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +20,7 @@ import kg.nurtelecom.processflow.databinding.ProcessFlowActivityProcessFlowBindi
 import kg.nurtelecom.processflow.extension.negativeButton
 import kg.nurtelecom.processflow.extension.positiveButton
 import kg.nurtelecom.processflow.extension.showDialog
+import kg.nurtelecom.processflow.extension.toTimeFromMillis
 import kg.nurtelecom.processflow.model.AppActionUrlConstants.ACTION_TYPE_BUTTON_CLICK
 import kg.nurtelecom.processflow.model.AppActionUrlConstants.APP_ACTION_URL_TYPE
 import kg.nurtelecom.processflow.model.AppActionUrlConstants.PARAM_NAME_ACTION
@@ -61,6 +63,7 @@ import kg.nurtelecom.processflow.ui.web_view.ProcessFlowLinksWebView
 import kg.nurtelecom.processflow.ui.web_view.ProcessFlowPdfWebViewFragment
 import kg.nurtelecom.processflow.ui.web_view.ProcessFlowWebViewFragment
 import kg.nurtelecom.processflow.ui.web_view.VideoCallWebViewFragment
+import kg.nurtelecom.processflow.util.TimerUtils.startCountDownTimer
 import java.io.File
 
 abstract class ProcessFlowActivity<VM: ProcessFlowVM<*>> : AppCompatActivity(), ProcessFlowHolder {
@@ -89,6 +92,7 @@ abstract class ProcessFlowActivity<VM: ProcessFlowVM<*>> : AppCompatActivity(), 
     protected val currentScreen: ProcessFlowScreen?
         get() = (supportFragmentManager.findFragmentById(R.id.fl_container)) as? ProcessFlowScreen
 
+    private var countDownTimer: CountDownTimer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -480,8 +484,34 @@ abstract class ProcessFlowActivity<VM: ProcessFlowVM<*>> : AppCompatActivity(), 
         } catch (_: Exception) {}
     }
 
+    open fun observeRemainingTime() {
+        vm.remainingTime.observe(this@ProcessFlowActivity) { setRemainingTime(it) }
+    }
+
+    private fun setRemainingTime(remainingTime: Long?) {
+        countDownTimer?.cancel()
+        if (remainingTime != null) {
+            countDownTimer = startCountDownTimer(
+                remainingTime,
+                COUNTDOWN_INTERVAL,
+                onTick = {
+                    vb.chiliToolbar.setAdditionalText(it.toTimeFromMillis)
+                }
+            )
+        }
+    }
+
     open fun closeCurrentFlowActivity() {
         hideLoading()
         finish()
+    }
+
+    override fun onDestroy() {
+        countDownTimer?.cancel()
+        super.onDestroy()
+    }
+
+    companion object {
+        private const val COUNTDOWN_INTERVAL = 1000L
     }
 }

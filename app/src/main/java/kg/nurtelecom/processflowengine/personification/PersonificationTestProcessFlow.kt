@@ -9,7 +9,8 @@ import kg.nurtelecom.processflow.repository.ProcessFlowRepository
 import kg.nurtelecom.processflow.ui.main.ProcessFlowActivity
 import kg.nurtelecom.processflow.ui.main.ProcessFlowVM
 
-class PersonificationTestProcessFlow : ProcessFlowActivity<PersonificationTestVM>()  {
+class PersonificationTestProcessFlow : ProcessFlowActivity<PersonificationTestVM>() {
+
 
     override fun setupViews() {
         super.setupViews()
@@ -29,6 +30,11 @@ class PersonificationTestProcessFlow : ProcessFlowActivity<PersonificationTestVM
         if (button?.buttonId == "EXIT_NAVIGATE_TO_WALLET_MAIN") finish()
         else super.resolveButtonClickCommit(button, additionalContent)
     }
+
+    override fun observeLiveData() {
+        super.observeLiveData()
+        observeRemainingTime()
+    }
 }
 
 object MyCommit : ProcessFlowCommit()
@@ -37,11 +43,14 @@ sealed class MyEvent : Event() {
     object MySubEvent : MyEvent()
 }
 
-class PersonificationTestRepo(context: Context) : ProcessFlowRepository(PersonificationFlowApiImpl) {
+class PersonificationTestRepo(context: Context) :
+    ProcessFlowRepository(PersonificationFlowApiImpl) {
 
 }
 
 
-class PersonificationTestVM(context: Context) : ProcessFlowVM<ProcessFlowRepository>(PersonificationTestRepo(context)) {
+class PersonificationTestVM(context: Context) :
+    ProcessFlowVM<ProcessFlowRepository>(PersonificationTestRepo(context)) {
+
 
 }
