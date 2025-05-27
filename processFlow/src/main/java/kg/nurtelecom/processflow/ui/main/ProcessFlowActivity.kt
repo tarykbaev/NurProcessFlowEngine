@@ -290,7 +290,12 @@ abstract class ProcessFlowActivity<VM: ProcessFlowVM<*>> : AppCompatActivity(), 
     }
 
     open fun getProcessFlowStartParams(): Map<String, Any> = mapOf(
-        "process_type" to processType
+        "process_type" to processType,
+        "caller" to "996700572500",
+        "msisdn" to "996700572500",
+        "isIdentNeed" to true,
+        "os" to "ANDROID",
+        "otp" to "123456"
     )
 
     open fun getSubProcessFlowStartParams(subProcessFlowType: String): Map<String, Any> = mapOf(

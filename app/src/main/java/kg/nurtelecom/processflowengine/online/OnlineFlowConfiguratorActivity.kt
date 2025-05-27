@@ -30,7 +30,7 @@ class OnlineFlowConfiguratorActivity : AppCompatActivity() {
         vb.etToken.setText(prefs.token)
         vb.etToken.setupClearTextButton()
 
-        vb.etProcessFlowId.setText(prefs.process_type)
+        vb.etProcessFlowId.setText(prefs.process_type.takeIf { it.isNotBlank() } ?: "")
         vb.etProcessFlowId.setupClearTextButton()
 
         vb.etPossibleProcessFlowId.setText(prefs.possibleProcessIds.takeIf { it.isNotBlank() } ?: "")

@@ -17,13 +17,13 @@ import retrofit2.http.Query
 
 interface ProcessFlowNetworkApi {
 
-    @GET("v4/process/info/find-running-primary")
+    @GET("v2/process/info/find-running-primary")
     fun findActiveProcess(
         @Query("flow_types") possibleProcessTypes: String,
         @Query("parent_instance_key") parentProcessId: String? = null,
     ): Single<FlowResponse?>
 
-    @POST("v3/process/start")
+    @POST("v2/process/start")
     @JvmSuppressWildcards
     fun startFlow(@Body request: Map<String, Any>): Single<FlowResponse>
 
@@ -41,12 +41,12 @@ interface ProcessFlowNetworkApi {
     ): Single<String>
 
     @Multipart
-    @POST("v1/native/attachments/upload")
+    @POST("v2/native/attachments/upload")
     fun uploadFileAttachments(
         @Part vararg attachments: MultipartBody.Part?,
     ): Single<List<FlowUploadedAttachment>>
 
-    @GET("v3/dictionaries/form-item/options/{form_item_id}/{parent_selected_option_id}")
+    @GET("v2/dictionaries/form-item/options/{form_item_id}/{parent_selected_option_id}")
     fun fetchAdditionalOptions(
         @Path("form_item_id") formId: String,
         @Path("parent_selected_option_id") parentSelectedOptionId: String,
