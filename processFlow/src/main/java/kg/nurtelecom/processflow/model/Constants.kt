@@ -50,4 +50,5 @@ object AppActionUrlConstants {
 object ButtonIds {
     val OPEN_SUB_PROCESS = "OPEN_SUB_PROCESS"
     val RETURN_TO_PARENT_PROCESS = "RETURN_TO_PARENT_PROCESS"
+    val TUNDUK_DIGITAL = "DIGITAL"
 }

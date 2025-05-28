@@ -4,7 +4,11 @@ import android.os.Bundle
 import android.view.View
 import com.design2.chili2.extensions.setOnSingleClickListener
 import kg.nurtelecom.processflow.R
+import kg.nurtelecom.processflow.extension.getProcessFlowHolder
 import kg.nurtelecom.processflow.extension.visible
+import kg.nurtelecom.processflow.model.ButtonIds.TUNDUK_DIGITAL
+import kg.nurtelecom.processflow.model.ProcessFlowCommit
+import kg.nurtelecom.processflow.model.component.FlowButton
 import kg.nurtelecom.processflow.ui.camera.instruction.BasePhotoInstructionFragment
 
 class PassportFrontInstructionFragment : BasePhotoInstructionFragment() {
@@ -21,7 +25,9 @@ class PassportFrontInstructionFragment : BasePhotoInstructionFragment() {
         vb.btnAdditional.apply {
             visible()
             setOnSingleClickListener {
-                // todo commit message to open Tunduk flow
+                getProcessFlowHolder().commit(
+                    ProcessFlowCommit.OnButtonClick(FlowButton(buttonId = TUNDUK_DIGITAL))
+                )
             }
         }
     }

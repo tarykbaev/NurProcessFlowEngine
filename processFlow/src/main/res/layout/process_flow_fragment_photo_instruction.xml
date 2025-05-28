@@ -50,8 +50,7 @@
         android:id="@+id/btn_additional"
         style="@style/Chili.ButtonStyle.Additional"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/padding_16dp"
-        android:layout_marginBottom="@dimen/padding_8dp"
+        android:layout_margin="@dimen/padding_16dp"
         android:text="@string/process_flow_photo_instruction_passport_fron_tunduk"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/btn_action"
@@ -68,4 +67,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
