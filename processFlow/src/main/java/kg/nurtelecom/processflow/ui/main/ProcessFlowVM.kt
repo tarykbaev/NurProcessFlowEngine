@@ -1,7 +1,7 @@
 package kg.nurtelecom.processflow.ui.main
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.design2.chili2.view.modals.bottom_sheet.serach_bottom_sheet.Option
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -40,6 +40,13 @@ abstract class ProcessFlowVM<T: ProcessFlowRepository>(protected val _repository
     }
 
     val processFlowScreenDataLive = MutableLiveData<ProcessFlowScreenData>()
+
+    private val _remainingTime = MutableLiveData<Long?>()
+    val remainingTime: LiveData<Long?> get() = _remainingTime
+
+    private fun startPersonificationRemainingTime(timerTime: Long?) {
+        _remainingTime.postValue(timerTime)
+    }
 
     fun requireProcessFlowId(): String = processFlowId ?: throw Exception("Process flow id is null")
 
@@ -261,9 +268,9 @@ abstract class ProcessFlowVM<T: ProcessFlowRepository>(protected val _repository
                 message = response.messages
             )
             processFlowScreenDataLive.postValue(screenData)
+            startPersonificationRemainingTime(response.screenState?.timer)
             response
-        }
-            .subscribeOn(Schedulers.io())
+        }.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
     }
 

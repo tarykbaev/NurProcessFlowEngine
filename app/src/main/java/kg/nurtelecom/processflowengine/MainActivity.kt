@@ -8,6 +8,7 @@ import com.design2.chili2.view.navigation_components.ChiliToolbar
 import kg.nurtelecom.processflowengine.databinding.ActivityMainBinding
 import kg.nurtelecom.processflowengine.offline.OfflineFlowConfig
 import kg.nurtelecom.processflowengine.online.OnlineFlowConfiguratorActivity
+import kg.nurtelecom.processflowengine.personification.PersonificationFlowConfig
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         vb.btnStartReal.setOnClickListener { startActivity(Intent(this, OnlineFlowConfiguratorActivity::class.java)) }
         vb.btnStart.setOnClickListener { startActivity(Intent(this, OfflineFlowConfig::class.java)) }
+        vb.btnStartPersonifcation.setOnClickListener { startActivity(Intent(this, PersonificationFlowConfig::class.java)) }
 
         vb.swTheme.setOnCheckedChangeListener { buttonView, isChecked ->
             setupDarkTheme(isChecked)

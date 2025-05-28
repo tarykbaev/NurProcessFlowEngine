@@ -89,15 +89,19 @@ class PhotoFlowFragment : BaseProcessScreenFragment<ProcessFlowFragmentPhotoFlow
         onPhotoCaptured(filePath)
     }
 
-    private fun openRecognizer() {
+    private fun openRecognizer(cameraType: CameraType) {
+        val label = getString(
+            if(cameraType == CameraType.FOREIGN_PASSPORT) R.string.process_flow_photo_instruction_passport_foreigner
+            else R.string.process_flow_photo_capture_passport_back_title
+        )
         textRecognizerContract.launch(TextRecognizerConfig(
             false,
             ProcessFlowConfigurator.recognizerTimeoutLimit,
             ProcessFlowConfigurator.recognizerTimeoutMills,
             getString(R.string.process_flow_photo_recognizer_timeout_description),
             false,
-            photoCaptureLabels = ScreenLabels(getString(R.string.process_flow_photo_capture_passport_back_title), description = getString(R.string.process_flow_photo_capture_passport_front_description)),
-            recognitionLabels = ScreenLabels(getString(R.string.process_flow_photo_capture_passport_back_title), description = getString(R.string.process_flow_photo_capture_passport_front_description)),
+            photoCaptureLabels = ScreenLabels(label, description = getString(R.string.process_flow_photo_capture_passport_front_description)),
+            recognitionLabels = ScreenLabels(label, description = getString(R.string.process_flow_photo_capture_passport_front_description)),
             overlayType = OverlayType.PASSPORT_OVERLAY,
             hasCustomPhotoConfirmation = true,
             needRecognition = recognizedMrz == null)
@@ -105,7 +109,7 @@ class PhotoFlowFragment : BaseProcessScreenFragment<ProcessFlowFragmentPhotoFlow
     }
 
     fun startPhotoFlow(isRetakingPhoto: Boolean = false) {
-        needRecognition = (cameraType == CameraType.BACK_PASSPORT_WITH_RECOGNIZER && !isRetakingPhoto)
+        needRecognition = ((cameraType == CameraType.BACK_PASSPORT_WITH_RECOGNIZER || cameraType == CameraType.FOREIGN_PASSPORT) && !isRetakingPhoto)
         checkPermission()
     }
 
@@ -147,7 +151,7 @@ class PhotoFlowFragment : BaseProcessScreenFragment<ProcessFlowFragmentPhotoFlow
     }
 
     private fun getScaleType(): ImageView.ScaleType? {
-        return if (cameraType in listOf(CameraType.BACK_PASSPORT_WITH_RECOGNIZER,  CameraType.FRONT_PASSPORT)) ImageView.ScaleType.CENTER_INSIDE
+        return if (cameraType in listOf(CameraType.BACK_PASSPORT_WITH_RECOGNIZER,  CameraType.FRONT_PASSPORT, CameraType.FOREIGN_PASSPORT)) ImageView.ScaleType.CENTER_INSIDE
         else null
     }
 
@@ -176,8 +180,8 @@ class PhotoFlowFragment : BaseProcessScreenFragment<ProcessFlowFragmentPhotoFlow
     }
 
     private fun openPhotoCapture() {
-        if (cameraType == CameraType.BACK_PASSPORT_WITH_RECOGNIZER) {
-            openRecognizer()
+        if (cameraType == CameraType.BACK_PASSPORT_WITH_RECOGNIZER || cameraType == CameraType.FOREIGN_PASSPORT) {
+            openRecognizer(cameraType)
             return
         }
         childFragmentManager.commit {
@@ -185,7 +189,6 @@ class PhotoFlowFragment : BaseProcessScreenFragment<ProcessFlowFragmentPhotoFlow
             addToBackStack(null)
         }
     }
-
 
     private fun getCameraSettings(): CameraSettings {
         return when (cameraType) {

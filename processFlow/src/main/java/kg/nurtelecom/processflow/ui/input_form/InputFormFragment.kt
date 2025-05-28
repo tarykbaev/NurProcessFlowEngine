@@ -18,6 +18,7 @@ import kg.nurtelecom.processflow.databinding.ProcessFlowFragmentInputFormBinding
 import kg.nurtelecom.processflow.extension.getProcessFlowHolder
 import kg.nurtelecom.processflow.extension.hideKeyboard
 import kg.nurtelecom.processflow.item_creator.DatePickerFieldCreator
+import kg.nurtelecom.processflow.item_creator.DisplayOnlyFieldItemCreator
 import kg.nurtelecom.processflow.item_creator.DropDownFieldCreator
 import kg.nurtelecom.processflow.item_creator.GroupButtonsCreator
 import kg.nurtelecom.processflow.item_creator.InputFieldCreator
@@ -29,6 +30,7 @@ import kg.nurtelecom.processflow.model.ProcessFlowScreenData
 import kg.nurtelecom.processflow.model.common.Content
 import kg.nurtelecom.processflow.model.component.FlowInputField
 import kg.nurtelecom.processflow.model.input_form.DatePickerFieldInfo
+import kg.nurtelecom.processflow.model.input_form.DisplayOnlyFieldItem
 import kg.nurtelecom.processflow.model.input_form.DropDownFieldInfo
 import kg.nurtelecom.processflow.model.input_form.EnteredValue
 import kg.nurtelecom.processflow.model.input_form.FormResponse
@@ -107,6 +109,7 @@ class InputFormFragment : BaseProcessScreenFragment<ProcessFlowFragmentInputForm
                 is DatePickerFieldInfo -> createDatePickerField(it.formItem)
                 is LabelFormItem -> createLabelFormItem(it.formItem)
                 is PairFieldItem -> createPairFieldItem(it.formItem)
+                is DisplayOnlyFieldItem -> createDisplayOnlyFieldItem(it.formItem)
                 else -> null
             }
             view?.let { container.addView(it) }
@@ -143,6 +146,10 @@ class InputFormFragment : BaseProcessScreenFragment<ProcessFlowFragmentInputForm
 
     private fun createPairFieldItem(pairFieldItem: PairFieldItem): View {
         return  PairFieldItemCreator.create(requireContext(), pairFieldItem)
+    }
+
+    private fun createDisplayOnlyFieldItem(displayOnlyFieldItem: DisplayOnlyFieldItem): View {
+        return DisplayOnlyFieldItemCreator.create(requireContext(), displayOnlyFieldItem)
     }
 
     private fun createDropDownField(dropDownList: DropDownFieldInfo): View {

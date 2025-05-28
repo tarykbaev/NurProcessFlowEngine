@@ -1,4 +1,4 @@
-package kg.nurtelecom.processflowengine.offline
+package kg.nurtelecom.processflowengine.personification
 
 import android.content.Context
 import kg.nurtelecom.processflow.model.Event
@@ -9,14 +9,15 @@ import kg.nurtelecom.processflow.repository.ProcessFlowRepository
 import kg.nurtelecom.processflow.ui.main.ProcessFlowActivity
 import kg.nurtelecom.processflow.ui.main.ProcessFlowVM
 
-class OfflineTestProcessFlow : ProcessFlowActivity<TestVM>()  {
+class PersonificationTestProcessFlow : ProcessFlowActivity<PersonificationTestVM>() {
+
 
     override fun setupViews() {
         super.setupViews()
     }
 
-    override val vm: TestVM by lazy {
-        TestVM(this)
+    override val vm: PersonificationTestVM by lazy {
+        PersonificationTestVM(this)
     }
     override val processType: String
         get() = "TEST_TYPE"
@@ -32,6 +33,11 @@ class OfflineTestProcessFlow : ProcessFlowActivity<TestVM>()  {
         if (button?.buttonId == "EXIT_NAVIGATE_TO_WALLET_MAIN") finish()
         else super.resolveButtonClickCommit(button, additionalContent)
     }
+
+    override fun observeLiveData() {
+        super.observeLiveData()
+        observeRemainingTime()
+    }
 }
 
 object MyCommit : ProcessFlowCommit()
@@ -40,11 +46,14 @@ sealed class MyEvent : Event() {
     object MySubEvent : MyEvent()
 }
 
-class TestRepo(context: Context) : ProcessFlowRepository(ProcessFlowApiImpl) {
+class PersonificationTestRepo(context: Context) :
+    ProcessFlowRepository(PersonificationFlowApiImpl) {
 
 }
 
 
-class TestVM(context: Context) : ProcessFlowVM<ProcessFlowRepository>(TestRepo(context)) {
+class PersonificationTestVM(context: Context) :
+    ProcessFlowVM<ProcessFlowRepository>(PersonificationTestRepo(context)) {
+
 
 }

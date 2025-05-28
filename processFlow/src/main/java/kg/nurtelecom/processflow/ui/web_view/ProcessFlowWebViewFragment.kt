@@ -146,7 +146,7 @@ open class ProcessFlowWebViewFragment :
 
     open fun handleProperties(webViewProperties: WebViewProperties?) {
         webViewProperties?.faqUrl?.let {
-            getProcessFlowHolder().setupToolbarEndIcon(R.drawable.process_flow_ic_faq) {
+            getProcessFlowHolder().setupToolbarEndIcon(R.drawable.process_flow_ic_faq_24dp) {
                 getProcessFlowHolder().commit(ProcessFlowCommit.OnLinkClicked(it))
             }
         }

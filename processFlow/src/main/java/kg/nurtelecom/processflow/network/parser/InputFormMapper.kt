@@ -4,6 +4,7 @@ import com.google.gson.Gson
 import kg.nurtelecom.processflow.model.component.FlowFormInfoJson
 import kg.nurtelecom.processflow.model.component.FlowInputField
 import kg.nurtelecom.processflow.model.input_form.DatePickerFieldInfo
+import kg.nurtelecom.processflow.model.input_form.DisplayOnlyFieldItem
 import kg.nurtelecom.processflow.model.input_form.DropDownFieldInfo
 import kg.nurtelecom.processflow.model.input_form.FormItem
 import kg.nurtelecom.processflow.model.input_form.FormItemType
@@ -48,6 +49,11 @@ open class InputFormMapper {
                 kg.nurtelecom.processflow.model.component.FormItemType.PAIR_FIELD -> FormItem(
                     FormItemType.PAIR_FIELD,
                     gson.fromJson(it.formItem, PairFieldItem::class.java)
+                )
+
+                kg.nurtelecom.processflow.model.component.FormItemType.DISPLAY_ONLY_FIELD -> FormItem(
+                    FormItemType.DISPLAY_ONLY_FIELD,
+                    gson.fromJson(it.formItem, DisplayOnlyFieldItem::class.java)
                 )
                 else -> null
             }
