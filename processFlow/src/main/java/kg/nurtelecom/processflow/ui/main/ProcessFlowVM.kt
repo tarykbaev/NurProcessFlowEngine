@@ -44,7 +44,7 @@ abstract class ProcessFlowVM<T: ProcessFlowRepository>(protected val _repository
     private val _remainingTime = MutableLiveData<Long?>()
     val remainingTime: LiveData<Long?> get() = _remainingTime
 
-    private fun startPersonificationRemainingTime(timerTime: Long?) {
+    private fun setPersonificationRemainingTime(timerTime: Long?) {
         _remainingTime.postValue(timerTime)
     }
 
@@ -268,7 +268,7 @@ abstract class ProcessFlowVM<T: ProcessFlowRepository>(protected val _repository
                 message = response.messages
             )
             processFlowScreenDataLive.postValue(screenData)
-            startPersonificationRemainingTime(response.screenState?.timer)
+            setPersonificationRemainingTime(response.screenState?.timer)
             response
         }.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
