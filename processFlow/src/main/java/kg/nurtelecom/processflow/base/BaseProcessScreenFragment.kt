@@ -26,6 +26,7 @@ import kg.nurtelecom.processflow.model.component.FlowButton
 import kg.nurtelecom.processflow.model.component.FlowInputField
 import kg.nurtelecom.processflow.model.component.FlowMessage
 import kg.nurtelecom.processflow.model.component.FlowRetryInfo
+import kg.nurtelecom.processflow.ui.bottomsheet.DescriptionBottomSheet
 import java.util.Date
 
 abstract class BaseProcessScreenFragment<VB: ViewBinding> : BaseFragment<VB>(), ProcessFlowScreen {
@@ -124,6 +125,17 @@ abstract class BaseProcessScreenFragment<VB: ViewBinding> : BaseFragment<VB>(), 
     //Screen state handler
     open fun renderScreenState(state: ScreenState? = null) {
         getProcessFlowHolder().setToolbarTitle(state?.appBarText ?: "")
+        setupToolbarEndIcon(state)
+    }
+
+    private fun setupToolbarEndIcon(state: ScreenState?) {
+        if (state?.isBottomSheetAvailable() != true) return
+        getProcessFlowHolder().setupToolbarEndIcon(kg.nurtelecom.processflow.R.drawable.process_flow_ic_faq_24dp) {
+            DescriptionBottomSheet.newInstance(
+                state.infoTitle,
+                state.infoDescHtml.orEmpty()
+            ).show(childFragmentManager, null)
+        }
     }
 
     // Button Handler

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.text.HtmlCompat
 import androidx.core.text.parseAsHtml
 import androidx.core.view.isVisible
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -47,14 +48,14 @@ class DescriptionBottomSheet : BottomSheetDialogFragment() {
     private fun setTitle(title: String?) {
         binding.tvTitle.apply {
             isVisible = title != null
-            text = title?.parseAsHtml()
+            text = title?.parseAsHtml(HtmlCompat.FROM_HTML_MODE_COMPACT)?.trimEnd()
         }
     }
 
     private fun setDescription(description: String?) {
         binding.tvDescription.apply {
             isVisible = description != null
-            text = description?.parseAsHtml()
+            text = description?.parseAsHtml(HtmlCompat.FROM_HTML_MODE_COMPACT)?.trimEnd()
         }
     }
 
