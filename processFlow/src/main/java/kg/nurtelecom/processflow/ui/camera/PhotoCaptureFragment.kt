@@ -28,7 +28,7 @@ import com.design2.chili2.view.camera_overlays.PassportCardOverlay
 import com.design2.chili2.view.camera_overlays.RectangleOverlay
 import kg.nurtelecom.processflow.R
 import kg.nurtelecom.processflow.base.BaseFragment
-import kg.nurtelecom.processflow.databinding.ProcessFlowFragmentPhotoCaptureBinding
+import kg.nurtelecom.processflow.databinding.NurProcessFlowFragmentPhotoCaptureBinding
 import kg.nurtelecom.processflow.extension.getProcessFlowHolder
 import kg.nurtelecom.processflow.extension.showWarningDialog
 import kg.nurtelecom.processflow.util.PictureUtil
@@ -38,7 +38,7 @@ import java.util.concurrent.Executor
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
-class PhotoCaptureFragment : BaseFragment<ProcessFlowFragmentPhotoCaptureBinding>() {
+class PhotoCaptureFragment : BaseFragment<NurProcessFlowFragmentPhotoCaptureBinding>() {
 
     private lateinit var preview: Preview
     private lateinit var imageAnalysis: ImageAnalysis
@@ -55,7 +55,7 @@ class PhotoCaptureFragment : BaseFragment<ProcessFlowFragmentPhotoCaptureBinding
 
     private var passportOverlayView: PassportCardOverlay? = null
 
-    override fun inflateViewBinging() = ProcessFlowFragmentPhotoCaptureBinding.inflate(layoutInflater)
+    override fun inflateViewBinging() = NurProcessFlowFragmentPhotoCaptureBinding.inflate(layoutInflater)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

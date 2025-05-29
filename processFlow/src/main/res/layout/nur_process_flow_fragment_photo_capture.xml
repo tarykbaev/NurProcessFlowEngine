@@ -35,7 +35,7 @@
         android:layout_width="@dimen/view_64dp"
         android:layout_height="@dimen/view_64dp"
         android:layout_marginBottom="@dimen/padding_24dp"
-        android:src="@drawable/process_flow_ic_capture_button"
+        android:src="@drawable/nur_process_flow_ic_capture_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

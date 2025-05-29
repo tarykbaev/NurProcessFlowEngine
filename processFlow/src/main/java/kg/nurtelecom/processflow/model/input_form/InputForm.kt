@@ -1,6 +1,5 @@
 package kg.nurtelecom.processflow.model.input_form
 
-import kg.nurtelecom.processflow.model.input_form.FormItem
 import java.io.Serializable
 
 data class InputForm(

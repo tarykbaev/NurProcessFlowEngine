@@ -4,12 +4,12 @@ import android.os.Bundle
 import android.view.View
 import com.design2.chili2.extensions.setOnSingleClickListener
 import kg.nurtelecom.processflow.base.BaseFragment
-import kg.nurtelecom.processflow.databinding.ProcessFlowFragmentPhotoInstructionBinding
+import kg.nurtelecom.processflow.databinding.NurProcessFlowFragmentPhotoInstructionBinding
 import kg.nurtelecom.processflow.extension.getProcessFlowHolder
 import kg.nurtelecom.processflow.extension.loadImage
 import kg.nurtelecom.processflow.ui.camera.PhotoFlowFragment
 
-abstract class BasePhotoInstructionFragment : BaseFragment<ProcessFlowFragmentPhotoInstructionBinding>() {
+abstract class BasePhotoInstructionFragment : BaseFragment<NurProcessFlowFragmentPhotoInstructionBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -21,7 +21,7 @@ abstract class BasePhotoInstructionFragment : BaseFragment<ProcessFlowFragmentPh
     }
 
     override fun inflateViewBinging() =
-        ProcessFlowFragmentPhotoInstructionBinding.inflate(layoutInflater)
+        NurProcessFlowFragmentPhotoInstructionBinding.inflate(layoutInflater)
 
     abstract fun getInstructionTitleRes(): Int
     abstract fun getInstructionSubtitleRes(): Int

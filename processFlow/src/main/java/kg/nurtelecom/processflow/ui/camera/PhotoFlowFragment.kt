@@ -17,7 +17,7 @@ import kg.nurtelecom.processflow.ProcessFlowConfigurator
 import kg.nurtelecom.processflow.R
 import kg.nurtelecom.processflow.base.BaseProcessScreenFragment
 import kg.nurtelecom.processflow.base.process.BackPressHandleState
-import kg.nurtelecom.processflow.databinding.ProcessFlowFragmentPhotoFlowBinding
+import kg.nurtelecom.processflow.databinding.NurProcessFlowFragmentPhotoFlowBinding
 import kg.nurtelecom.processflow.extension.getProcessFlowHolder
 import kg.nurtelecom.processflow.extension.positiveButton
 import kg.nurtelecom.processflow.extension.showDialog
@@ -41,7 +41,7 @@ import kg.nurtelecom.text_recognizer.photo_capture.RecognizePhotoContract
 import kg.nurtelecom.text_recognizer.photo_capture.ScreenLabels
 import kg.nurtelecom.text_recognizer.photo_capture.TextRecognizerConfig
 
-class PhotoFlowFragment : BaseProcessScreenFragment<ProcessFlowFragmentPhotoFlowBinding>() {
+class PhotoFlowFragment : BaseProcessScreenFragment<NurProcessFlowFragmentPhotoFlowBinding>() {
 
     private val cameraType by lazy { (arguments?.getSerializable(ARG_CAMERA_TYPE) as? CameraType) ?: CameraType.SELFIE }
     private val responseId by lazy { (arguments?.getSerializable(ARG_RESPONSE_ID) as? String) ?: "" }
@@ -114,7 +114,7 @@ class PhotoFlowFragment : BaseProcessScreenFragment<ProcessFlowFragmentPhotoFlow
     }
 
 
-    override fun inflateViewBinging() = ProcessFlowFragmentPhotoFlowBinding.inflate(layoutInflater)
+    override fun inflateViewBinging() = NurProcessFlowFragmentPhotoFlowBinding.inflate(layoutInflater)
 
     override fun setupViews() {
         super.setupViews()

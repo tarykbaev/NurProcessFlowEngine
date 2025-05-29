@@ -9,18 +9,18 @@ import androidx.core.text.HtmlCompat
 import androidx.core.text.parseAsHtml
 import androidx.core.view.isVisible
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import kg.nurtelecom.processflow.databinding.ProcessFlowDescriptionBottomSheetBinding
+import kg.nurtelecom.processflow.databinding.NurProcessFlowDescriptionBottomSheetBinding
 
 class DescriptionBottomSheet : BottomSheetDialogFragment() {
 
-    private lateinit var binding: ProcessFlowDescriptionBottomSheetBinding
+    private lateinit var binding: NurProcessFlowDescriptionBottomSheetBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = ProcessFlowDescriptionBottomSheetBinding.inflate(layoutInflater)
+        binding = NurProcessFlowDescriptionBottomSheetBinding.inflate(layoutInflater)
         return binding.root
     }
 

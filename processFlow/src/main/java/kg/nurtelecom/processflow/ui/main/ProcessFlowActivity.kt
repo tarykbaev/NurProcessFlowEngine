@@ -16,7 +16,7 @@ import kg.nurtelecom.processflow.base.BaseProcessScreenFragment
 import kg.nurtelecom.processflow.base.process.BackPressHandleState
 import kg.nurtelecom.processflow.base.process.ProcessFlowHolder
 import kg.nurtelecom.processflow.base.process.ProcessFlowScreen
-import kg.nurtelecom.processflow.databinding.ProcessFlowActivityProcessFlowBinding
+import kg.nurtelecom.processflow.databinding.NurProcessFlowActivityProcessFlowBinding
 import kg.nurtelecom.processflow.extension.negativeButton
 import kg.nurtelecom.processflow.extension.positiveButton
 import kg.nurtelecom.processflow.extension.showDialog
@@ -75,14 +75,14 @@ abstract class ProcessFlowActivity<VM: ProcessFlowVM<*>> : AppCompatActivity(), 
 
     protected val loader: AlertDialog by lazy {
         val alert = AlertDialog.Builder(this)
-            .setView(LayoutInflater.from(this).inflate(R.layout.process_flow_progress_dialog, null))
+            .setView(LayoutInflater.from(this).inflate(R.layout.nur_process_flow_progress_dialog, null))
             .setCancelable(false)
             .create()
         alert.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         alert
     }
 
-    protected lateinit var vb: ProcessFlowActivityProcessFlowBinding
+    protected lateinit var vb: NurProcessFlowActivityProcessFlowBinding
     abstract val vm: VM
 
     abstract val processType: String
@@ -97,7 +97,7 @@ abstract class ProcessFlowActivity<VM: ProcessFlowVM<*>> : AppCompatActivity(), 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        vb = ProcessFlowActivityProcessFlowBinding.inflate(layoutInflater)
+        vb = NurProcessFlowActivityProcessFlowBinding.inflate(layoutInflater)
         setContentView(vb.root)
         setupViews()
         observeLiveData()

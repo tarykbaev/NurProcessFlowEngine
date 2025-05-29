@@ -14,7 +14,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import kg.nurtelecom.processflow.R
-import kg.nurtelecom.processflow.databinding.ProcessFlowActivityPdfViewerBinding
+import kg.nurtelecom.processflow.databinding.NurProcessFlowActivityPdfViewerBinding
 import kg.nurtelecom.processflow.extension.defaultSubscribe
 import kg.nurtelecom.processflow.extension.showWarningDialog
 import java.io.FileNotFoundException
@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit
 
 class ProcessFlowPdfViewerActivity : AppCompatActivity(), DownloadFile.Listener {
 
-    private lateinit var vb: ProcessFlowActivityPdfViewerBinding
+    private lateinit var vb: NurProcessFlowActivityPdfViewerBinding
     private lateinit var remotePDFViewPager: RemotePDFViewPager
     private var adapter: PDFPagerAdapter? = null
     private val isAvailableReload: Boolean
@@ -33,7 +33,7 @@ class ProcessFlowPdfViewerActivity : AppCompatActivity(), DownloadFile.Listener 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        vb = ProcessFlowActivityPdfViewerBinding.inflate(layoutInflater)
+        vb = NurProcessFlowActivityPdfViewerBinding.inflate(layoutInflater)
         setContentView(vb.root)
         setupToolbar()
         loadPdf()

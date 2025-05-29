@@ -130,7 +130,7 @@ abstract class BaseProcessScreenFragment<VB: ViewBinding> : BaseFragment<VB>(), 
 
     private fun setupToolbarEndIcon(state: ScreenState?) {
         if (state?.isBottomSheetAvailable() != true) return
-        getProcessFlowHolder().setupToolbarEndIcon(kg.nurtelecom.processflow.R.drawable.process_flow_ic_faq_24dp) {
+        getProcessFlowHolder().setupToolbarEndIcon(kg.nurtelecom.processflow.R.drawable.nur_process_flow_ic_faq_24dp) {
             DescriptionBottomSheet.newInstance(
                 state.infoTitle,
                 state.infoDescHtml.orEmpty()

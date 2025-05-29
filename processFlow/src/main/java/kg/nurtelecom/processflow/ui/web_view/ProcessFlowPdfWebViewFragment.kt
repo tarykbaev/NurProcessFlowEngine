@@ -17,7 +17,7 @@ import es.voghdev.pdfviewpager.library.remote.DownloadFile
 import kg.nurtelecom.processflow.R
 import kg.nurtelecom.processflow.base.BaseProcessScreenFragment
 import kg.nurtelecom.processflow.base.process.BackPressHandleState
-import kg.nurtelecom.processflow.databinding.ProcessFlowFragmentPdfViewerBinding
+import kg.nurtelecom.processflow.databinding.NurProcessFlowFragmentPdfViewerBinding
 import kg.nurtelecom.processflow.extension.getProcessFlowHolder
 import kg.nurtelecom.processflow.extension.gone
 import kg.nurtelecom.processflow.extension.visible
@@ -28,7 +28,7 @@ import java.io.File
 import java.io.FileOutputStream
 
 class ProcessFlowPdfWebViewFragment :
-    BaseProcessScreenFragment<ProcessFlowFragmentPdfViewerBinding>(), DownloadFile.Listener {
+    BaseProcessScreenFragment<NurProcessFlowFragmentPdfViewerBinding>(), DownloadFile.Listener {
 
     private lateinit var remotePDFViewPager: RemotePDFViewPager
     private var adapter: PDFPagerAdapter? = null
@@ -79,8 +79,8 @@ class ProcessFlowPdfWebViewFragment :
         }
     }
 
-    override fun inflateViewBinging(): ProcessFlowFragmentPdfViewerBinding =
-        ProcessFlowFragmentPdfViewerBinding.inflate(layoutInflater)
+    override fun inflateViewBinging(): NurProcessFlowFragmentPdfViewerBinding =
+        NurProcessFlowFragmentPdfViewerBinding.inflate(layoutInflater)
 
     private fun loadPdfUrl(url: String) {
         with(vb) {
@@ -169,7 +169,7 @@ class ProcessFlowPdfWebViewFragment :
 
     private fun setupShare(pdfFilePath: String?) {
         if (pdfFilePath.isNullOrEmpty()) return
-        getProcessFlowHolder().setupToolbarEndIcon(R.drawable.process_flow_ic_share_18) {
+        getProcessFlowHolder().setupToolbarEndIcon(R.drawable.nur_process_flow_ic_share_18) {
             sharePdfFile(pdfFilePath)
         }
     }

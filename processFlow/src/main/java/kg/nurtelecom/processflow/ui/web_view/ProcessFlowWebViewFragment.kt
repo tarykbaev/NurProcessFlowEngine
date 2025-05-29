@@ -19,7 +19,7 @@ import kg.nurtelecom.processflow.R
 import kg.nurtelecom.processflow.base.BaseProcessScreenFragment
 import kg.nurtelecom.processflow.base.process.BackPressHandleState
 import kg.nurtelecom.processflow.custom_view.AppWebView
-import kg.nurtelecom.processflow.databinding.ProcessFlowFragmentProcessFlowWebViewBinding
+import kg.nurtelecom.processflow.databinding.NurProcessFlowFragmentProcessFlowWebViewBinding
 import kg.nurtelecom.processflow.extension.getProcessFlowHolder
 import kg.nurtelecom.processflow.model.ContentTypes
 import kg.nurtelecom.processflow.model.ProcessFlowCommit
@@ -29,7 +29,7 @@ import kg.nurtelecom.processflow.model.component.FlowWebView
 import kg.nurtelecom.processflow.model.component.WebViewProperties
 
 open class ProcessFlowWebViewFragment :
-    BaseProcessScreenFragment<ProcessFlowFragmentProcessFlowWebViewBinding>(), JsBridgeInterface {
+    BaseProcessScreenFragment<NurProcessFlowFragmentProcessFlowWebViewBinding>(), JsBridgeInterface {
 
     private var webViewId: String = ""
     override val buttonsLinearLayout: LinearLayout? get() = vb.llButtons
@@ -61,7 +61,7 @@ open class ProcessFlowWebViewFragment :
     private var fileChooserLauncher: ActivityResultLauncher<Intent>? = null
 
     override fun inflateViewBinging() =
-        ProcessFlowFragmentProcessFlowWebViewBinding.inflate(layoutInflater)
+        NurProcessFlowFragmentProcessFlowWebViewBinding.inflate(layoutInflater)
 
     override fun setScreenData(data: ProcessFlowScreenData?) {
         super.setScreenData(data)
@@ -146,7 +146,7 @@ open class ProcessFlowWebViewFragment :
 
     open fun handleProperties(webViewProperties: WebViewProperties?) {
         webViewProperties?.faqUrl?.let {
-            getProcessFlowHolder().setupToolbarEndIcon(R.drawable.process_flow_ic_faq_24dp) {
+            getProcessFlowHolder().setupToolbarEndIcon(R.drawable.nur_process_flow_ic_faq_24dp) {
                 getProcessFlowHolder().commit(ProcessFlowCommit.OnLinkClicked(it))
             }
         }

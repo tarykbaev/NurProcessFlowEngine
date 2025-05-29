@@ -20,7 +20,7 @@
             android:layout_height="@dimen/view_5dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/padding_8dp"
-            android:background="@drawable/process_flow_bs_notch_rounded" />
+            android:background="@drawable/nur_process_flow_bs_notch_rounded" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_close"

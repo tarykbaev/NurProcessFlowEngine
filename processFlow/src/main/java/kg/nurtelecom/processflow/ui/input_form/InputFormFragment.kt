@@ -14,7 +14,7 @@ import kg.nurtelecom.processflow.base.BaseProcessScreenFragment
 import kg.nurtelecom.processflow.custom_view.DatePickerInputField
 import kg.nurtelecom.processflow.custom_view.drop_down_input_field.DropDownInputField
 import kg.nurtelecom.processflow.custom_view.InputFormGroupButtons
-import kg.nurtelecom.processflow.databinding.ProcessFlowFragmentInputFormBinding
+import kg.nurtelecom.processflow.databinding.NurProcessFlowFragmentInputFormBinding
 import kg.nurtelecom.processflow.extension.getProcessFlowHolder
 import kg.nurtelecom.processflow.extension.hideKeyboard
 import kg.nurtelecom.processflow.item_creator.DatePickerFieldCreator
@@ -42,7 +42,7 @@ import kg.nurtelecom.processflow.model.input_form.PairFieldItem
 import java.util.Calendar
 
 
-class InputFormFragment : BaseProcessScreenFragment<ProcessFlowFragmentInputFormBinding>(), FragmentResultListener {
+class InputFormFragment : BaseProcessScreenFragment<NurProcessFlowFragmentInputFormBinding>(), FragmentResultListener {
 
     private val optionsRelations = HashSet<OptionFieldParentRelation>()
 
@@ -69,8 +69,8 @@ class InputFormFragment : BaseProcessScreenFragment<ProcessFlowFragmentInputForm
         childFragmentManager.setFragmentResultListener(DatePickerDialog.PICKER_DIALOG_RESULT, this, this)
     }
 
-    override fun inflateViewBinging(): ProcessFlowFragmentInputFormBinding {
-        return ProcessFlowFragmentInputFormBinding.inflate(layoutInflater)
+    override fun inflateViewBinging(): NurProcessFlowFragmentInputFormBinding {
+        return NurProcessFlowFragmentInputFormBinding.inflate(layoutInflater)
     }
 
     override fun setupViews(): Unit = with(vb) {

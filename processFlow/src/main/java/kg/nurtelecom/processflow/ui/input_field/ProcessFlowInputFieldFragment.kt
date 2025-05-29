@@ -16,7 +16,7 @@ import com.design2.chili2.view.input.otp.OtpInputView
 import com.google.android.gms.auth.api.phone.SmsRetriever
 import kg.nurtelecom.processflow.R
 import kg.nurtelecom.processflow.base.BaseProcessScreenFragment
-import kg.nurtelecom.processflow.databinding.ProcessFlowFragmentInputFieldBinding
+import kg.nurtelecom.processflow.databinding.NurProcessFlowFragmentInputFieldBinding
 import kg.nurtelecom.processflow.extension.getProcessFlowHolder
 import kg.nurtelecom.processflow.extension.getThemeColor
 import kg.nurtelecom.processflow.extension.handleUrlClicks
@@ -33,7 +33,7 @@ import kg.nurtelecom.processflow.model.component.FlowRetryInfo
 import kg.nurtelecom.processflow.util.SmsBroadcastReceiver
 
 class ProcessFlowInputFieldFragment :
-    BaseProcessScreenFragment<ProcessFlowFragmentInputFieldBinding>(), SmsBroadcastReceiver.Listener {
+    BaseProcessScreenFragment<NurProcessFlowFragmentInputFieldBinding>(), SmsBroadcastReceiver.Listener {
 
     private var receiver: SmsBroadcastReceiver? = null
 
@@ -48,7 +48,7 @@ class ProcessFlowInputFieldFragment :
     private var resultData: Pair<String, MutableList<Content>>? = null
 
     override fun inflateViewBinging() =
-        ProcessFlowFragmentInputFieldBinding.inflate(layoutInflater)
+        NurProcessFlowFragmentInputFieldBinding.inflate(layoutInflater)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

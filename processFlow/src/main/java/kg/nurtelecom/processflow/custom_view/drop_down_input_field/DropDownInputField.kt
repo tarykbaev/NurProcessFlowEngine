@@ -7,7 +7,7 @@ import android.widget.LinearLayout
 import androidx.core.content.ContextCompat.getColor
 import com.design2.chili2.extensions.setOnSingleClickListener
 import kg.nurtelecom.processflow.custom_view.drop_down_input_field.bottom_sheet.DropDownFieldBottomSheet
-import kg.nurtelecom.processflow.databinding.ProcessFlowViewFormItemDropDownBinding
+import kg.nurtelecom.processflow.databinding.NurProcessFlowViewFormItemDropDownBinding
 import kg.nurtelecom.processflow.extension.getThemeColor
 import kg.nurtelecom.processflow.item_creator.DropDownFieldCreator
 import kg.nurtelecom.processflow.model.input_form.ChooseType
@@ -16,8 +16,8 @@ import kg.nurtelecom.processflow.model.input_form.Option
 
 class DropDownInputField @JvmOverloads constructor(context: Context, attributeSet: AttributeSet? = null) : LinearLayout(context, attributeSet) {
 
-    private val views: ProcessFlowViewFormItemDropDownBinding by lazy {
-        ProcessFlowViewFormItemDropDownBinding.inflate(LayoutInflater.from(context), this, true)
+    private val views: NurProcessFlowViewFormItemDropDownBinding by lazy {
+        NurProcessFlowViewFormItemDropDownBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
     var options: List<Option> = listOf()

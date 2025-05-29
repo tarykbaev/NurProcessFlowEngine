@@ -17,7 +17,7 @@ import androidx.core.text.HtmlCompat
 import androidx.core.text.parseAsHtml
 import com.design2.chili2.extensions.dp
 import kg.nurtelecom.processflow.R
-import kg.nurtelecom.processflow.databinding.ProcessFlowViewFormItemGroupButtonsBinding
+import kg.nurtelecom.processflow.databinding.NurProcessFlowViewFormItemGroupButtonsBinding
 import kg.nurtelecom.processflow.extension.getThemeColor
 import kg.nurtelecom.processflow.extension.handleUrlClicks
 import kg.nurtelecom.processflow.model.input_form.ButtonType
@@ -45,8 +45,8 @@ class InputFormGroupButtons @JvmOverloads constructor(
 
     val buttons = mutableListOf<Option>()
 
-    private val vb: ProcessFlowViewFormItemGroupButtonsBinding by lazy {
-        ProcessFlowViewFormItemGroupButtonsBinding.inflate(LayoutInflater.from(context), this, true)
+    private val vb: NurProcessFlowViewFormItemGroupButtonsBinding by lazy {
+        NurProcessFlowViewFormItemGroupButtonsBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
     init {

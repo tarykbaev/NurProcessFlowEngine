@@ -10,7 +10,7 @@ import com.design2.chili2.extensions.setTopMargin
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kg.nurtelecom.processflow.R
-import kg.nurtelecom.processflow.databinding.ProcessFlowViewFormItemDropDownBottomSheetFragmentBinding
+import kg.nurtelecom.processflow.databinding.NurProcessFlowViewFormItemDropDownBottomSheetFragmentBinding
 import kg.nurtelecom.processflow.extension.visible
 import kg.nurtelecom.processflow.model.input_form.Option
 
@@ -22,8 +22,8 @@ class DropDownFieldBottomSheet(
     private val isSearchEnabled: Boolean
 ) : BottomSheetDialog(mContext, R.style.DropDownBottomSheetStyle), OnDropDownItemClick {
 
-    private var vb: ProcessFlowViewFormItemDropDownBottomSheetFragmentBinding =
-        ProcessFlowViewFormItemDropDownBottomSheetFragmentBinding.inflate(layoutInflater)
+    private var vb: NurProcessFlowViewFormItemDropDownBottomSheetFragmentBinding =
+        NurProcessFlowViewFormItemDropDownBottomSheetFragmentBinding.inflate(layoutInflater)
 
     private var filterText = ""
 

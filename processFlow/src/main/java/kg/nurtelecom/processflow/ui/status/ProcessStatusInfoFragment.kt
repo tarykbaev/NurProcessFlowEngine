@@ -8,7 +8,7 @@ import androidx.core.view.isVisible
 import kg.nurtelecom.processflow.R
 import kg.nurtelecom.processflow.base.BaseProcessScreenFragment
 import kg.nurtelecom.processflow.base.process.BackPressHandleState
-import kg.nurtelecom.processflow.databinding.ProcessFlowFragmentStatusInfoBinding
+import kg.nurtelecom.processflow.databinding.NurProcessFlowFragmentStatusInfoBinding
 import kg.nurtelecom.processflow.extension.getProcessFlowHolder
 import kg.nurtelecom.processflow.extension.gone
 import kg.nurtelecom.processflow.extension.handleUrlClicks
@@ -20,7 +20,7 @@ import kg.nurtelecom.processflow.model.common.StateScreenStatus
 import kg.nurtelecom.processflow.util.AnimationData
 import kg.nurtelecom.processflow.util.LottieAnimationHandler
 
-open class ProcessStatusInfoFragment : BaseProcessScreenFragment<ProcessFlowFragmentStatusInfoBinding>() {
+open class ProcessStatusInfoFragment : BaseProcessScreenFragment<NurProcessFlowFragmentStatusInfoBinding>() {
 
     protected var lottieAnimationHandler: LottieAnimationHandler? = null
 
@@ -61,7 +61,7 @@ open class ProcessStatusInfoFragment : BaseProcessScreenFragment<ProcessFlowFrag
         }
     }
 
-    override fun inflateViewBinging() = ProcessFlowFragmentStatusInfoBinding.inflate(layoutInflater)
+    override fun inflateViewBinging() = NurProcessFlowFragmentStatusInfoBinding.inflate(layoutInflater)
 
     override fun onDestroyView() {
         lottieAnimationHandler?.removeListeners()

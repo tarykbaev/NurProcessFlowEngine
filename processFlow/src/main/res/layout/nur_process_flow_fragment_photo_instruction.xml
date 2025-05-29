@@ -44,7 +44,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_subtitle"
-        tools:src="@drawable/process_flow_ic_instruction_id_card_front" />
+        tools:src="@drawable/nur_process_flow_ic_instruction_id_card_front" />
 
     <Button
         android:id="@+id/btn_additional"

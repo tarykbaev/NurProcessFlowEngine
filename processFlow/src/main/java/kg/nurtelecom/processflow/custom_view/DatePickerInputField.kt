@@ -5,8 +5,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
-import kg.nurtelecom.processflow.R
-import kg.nurtelecom.processflow.databinding.ProcessFlowViewFormItemDatePickerBinding
+import kg.nurtelecom.processflow.databinding.NurProcessFlowViewFormItemDatePickerBinding
 import kg.nurtelecom.processflow.extension.getThemeColor
 import kg.nurtelecom.processflow.item_creator.DatePickerFieldCreator
 import kg.nurtelecom.processflow.model.input_form.DatePickerFieldInfo
@@ -20,7 +19,7 @@ class DatePickerInputField @JvmOverloads constructor(context: Context, attribute
 
     private var datePickerFieldInfo: DatePickerFieldInfo? = null
 
-    private val vb: ProcessFlowViewFormItemDatePickerBinding = ProcessFlowViewFormItemDatePickerBinding.inflate(LayoutInflater.from(context), this, true)
+    private val vb: NurProcessFlowViewFormItemDatePickerBinding = NurProcessFlowViewFormItemDatePickerBinding.inflate(LayoutInflater.from(context), this, true)
 
     fun setupViews(datePickerFieldInfo: DatePickerFieldInfo, onSetNewValue: (List<String>, Boolean) -> Unit) {
         this.onNewValueListener = onSetNewValue

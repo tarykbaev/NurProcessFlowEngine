@@ -493,6 +493,7 @@ object ProcessMocker {
                 "responseType": "INPUT_FORM",
                 "responseItem": {
                     "formId": "passport_form",
+                    "title": "Проверьте правильность данных",
                     "formItems": [
                         {
                             "formItemType": "LABEL",

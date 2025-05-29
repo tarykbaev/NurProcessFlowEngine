@@ -6,14 +6,14 @@ import com.design2.chili2.extensions.setOnSingleClickListener
 import kg.nurtelecom.processflow.ProcessFlowConfigurator
 import kg.nurtelecom.processflow.R
 import kg.nurtelecom.processflow.base.BaseFragment
-import kg.nurtelecom.processflow.databinding.ProcessFlowFragmentPhotoSelfeInstrustionBinding
+import kg.nurtelecom.processflow.databinding.NurProcessFlowFragmentPhotoSelfeInstrustionBinding
 import kg.nurtelecom.processflow.extension.getProcessFlowHolder
 import kg.nurtelecom.processflow.extension.loadImage
 import kg.nurtelecom.processflow.ui.camera.PhotoFlowFragment
 
-class SimpleSelfiePhotoInstructionFragment : BaseFragment<ProcessFlowFragmentPhotoSelfeInstrustionBinding>() {
+class SimpleSelfiePhotoInstructionFragment : BaseFragment<NurProcessFlowFragmentPhotoSelfeInstrustionBinding>() {
 
-    override fun inflateViewBinging() = ProcessFlowFragmentPhotoSelfeInstrustionBinding.inflate(layoutInflater)
+    override fun inflateViewBinging() = NurProcessFlowFragmentPhotoSelfeInstrustionBinding.inflate(layoutInflater)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -10,18 +10,18 @@ import com.bumptech.glide.request.target.Target
 import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.util.GlideBitmapScaleTransformation
 import kg.nurtelecom.processflow.base.BaseFragment
-import kg.nurtelecom.processflow.databinding.ProcessFlowFragmentPassportCardConfirmationBinding
+import kg.nurtelecom.processflow.databinding.NurProcessFlowFragmentPassportCardConfirmationBinding
 import kg.nurtelecom.processflow.ui.camera.PhotoFlowFragment
 import java.io.File
 
-open class PhotoConfirmationFragment : BaseFragment<ProcessFlowFragmentPassportCardConfirmationBinding>() {
+open class PhotoConfirmationFragment : BaseFragment<NurProcessFlowFragmentPassportCardConfirmationBinding>() {
 
     private val filePath by lazy { arguments?.getString(ARG_FILE_PATH) ?: "" }
     private val scaleType: ImageView.ScaleType by lazy { (arguments?.getSerializable(
         ARG_FILE_SCALE_TYPE
     ) as? ImageView.ScaleType) ?: ImageView.ScaleType.CENTER_CROP }
 
-    override fun inflateViewBinging() = ProcessFlowFragmentPassportCardConfirmationBinding.inflate(layoutInflater)
+    override fun inflateViewBinging() = NurProcessFlowFragmentPassportCardConfirmationBinding.inflate(layoutInflater)
 
     override fun setupViews() = with(vb) {
         super.setupViews()
