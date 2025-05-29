@@ -2,6 +2,7 @@ package kg.nurtelecom.processflow.ui.camera.instruction
 
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import com.design2.chili2.extensions.setOnSingleClickListener
 import kg.nurtelecom.processflow.base.BaseFragment
 import kg.nurtelecom.processflow.databinding.NurProcessFlowFragmentPhotoInstructionBinding
@@ -37,6 +38,10 @@ abstract class BasePhotoInstructionFragment : BaseFragment<NurProcessFlowFragmen
                     loadImage(it)
                 } ?: setImageResource(getInstructionImageRes())
             }
+            setupImageViewCustomizations(ivCorrect)
         }
     }
+
+    open fun setupImageViewCustomizations(imageView: ImageView) {}
+
 }
