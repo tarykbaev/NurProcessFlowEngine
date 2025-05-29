@@ -24,10 +24,12 @@ import kg.nurtelecom.processflow.item_creator.GroupButtonsCreator
 import kg.nurtelecom.processflow.item_creator.InputFieldCreator
 import kg.nurtelecom.processflow.item_creator.LabelFormItemCreator
 import kg.nurtelecom.processflow.item_creator.PairFieldItemCreator
+import kg.nurtelecom.processflow.model.ButtonIds.SUBMIT
 import kg.nurtelecom.processflow.model.ContentTypes
 import kg.nurtelecom.processflow.model.ProcessFlowCommit
 import kg.nurtelecom.processflow.model.ProcessFlowScreenData
 import kg.nurtelecom.processflow.model.common.Content
+import kg.nurtelecom.processflow.model.component.FlowButton
 import kg.nurtelecom.processflow.model.component.FlowInputField
 import kg.nurtelecom.processflow.model.input_form.DatePickerFieldInfo
 import kg.nurtelecom.processflow.model.input_form.DisplayOnlyFieldItem
@@ -47,8 +49,6 @@ class InputFormFragment : BaseProcessScreenFragment<NurProcessFlowFragmentInputF
     private val optionsRelations = HashSet<OptionFieldParentRelation>()
 
     private var currentFormId: String = ""
-
-    private val buttonTextRes = R.string.process_flow_next
 
     private val scrollOffset16px: Int by lazy { resources.getDimensionPixelSize(R.dimen.padding_75dp) }
 
@@ -73,10 +73,16 @@ class InputFormFragment : BaseProcessScreenFragment<NurProcessFlowFragmentInputF
         return NurProcessFlowFragmentInputFormBinding.inflate(layoutInflater)
     }
 
-    override fun setupViews(): Unit = with(vb) {
-        btnDone.apply {
-            setOnClickListener { setFragmentResultAndClose() }
-            setText(buttonTextRes)
+    override fun setupViews(): Unit = with(vb) {}
+
+    override fun onButtonClick(buttonsInfo: FlowButton) {
+        selectedButtonId = buttonsInfo.buttonId
+
+        when (buttonsInfo.buttonId) {
+            SUBMIT-> setFragmentResultAndClose()
+            else -> {
+                getProcessFlowHolder().commit(ProcessFlowCommit.OnButtonClick(buttonsInfo))
+            }
         }
     }
 
@@ -193,7 +199,6 @@ class InputFormFragment : BaseProcessScreenFragment<NurProcessFlowFragmentInputF
         isContinueClicked = isLoading
         vb.unclickableMask.isVisible = isLoading
         vb.llAdditionalButtons.isVisible = !isLoading
-        vb.btnDone.setIsLoading(isLoading)
         return true
     }
 
