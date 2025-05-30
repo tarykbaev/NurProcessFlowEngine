@@ -7,42 +7,43 @@
     android:background="?ChiliSurfaceBackground"
     android:orientation="vertical">
 
-
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_16dp"
         android:paddingHorizontal="@dimen/padding_16dp"
-        android:textAppearance="@style/Chili.H7.Primary.Bold"
+        android:textAlignment="center"
+        android:textAppearance="@style/Chili.H4.Primary.Bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Сделайте фото с паспортом" />
+        tools:text="Сделайте фото оборотной стороны паспорта" />
 
     <TextView
         android:id="@+id/tv_subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_16dp"
         android:paddingHorizontal="@dimen/padding_16dp"
-        android:textAppearance="@style/Chili.H8.Secondary"
-        android:layout_marginTop="@dimen/padding_8dp"
+        android:textAlignment="center"
+        android:textAppearance="@style/Chili.H7.Secondary"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_title"
-        tools:text="Фото должно быть отчётливым, а паспорт и лицо видны полностью" />
+        tools:text="Хорошее освещение и фон другого цвета ускорят проверку данных" />
 
     <ImageView
         android:id="@+id/iv_correct"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="42dp"
-        android:layout_marginHorizontal="@dimen/padding_16dp"
-        android:layout_marginBottom="@dimen/padding_24dp"
-        tools:src="@tools:sample/backgrounds/scenic"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/view_0dp"
+        android:layout_marginHorizontal="@dimen/view_40dp"
+        android:layout_marginVertical="@dimen/view_32dp"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@id/btn_action"
-        app:layout_constraintVertical_bias="0" />
-
+        app:layout_constraintTop_toBottomOf="@+id/tv_subtitle"
+        tools:src="@drawable/nur_process_flow_ic_instruction_id_card_front" />
 
     <Button
         android:id="@+id/btn_action"
