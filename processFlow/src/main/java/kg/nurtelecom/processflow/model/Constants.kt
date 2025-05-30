@@ -50,6 +50,5 @@ object AppActionUrlConstants {
 object ButtonIds {
     const val OPEN_SUB_PROCESS = "OPEN_SUB_PROCESS"
     const val RETURN_TO_PARENT_PROCESS = "RETURN_TO_PARENT_PROCESS"
-    const val TUNDUK_DIGITAL = "DIGITAL"
     const val SUBMIT = "SUBMIT"
 }
