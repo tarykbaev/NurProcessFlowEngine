@@ -1,5 +1,6 @@
 package kg.nurtelecom.processflow.ui.status
 
+import android.util.Log
 import android.view.View
 import android.widget.LinearLayout
 import androidx.core.text.HtmlCompat
@@ -93,6 +94,7 @@ open class ProcessStatusInfoFragment : BaseProcessScreenFragment<NurProcessFlowF
                 lavStatus.visible()
             }
             statusImageUrl != null -> ivStatus.apply {
+                Log.e("albertik", "setupStatusIcon: $statusImageUrl")
                 loadImage(statusImageUrl)
                 visible()
             }
