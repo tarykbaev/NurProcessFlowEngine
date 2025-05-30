@@ -2,8 +2,8 @@ package kg.nurtelecom.processflow
 
 object ProcessFlowConfigurator {
 
-    var selfieInstructionUrlResolver: (() -> String) = { "https://minio.o.kg/lkab/joy/light/selfi_full.png" }
-    var simpleSelfieInstructionUrlResolver: (() -> String) = { "https://minio.o.kg/media-service/light/selfie.png" }
+    var selfieInstructionUrlResolver: (() -> String) = { "https://minio.o.kg/lkab/personification/selfie_passport.png" }
+    var simpleSelfieInstructionUrlResolver: (() -> String) = { "https://minio.o.kg/lkab/personification/myID.png" }
     var foreignPassportInstructionUrlResolver: (() -> String) = { "https://minio.o.kg/lkab/personification/razvorot_passport.png" }
 
     var recognizerTimeoutLimit = 20
