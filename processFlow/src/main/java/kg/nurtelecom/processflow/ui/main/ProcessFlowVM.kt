@@ -142,7 +142,7 @@ abstract class ProcessFlowVM<T: ProcessFlowRepository>(protected val _repository
                 .flatMap {
                     val additionalData = mutableListOf<Content>()
                     additionalData.add(Content(it, type))
-                    if (type == ContentTypes.PASSPORT_BACK_PHOTO) additionalData.add(Content(recognizedMrz ?: getDefaultMrz(), ContentTypes.RECOGNIZED_PASSPORT_DATA))
+                    if (type in listOf(ContentTypes.PASSPORT_BACK_PHOTO, ContentTypes.FOREIGN_PASSPORT_PHOTO)) additionalData.add(Content(recognizedMrz ?: getDefaultMrz(), ContentTypes.RECOGNIZED_PASSPORT_DATA))
                     _repository.commit(
                         requireProcessFlowId(),
                         FlowAnswer(
