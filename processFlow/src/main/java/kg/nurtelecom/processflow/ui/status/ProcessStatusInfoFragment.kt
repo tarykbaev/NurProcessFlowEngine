@@ -94,7 +94,6 @@ open class ProcessStatusInfoFragment : BaseProcessScreenFragment<NurProcessFlowF
                 lavStatus.visible()
             }
             statusImageUrl != null -> ivStatus.apply {
-                Log.e("albertik", "setupStatusIcon: $statusImageUrl")
                 loadImage(statusImageUrl)
                 visible()
             }
