@@ -41,7 +41,7 @@ object InputFieldCreator : ValidatableItem() {
             when  {
                 fieldInfo.inputType == InputFieldInputType.NUMBER -> setInputType(InputType.TYPE_CLASS_NUMBER)
                 (fieldInfo.numberOfLines ?: 0) > 1 -> setInputType(InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_MULTI_LINE)
-                else -> setInputType(InputType.TYPE_CLASS_TEXT)
+                else -> setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD)
             }
             setText(fieldInfo.value ?: "")
             setSelectionToEnd()
