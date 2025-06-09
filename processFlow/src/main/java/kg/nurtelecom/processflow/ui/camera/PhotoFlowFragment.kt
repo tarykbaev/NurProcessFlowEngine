@@ -96,17 +96,20 @@ class PhotoFlowFragment : BaseProcessScreenFragment<NurProcessFlowFragmentPhotoF
         )
         val overlayType = if(cameraType == CameraType.FOREIGN_PASSPORT) OverlayType.FOREIGN_PASSPORT_OVERLAY
         else OverlayType.PASSPORT_OVERLAY
-        textRecognizerContract.launch(TextRecognizerConfig(
-            false,
-            ProcessFlowConfigurator.recognizerTimeoutLimit,
-            ProcessFlowConfigurator.recognizerTimeoutMills,
-            getString(R.string.process_flow_photo_recognizer_timeout_description),
-            false,
-            photoCaptureLabels = ScreenLabels(label, description = getString(R.string.process_flow_photo_capture_passport_front_description)),
-            recognitionLabels = ScreenLabels(label, description = getString(R.string.process_flow_photo_capture_passport_front_description)),
-            overlayType = overlayType,
-            hasCustomPhotoConfirmation = true,
-            needRecognition = recognizedMrz == null)
+        textRecognizerContract.launch(
+            TextRecognizerConfig(
+                false,
+                ProcessFlowConfigurator.recognizerTimeoutLimit,
+                ProcessFlowConfigurator.recognizerTimeoutMills,
+                getString(R.string.process_flow_photo_recognizer_timeout_description),
+                false,
+                photoCaptureLabels = ScreenLabels(label, description = getString(R.string.process_flow_photo_capture_passport_front_description)),
+                recognitionLabels = ScreenLabels(label, description = getString(R.string.process_flow_photo_capture_passport_front_description)),
+                overlayType = overlayType,
+                hasCustomPhotoConfirmation = true,
+                needRecognition = recognizedMrz == null,
+                isSimplifiedRecognition = true
+            )
         )
     }
 
