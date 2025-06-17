@@ -204,7 +204,7 @@ class PhotoFlowFragment : BaseProcessScreenFragment<NurProcessFlowFragmentPhotoF
             CameraType.SELFIE -> CameraSettings(lensFacing = LENS_FACING_FRONT, cameraOverlayType = CameraOverlayType.RECTANGLE_FRAME, description = getString(R.string.process_flow_photo_capture_selfie_passport_description))
             CameraType.SIMPLE_CAMERA -> CameraSettings(cameraOverlayType = CameraOverlayType.RECTANGLE_FRAME)
             CameraType.FOREIGN_PASSPORT -> CameraSettings(description = getString(R.string.process_flow_photo_capture_passport_front_description), cameraOverlayType = CameraOverlayType.RECTANGLE_FRAME)
-            CameraType.SELFIE_ONLY_PHOTO -> CameraSettings(description = getString(R.string.process_flow_photo_capture_passport_front_description), cameraOverlayType = CameraOverlayType.RECTANGLE_FRAME)
+            CameraType.SELFIE_ONLY_PHOTO -> CameraSettings(lensFacing = LENS_FACING_FRONT, description = getString(R.string.process_flow_photo_capture_selfie_only_description), cameraOverlayType = CameraOverlayType.RECTANGLE_FRAME)
             else -> CameraSettings(description = getString(R.string.process_flow_photo_capture_passport_front_description), headerText = getString(R.string.process_flow_photo_capture_passport_front_title))
         }
     }

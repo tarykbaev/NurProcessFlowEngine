@@ -37,6 +37,8 @@
     <string name="process_flow_photo_capture_passport_back_description">Сураныч, паспортту алкактын ичине келтирип, \nсүрөткө тартуу баскычы пайда болгонго \nчейин күтө туруңуз.</string>
     <string name="process_flow_photo_capture_selfie_passport_description">Жүзүңүздү жана паспортту алкакка келтирип, \nсүрөткө тартыңыз</string>
     <string name="process_flow_photo_capture_simple_selfie_description">Жүзүңүз даана көрүнүп турганына ынанып, \nселфи тартыңыз</string>
+    <string name="process_flow_photo_capture_selfie_only_description">Жүзүңүздү алкакка келтирип \nсүрөткө тартыңыз</string>
+
     <!--    Flow Photo Instruction -->
     <string name="process_flow_photo_instruction_passport_front">Паспорттун башкы бетин сүрөткө тартыңыз</string>
     <string name="process_flow_photo_instruction_passport_foreigner">Паспорттун эки бетин сүрөткө тартыңыз</string>
