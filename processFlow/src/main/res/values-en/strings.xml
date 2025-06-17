@@ -48,6 +48,8 @@
     <string name="process_flow_photo_instruction_simple_selfie">Make a photo without glasses, with good lighting and looking straight to camera</string>
     <string name="process_flow_photo_instruction_simple_selfie_title">Make a selfie</string>
     <string name="process_flow_photo_instruction_simple_selfie_subtitle">Take off unnecessary accessories so that \nface features can be seen clearly</string>
+    <string name="process_flow_photo_instruction_selfie_only_title">Take a photo</string>
+    <string name="process_flow_photo_instruction_selfie_only_subtitle">Hold the camera at your eye level and take off accessories that may cover your face</string>
 
     <string name="process_flow_exit_video_call">Are you sure you want to end the call?</string>
 </resources>

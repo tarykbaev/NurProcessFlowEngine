@@ -32,6 +32,7 @@ import kg.nurtelecom.processflow.ui.camera.instruction.BasePhotoInstructionFragm
 import kg.nurtelecom.processflow.ui.camera.instruction.photo.ForeignPassportInstructionFragment
 import kg.nurtelecom.processflow.ui.camera.instruction.photo.PassportBackInstructionFragment
 import kg.nurtelecom.processflow.ui.camera.instruction.photo.PassportFrontInstructionFragment
+import kg.nurtelecom.processflow.ui.camera.instruction.photo.SelfieOnlyPhotoInstructionFragment
 import kg.nurtelecom.processflow.ui.camera.instruction.photo.SelfiePhotoInstructionFragment
 import kg.nurtelecom.processflow.ui.camera.instruction.photo.SimpleSelfiePhotoInstructionFragment
 import kg.nurtelecom.text_recognizer.RecognizedMrz
@@ -133,6 +134,7 @@ class PhotoFlowFragment : BaseProcessScreenFragment<NurProcessFlowFragmentPhotoF
             CameraType.BACK_PASSPORT_WITH_RECOGNIZER -> PassportBackInstructionFragment()
             CameraType.SELFIE -> SelfiePhotoInstructionFragment()
             CameraType.SIMPLE_SELFIE_PHOTO -> SimpleSelfiePhotoInstructionFragment()
+            CameraType.SELFIE_ONLY_PHOTO -> SelfieOnlyPhotoInstructionFragment()
             CameraType.SIMPLE_CAMERA -> { startPhotoFlow(); return }
         }
         childFragmentManager.commit {
@@ -181,6 +183,7 @@ class PhotoFlowFragment : BaseProcessScreenFragment<NurProcessFlowFragmentPhotoF
             CameraType.SELFIE -> ContentTypes.SELFIE_PHOTO
             CameraType.SIMPLE_SELFIE_PHOTO -> ContentTypes.SIMPLE_SELFIE_PHOTO
             CameraType.SIMPLE_CAMERA -> ContentTypes.SIMPLE_CAMERA
+            CameraType.SELFIE_ONLY_PHOTO -> ContentTypes.SELFIE_ONLY_PHOTO
         }
     }
 
@@ -201,6 +204,7 @@ class PhotoFlowFragment : BaseProcessScreenFragment<NurProcessFlowFragmentPhotoF
             CameraType.SELFIE -> CameraSettings(lensFacing = LENS_FACING_FRONT, cameraOverlayType = CameraOverlayType.RECTANGLE_FRAME, description = getString(R.string.process_flow_photo_capture_selfie_passport_description))
             CameraType.SIMPLE_CAMERA -> CameraSettings(cameraOverlayType = CameraOverlayType.RECTANGLE_FRAME)
             CameraType.FOREIGN_PASSPORT -> CameraSettings(description = getString(R.string.process_flow_photo_capture_passport_front_description), cameraOverlayType = CameraOverlayType.RECTANGLE_FRAME)
+            CameraType.SELFIE_ONLY_PHOTO -> CameraSettings(description = getString(R.string.process_flow_photo_capture_passport_front_description), cameraOverlayType = CameraOverlayType.RECTANGLE_FRAME)
             else -> CameraSettings(description = getString(R.string.process_flow_photo_capture_passport_front_description), headerText = getString(R.string.process_flow_photo_capture_passport_front_title))
         }
     }
@@ -218,6 +222,7 @@ class PhotoFlowFragment : BaseProcessScreenFragment<NurProcessFlowFragmentPhotoF
             is BasePhotoInstructionFragment -> BackPressHandleState.NOT_HANDLE
             is SelfiePhotoInstructionFragment -> BackPressHandleState.NOT_HANDLE
             is SimpleSelfiePhotoInstructionFragment -> BackPressHandleState.NOT_HANDLE
+            is SelfieOnlyPhotoInstructionFragment -> BackPressHandleState.NOT_HANDLE
             is PhotoConfirmationFragment -> BackPressHandleState.NOT_HANDLE
             else -> {
                 if (cameraType == CameraType.SIMPLE_CAMERA) BackPressHandleState.NOT_HANDLE
@@ -247,5 +252,10 @@ class PhotoFlowFragment : BaseProcessScreenFragment<NurProcessFlowFragmentPhotoF
 }
 
 enum class CameraType {
-    FRONT_PASSPORT, BACK_PASSPORT_WITH_RECOGNIZER, SELFIE, SIMPLE_CAMERA, SIMPLE_SELFIE_PHOTO, FOREIGN_PASSPORT
+    FRONT_PASSPORT,
+    BACK_PASSPORT_WITH_RECOGNIZER,
+    SELFIE, SIMPLE_CAMERA,
+    SIMPLE_SELFIE_PHOTO,
+    FOREIGN_PASSPORT,
+    SELFIE_ONLY_PHOTO
 }

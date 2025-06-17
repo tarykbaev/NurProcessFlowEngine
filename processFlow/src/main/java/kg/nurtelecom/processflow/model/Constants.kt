@@ -18,6 +18,7 @@ object ScreenKey {
     const val INPUT_FIELD = "INPUT_FIELD"
     const val SIMPLE_SELFIE_PHOTO = "SIMPLE_SELFIE_PHOTO"
     const val SIMPLE_CAMERA = "SIMPLE_CAMERA"
+    const val SELFIE_ONLY_PHOTO = "SELFIE_ONLY_PHOTO"
 }
 
 object ContentTypes {
@@ -33,6 +34,7 @@ object ContentTypes {
     const val INPUT_FIELD_CONTENT = "INPUT_FIELD_CONTENT"
     const val WEB_VIEW_RESULT = "WEB_VIEW_RESULT"
     const val CHILD_INSTANCE_KEY = "CHILD_INSTANCE_KEY"
+    const val SELFIE_ONLY_PHOTO = "SELFIE_ONLY_PHOTO"
 }
 
 object AppActionUrlConstants {

@@ -48,6 +48,8 @@
     <string name="process_flow_photo_instruction_simple_selfie">Жарык жерден камерага түз карап, сүрөткө көз айнексиз түшүңүз</string>
     <string name="process_flow_photo_instruction_simple_selfie_title">Селфи тартыңыз</string>
     <string name="process_flow_photo_instruction_simple_selfie_subtitle">Ашыкча аксессуарларды алып салыңыз, жүзүңүз \nжакшы көрүнүп турууга тийиш</string>
+    <string name="process_flow_photo_instruction_selfie_only_title">Сүрөткө түшүңүз</string>
+    <string name="process_flow_photo_instruction_selfie_only_subtitle">Камераны көзүңүздүн тушуна келтирип, жүзүңүздү жаап турган аксессуарларды чечип коюңуз.</string>
 
     <string name="process_flow_exit_video_call">Чалууну бүтүрөрүңүз аныкпы?</string>
 </resources>

@@ -38,6 +38,7 @@ import kg.nurtelecom.processflow.model.ScreenKey.INPUT_FORM
 import kg.nurtelecom.processflow.model.ScreenKey.INPUT_OTP
 import kg.nurtelecom.processflow.model.ScreenKey.PASSPORT_BACK_PHOTO
 import kg.nurtelecom.processflow.model.ScreenKey.PASSPORT_FRONT_PHOTO
+import kg.nurtelecom.processflow.model.ScreenKey.SELFIE_ONLY_PHOTO
 import kg.nurtelecom.processflow.model.ScreenKey.SELFIE_PHOTO
 import kg.nurtelecom.processflow.model.ScreenKey.SIMPLE_CAMERA
 import kg.nurtelecom.processflow.model.ScreenKey.SIMPLE_SELFIE_PHOTO
@@ -236,6 +237,7 @@ abstract class ProcessFlowActivity<VM: ProcessFlowVM<*>> : AppCompatActivity(), 
             INPUT_FORM -> openInputForm(data)
             SIMPLE_CAMERA -> openCameraFlow(CameraType.SIMPLE_CAMERA, data.allowedAnswer?.filterIsInstance<FlowButton>()?.first()?.buttonId ?: "")
             SIMPLE_SELFIE_PHOTO -> openCameraFlow(CameraType.SIMPLE_SELFIE_PHOTO, data.allowedAnswer?.filterIsInstance<FlowButton>()?.first()?.buttonId ?: "")
+            SELFIE_ONLY_PHOTO -> openCameraFlow(CameraType.SELFIE_ONLY_PHOTO, data.allowedAnswer?.filterIsInstance<FlowButton>()?.first()?.buttonId ?: "")
             else -> {}
         }
     }
