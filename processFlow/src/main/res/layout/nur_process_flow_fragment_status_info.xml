@@ -66,8 +66,8 @@
 
     <ImageView
         android:id="@+id/iv_status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/view_300dp"
+        android:layout_height="@dimen/view_300dp"
         android:layout_marginHorizontal="@dimen/padding_16dp"
         android:adjustViewBounds="true"
         android:contentDescription="@null"

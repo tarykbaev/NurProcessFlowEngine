@@ -6,6 +6,8 @@
     <dimen name="view_22dp">22dp</dimen>
 
     <dimen name="view_240dp">240dp</dimen>
+    <dimen name="view_300dp">300dp</dimen>
+    <dimen name="view_320dp">320dp</dimen>
     <dimen name="view_340dp">340dp</dimen>
 
 </resources>
