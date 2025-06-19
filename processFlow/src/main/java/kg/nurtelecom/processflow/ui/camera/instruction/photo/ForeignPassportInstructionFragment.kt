@@ -9,10 +9,10 @@ import kg.nurtelecom.processflow.ui.camera.instruction.BasePhotoInstructionFragm
 class ForeignPassportInstructionFragment : BasePhotoInstructionFragment() {
 
     override fun getInstructionTitleRes() =
-        R.string.process_flow_photo_instruction_passport_foreigner
+        R.string.nur_process_flow_photo_instruction_passport_foreigner
 
     override fun getInstructionSubtitleRes(): Int =
-        R.string.process_flow_photo_instruction_passport_foreigner_subtitle
+        R.string.nur_process_flow_photo_instruction_passport_foreigner_subtitle
 
     override fun getInstructionImageRes() = -1
     override fun getInstructionImageUrl() =

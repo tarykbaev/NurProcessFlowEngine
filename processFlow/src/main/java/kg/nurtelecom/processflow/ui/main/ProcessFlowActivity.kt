@@ -189,9 +189,9 @@ abstract class ProcessFlowActivity<VM: ProcessFlowVM<*>> : AppCompatActivity(), 
 
     open fun showExitDialog() {
         showDialog {
-            setMessage(R.string.process_flow_warning_exit)
-            positiveButton(R.string.process_flow_yes) { cancelChatAndClose() }
-            negativeButton(R.string.process_flow_no)
+            setMessage(R.string.nur_process_flow_warning_exit)
+            positiveButton(R.string.nur_process_flow_yes) { cancelChatAndClose() }
+            negativeButton(R.string.nur_process_flow_no)
             setCancelable(false)
         }
 
@@ -201,7 +201,7 @@ abstract class ProcessFlowActivity<VM: ProcessFlowVM<*>> : AppCompatActivity(), 
         showDialog {
             setCancelable(false)
             setMessage(message)
-            setPositiveButton(R.string.process_flow_clearly) { _, _ -> cancelChatAndClose() }
+            setPositiveButton(R.string.nur_process_flow_clearly) { _, _ -> cancelChatAndClose() }
         }
     }
 
@@ -209,8 +209,8 @@ abstract class ProcessFlowActivity<VM: ProcessFlowVM<*>> : AppCompatActivity(), 
         showDialog {
             setMessage(message)
             setCancelable(true)
-            positiveButton(R.string.process_flow_yes, handleClick = onConfirm)
-            negativeButton(R.string.process_flow_no)
+            positiveButton(R.string.nur_process_flow_yes, handleClick = onConfirm)
+            negativeButton(R.string.nur_process_flow_no)
         }
     }
 
@@ -309,7 +309,7 @@ abstract class ProcessFlowActivity<VM: ProcessFlowVM<*>> : AppCompatActivity(), 
     protected fun uploadPhotos(commit: ProcessFlowCommit.OnFlowPhotoCaptured) {
         val file = File(commit.filePath)
         vm.upload(commit.responseId, file, commit.fileType, commit.mrz, {}, {_, _ ->
-            showErrorDialog(getString(R.string.process_flow_unexpected_error))
+            showErrorDialog(getString(R.string.nur_process_flow_unexpected_error))
         })
     }
 

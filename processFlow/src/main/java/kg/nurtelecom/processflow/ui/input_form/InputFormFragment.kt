@@ -178,7 +178,7 @@ class InputFormFragment : BaseProcessScreenFragment<NurProcessFlowFragmentInputF
                 this.clearError()
                 currentOpenedDatePickerId = datePickerFieldInfo.fieldId
                 DatePickerDialog.create(
-                    getString(R.string.process_flow_next),
+                    getString(R.string.nur_process_flow_next),
                     datePickerFieldInfo.label ?: "",
                     startLimitDate = datePickerFieldInfo.startDateLimit?.let { Calendar.getInstance().apply { timeInMillis = it } },
                     endLimitDate = datePickerFieldInfo.endDateLimit?.let { Calendar.getInstance().apply { timeInMillis = it } }
@@ -217,11 +217,11 @@ class InputFormFragment : BaseProcessScreenFragment<NurProcessFlowFragmentInputF
                 isValid = false
                 val view = vb.formContainer.findViewWithTag<View>(it.key)
                 when (view) {
-                    is BaseInputView -> view.setupFieldAsError(R.string.process_flow_invalid_input)
+                    is BaseInputView -> view.setupFieldAsError(R.string.nur_process_flow_invalid_input)
                     is DropDownInputField -> view.setupAsError()
                     is InputFormGroupButtons -> view.setupAsError()
                     is DatePickerInputField -> view.setupAsError()
-                    else -> Toast.makeText(requireContext(), R.string.process_flow_invalid_input, Toast.LENGTH_SHORT).show()
+                    else -> Toast.makeText(requireContext(), R.string.nur_process_flow_invalid_input, Toast.LENGTH_SHORT).show()
                 }
             }
         }

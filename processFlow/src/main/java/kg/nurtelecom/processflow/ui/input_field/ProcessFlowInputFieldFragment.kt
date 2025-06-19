@@ -2,7 +2,6 @@ package kg.nurtelecom.processflow.ui.input_field
 
 import android.content.IntentFilter
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.FrameLayout
 import androidx.core.content.ContextCompat
@@ -129,7 +128,7 @@ class ProcessFlowInputFieldFragment :
         setupMillsTimerFor(timeOut, {
             try {
                 inputField.setActionWithColor(
-                    getString(R.string.process_flow_resend),
+                    getString(R.string.nur_process_flow_resend),
                     requireContext().getThemeColor(com.design2.chili2.R.attr.ChiliComponentButtonTextColorActive)
                 ) {
                     getProcessFlowHolder().commit(ProcessFlowCommit.OnButtonClick(FlowButton(actionId)))
@@ -138,7 +137,7 @@ class ProcessFlowInputFieldFragment :
         }, {
             try {
                 inputField.setActionWithColor(
-                    getString(R.string.process_flow_repeat_after, it.toTimeFromMillis),
+                    getString(R.string.nur_process_flow_repeat_after, it.toTimeFromMillis),
                     requireContext().getThemeColor(com.design2.chili2.R.attr.ChiliValueTextColor))
             } catch (_: Throwable) {}
         })
@@ -149,7 +148,7 @@ class ProcessFlowInputFieldFragment :
             try {
                 inputField.apply {
                     setActionTextEnabled(true)
-                    setActionText(R.string.process_flow_resend)
+                    setActionText(R.string.nur_process_flow_resend)
                     setOnActionClickListener {
                         getProcessFlowHolder().commit(ProcessFlowCommit.OnButtonClick(FlowButton(actionId)))
                     }
@@ -159,7 +158,7 @@ class ProcessFlowInputFieldFragment :
             try {
                 inputField.apply {
                     setActionTextEnabled(false)
-                    setActionText(getString(R.string.process_flow_repeat_after, it.toTimeFromMillis))
+                    setActionText(getString(R.string.nur_process_flow_repeat_after, it.toTimeFromMillis))
                 }
             } catch (_: Throwable) {}
         })

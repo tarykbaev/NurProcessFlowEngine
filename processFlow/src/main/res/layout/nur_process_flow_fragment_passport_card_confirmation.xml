@@ -41,7 +41,7 @@
             android:layout_marginBottom="@dimen/padding_16dp"
             android:gravity="center"
             android:textSize="@dimen/text_16sp"
-            tools:text="@string/process_flow_photo_confirmation_title" />
+            tools:text="@string/nur_process_flow_photo_confirmation_title" />
 
         <Button
             android:id="@+id/btn_recapture"
@@ -51,7 +51,7 @@
             android:layout_marginStart="@dimen/padding_16dp"
             android:layout_marginEnd="@dimen/padding_16dp"
             android:layout_marginBottom="@dimen/padding_8dp"
-            android:text="@string/process_flow_photo_confirmation_retake_photo" />
+            android:text="@string/nur_process_flow_photo_confirmation_retake_photo" />
 
         <com.design2.chili2.view.buttons.LoaderButton
             android:id="@+id/btn_confirm"
@@ -60,7 +60,7 @@
             android:layout_marginStart="@dimen/padding_16dp"
             android:layout_marginEnd="@dimen/padding_16dp"
             android:layout_marginBottom="@dimen/padding_16dp"
-            android:text="@string/process_flow_photo_confirmation_send_photo" />
+            android:text="@string/nur_process_flow_photo_confirmation_send_photo" />
 
     </LinearLayout>
 

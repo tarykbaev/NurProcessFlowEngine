@@ -229,7 +229,7 @@ abstract class ProcessFlowVM<T: ProcessFlowRepository>(protected val _repository
         if (failGetStateCounts > 5) {
             failGetStateCounts = 0
             val message = (it)?.message
-            val event = if (message.isNullOrBlank()) Event.NotificationResId(R.string.process_flow_unexpected_error)
+            val event = if (message.isNullOrBlank()) Event.NotificationResId(R.string.nur_process_flow_unexpected_error)
             else Event.Notification(message)
             triggerEvent(event)
         } else {
@@ -242,7 +242,7 @@ abstract class ProcessFlowVM<T: ProcessFlowRepository>(protected val _repository
         if (processFlowId != null) getState()
         else {
             val message = ex.message
-            val event = if (message.isNullOrBlank()) Event.NotificationResId(R.string.process_flow_unexpected_error)
+            val event = if (message.isNullOrBlank()) Event.NotificationResId(R.string.nur_process_flow_unexpected_error)
             else Event.Notification(message)
             triggerEvent(event)
         }

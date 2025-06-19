@@ -50,7 +50,7 @@
         android:id="@+id/btn_done"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/process_flow_next"
+        android:text="@string/nur_process_flow_next"
         android:visibility="gone"
         android:layout_marginHorizontal="@dimen/padding_16dp"
         android:layout_marginVertical="@dimen/padding_16dp"

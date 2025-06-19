@@ -30,9 +30,10 @@ class SelfiePhotoInstructionFragment : BaseFragment<NurProcessFlowFragmentPhotoS
 
     private fun setupPhotoInstructionView() {
         with(vb) {
-            tvTitle.text = getString(R.string.process_flow_photo_instruction_selfie)
-            tvSubtitle.setText(R.string.process_flow_photo_instruction_selfie_description)
+            tvTitle.text = getString(R.string.nur_process_flow_photo_instruction_selfie)
+            tvSubtitle.setText(R.string.nur_process_flow_photo_instruction_selfie_description)
             ivCorrect.loadImage(ProcessFlowConfigurator.selfieInstructionUrlResolver.invoke())
+            btnAction.text = getString(R.string.nur_process_flow_photo_instruction_passport_button)
         }
     }
 }

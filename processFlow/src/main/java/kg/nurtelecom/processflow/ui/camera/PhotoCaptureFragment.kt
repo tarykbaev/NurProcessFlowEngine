@@ -199,7 +199,7 @@ class PhotoCaptureFragment : BaseFragment<NurProcessFlowFragmentPhotoCaptureBind
                         null -> {
                             hideLoading()
                             isPhotoCapturing = false
-                            context?.showWarningDialog(getString(R.string.process_flow_no_available_free_space))
+                            context?.showWarningDialog(getString(R.string.nur_process_flow_no_available_free_space))
                         }
                         else -> {
                             photoFile = croppedImage
@@ -214,7 +214,7 @@ class PhotoCaptureFragment : BaseFragment<NurProcessFlowFragmentPhotoCaptureBind
                     val exceptionMessage = when (val cause = exception.cause?.cause) {
                         is ErrnoException -> {
                             if (cause.errno == OsConstants.ENOSPC)
-                                getString(R.string.process_flow_no_available_free_space)
+                                getString(R.string.nur_process_flow_no_available_free_space)
                             else
                                 exception.message
                         }

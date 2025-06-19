@@ -92,8 +92,8 @@ class PhotoFlowFragment : BaseProcessScreenFragment<NurProcessFlowFragmentPhotoF
 
     private fun openRecognizer(cameraType: CameraType) {
         val label = getString(
-            if(cameraType == CameraType.FOREIGN_PASSPORT) R.string.process_flow_photo_instruction_passport_foreigner
-            else R.string.process_flow_photo_capture_passport_back_title
+            if(cameraType == CameraType.FOREIGN_PASSPORT) R.string.nur_process_flow_photo_instruction_passport_foreigner
+            else R.string.nur_process_flow_photo_capture_passport_back_title
         )
         val overlayType = if(cameraType == CameraType.FOREIGN_PASSPORT) OverlayType.FOREIGN_PASSPORT_OVERLAY
         else OverlayType.PASSPORT_OVERLAY
@@ -102,10 +102,10 @@ class PhotoFlowFragment : BaseProcessScreenFragment<NurProcessFlowFragmentPhotoF
                 false,
                 ProcessFlowConfigurator.recognizerTimeoutLimit,
                 ProcessFlowConfigurator.recognizerTimeoutMills,
-                getString(R.string.process_flow_photo_recognizer_timeout_description),
+                getString(R.string.nur_process_flow_photo_recognizer_timeout_description),
                 false,
-                photoCaptureLabels = ScreenLabels(label, description = getString(R.string.process_flow_photo_capture_passport_front_description)),
-                recognitionLabels = ScreenLabels(label, description = getString(R.string.process_flow_photo_capture_passport_front_description)),
+                photoCaptureLabels = ScreenLabels(label, description = getString(R.string.nur_process_flow_photo_capture_passport_front_description)),
+                recognitionLabels = ScreenLabels(label, description = getString(R.string.nur_process_flow_photo_capture_passport_front_description)),
                 overlayType = overlayType,
                 hasCustomPhotoConfirmation = true,
                 needRecognition = recognizedMrz == null,
@@ -164,7 +164,7 @@ class PhotoFlowFragment : BaseProcessScreenFragment<NurProcessFlowFragmentPhotoF
 
     private fun onPermissionDeny() {
         showDialog {
-            setMessage(R.string.process_flow_permission_denied)
+            setMessage(R.string.nur_process_flow_permission_denied)
             positiveButton(android.R.string.ok) {
                 openSettingResult.launch(Unit)
             }
@@ -200,12 +200,12 @@ class PhotoFlowFragment : BaseProcessScreenFragment<NurProcessFlowFragmentPhotoF
 
     private fun getCameraSettings(): CameraSettings {
         return when (cameraType) {
-            CameraType.SIMPLE_SELFIE_PHOTO -> CameraSettings(lensFacing = LENS_FACING_FRONT, cameraOverlayType = CameraOverlayType.RECTANGLE_FRAME, description = getString(R.string.process_flow_photo_capture_simple_selfie_description))
-            CameraType.SELFIE -> CameraSettings(lensFacing = LENS_FACING_FRONT, cameraOverlayType = CameraOverlayType.RECTANGLE_FRAME, description = getString(R.string.process_flow_photo_capture_selfie_passport_description))
+            CameraType.SIMPLE_SELFIE_PHOTO -> CameraSettings(lensFacing = LENS_FACING_FRONT, cameraOverlayType = CameraOverlayType.RECTANGLE_FRAME, description = getString(R.string.nur_process_flow_photo_capture_simple_selfie_description))
+            CameraType.SELFIE -> CameraSettings(lensFacing = LENS_FACING_FRONT, cameraOverlayType = CameraOverlayType.RECTANGLE_FRAME, description = getString(R.string.nur_process_flow_photo_capture_selfie_passport_description))
             CameraType.SIMPLE_CAMERA -> CameraSettings(cameraOverlayType = CameraOverlayType.RECTANGLE_FRAME)
-            CameraType.FOREIGN_PASSPORT -> CameraSettings(description = getString(R.string.process_flow_photo_capture_passport_front_description), cameraOverlayType = CameraOverlayType.RECTANGLE_FRAME)
-            CameraType.SELFIE_ONLY_PHOTO -> CameraSettings(lensFacing = LENS_FACING_FRONT, description = getString(R.string.process_flow_photo_capture_selfie_only_description), cameraOverlayType = CameraOverlayType.RECTANGLE_FRAME)
-            else -> CameraSettings(description = getString(R.string.process_flow_photo_capture_passport_front_description), headerText = getString(R.string.process_flow_photo_capture_passport_front_title))
+            CameraType.FOREIGN_PASSPORT -> CameraSettings(description = getString(R.string.nur_process_flow_photo_capture_passport_front_description), cameraOverlayType = CameraOverlayType.RECTANGLE_FRAME)
+            CameraType.SELFIE_ONLY_PHOTO -> CameraSettings(lensFacing = LENS_FACING_FRONT, description = getString(R.string.nur_process_flow_photo_capture_selfie_only_description), cameraOverlayType = CameraOverlayType.RECTANGLE_FRAME)
+            else -> CameraSettings(description = getString(R.string.nur_process_flow_photo_capture_passport_front_description), headerText = getString(R.string.nur_process_flow_photo_capture_passport_front_title))
         }
     }
 

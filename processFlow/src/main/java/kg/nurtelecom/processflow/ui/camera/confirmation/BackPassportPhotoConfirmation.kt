@@ -8,7 +8,7 @@ class BackPassportPhotoConfirmation : PhotoConfirmationFragment() {
 
     override fun setupViews() {
         super.setupViews()
-        vb.tvConfirmTitle.setText(R.string.process_flow_photo_confirmation_passport_back)
+        vb.tvConfirmTitle.setText(R.string.nur_process_flow_photo_confirmation_passport_back)
     }
 
     companion object {

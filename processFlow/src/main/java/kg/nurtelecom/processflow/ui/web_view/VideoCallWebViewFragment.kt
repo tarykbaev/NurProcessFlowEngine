@@ -31,7 +31,7 @@ class VideoCallWebViewFragment : ProcessFlowWebViewFragment() {
 
     private fun onPermissionDeny() {
         showDialog {
-            setMessage(R.string.process_flow_permission_denied)
+            setMessage(R.string.nur_process_flow_permission_denied)
             positiveButton(android.R.string.ok) {
                 openSettingResult.launch(Unit)
             }
@@ -59,9 +59,9 @@ class VideoCallWebViewFragment : ProcessFlowWebViewFragment() {
 
     override fun handleBackPress(): BackPressHandleState {
         showDialog {
-            setMessage(R.string.process_flow_exit_video_call)
-            positiveButton(R.string.process_flow_yes) { setStringResultAndClose(MANUAL_CLOSE_WEB_VIEW_STATUS) }
-            negativeButton(R.string.process_flow_no)
+            setMessage(R.string.nur_process_flow_exit_video_call)
+            positiveButton(R.string.nur_process_flow_yes) { setStringResultAndClose(MANUAL_CLOSE_WEB_VIEW_STATUS) }
+            negativeButton(R.string.nur_process_flow_no)
             setCancelable(false)
         }
         return BackPressHandleState.HANDLED

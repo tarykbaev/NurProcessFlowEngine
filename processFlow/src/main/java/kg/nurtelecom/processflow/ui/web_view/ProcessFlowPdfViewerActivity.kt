@@ -98,7 +98,7 @@ class ProcessFlowPdfViewerActivity : AppCompatActivity(), DownloadFile.Listener 
         if (isFinishing) return
         try {
             vb.pbLoader.isVisible = false
-            showWarningDialog(getString(R.string.process_flow_error_pdf_loading)) { finish() }
+            showWarningDialog(getString(R.string.nur_process_flow_error_pdf_loading)) { finish() }
         } catch (_: Exception) {
         }
     }

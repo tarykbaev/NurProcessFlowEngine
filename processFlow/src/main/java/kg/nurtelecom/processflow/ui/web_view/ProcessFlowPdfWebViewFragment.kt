@@ -115,7 +115,7 @@ class ProcessFlowPdfWebViewFragment :
 
     private fun showFailureException() {
         try {
-            Toast.makeText(requireContext(), R.string.process_flow_error_pdf_loading, Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), R.string.nur_process_flow_error_pdf_loading, Toast.LENGTH_SHORT).show()
         } catch (_: Exception) {}
     }
 
@@ -181,7 +181,7 @@ class ProcessFlowPdfWebViewFragment :
             .intent
             .apply { addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION) }
             .also {
-                startActivity(Intent.createChooser(it, getString(R.string.process_flow_share_with)))
+                startActivity(Intent.createChooser(it, getString(R.string.nur_process_flow_share_with)))
             }
     }
 

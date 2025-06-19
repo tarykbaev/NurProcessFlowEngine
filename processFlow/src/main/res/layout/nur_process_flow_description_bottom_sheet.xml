@@ -57,7 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/padding_16dp"
-                android:text="@string/process_flow_clearly"
+                android:text="@string/nur_process_flow_clearly"
                 style="@style/Chili.ButtonStyle.Primary"/>
 
         </LinearLayout>

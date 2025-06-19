@@ -30,9 +30,9 @@ class SelfieOnlyPhotoInstructionFragment : BaseFragment<NurProcessFlowFragmentPh
 
     private fun setupPhotoInstructionView() {
         with(vb) {
-            tvTitle.text = getString(R.string.process_flow_photo_instruction_selfie_only_title)
-            tvSubtitle.text = getString(R.string.process_flow_photo_instruction_selfie_only_subtitle)
-            btnAction.text = getString(R.string.process_flow_photo_instruction_selfie_only_title)
+            tvTitle.text = getString(R.string.nur_process_flow_photo_instruction_selfie_only_title)
+            tvSubtitle.text = getString(R.string.nur_process_flow_photo_instruction_selfie_only_subtitle)
+            btnAction.text = getString(R.string.nur_process_flow_photo_instruction_selfie_only_button)
             ivCorrect.loadImage(ProcessFlowConfigurator.onlySelfieInstructionUrlResolver.invoke())
         }
     }

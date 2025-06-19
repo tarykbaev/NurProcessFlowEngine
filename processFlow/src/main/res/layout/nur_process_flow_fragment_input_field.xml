@@ -70,7 +70,7 @@
         android:id="@+id/btn_confirm"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:text="@string/process_flow_confirm"
+        android:text="@string/nur_process_flow_confirm"
         android:layout_margin="@dimen/padding_16dp"
         android:enabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
