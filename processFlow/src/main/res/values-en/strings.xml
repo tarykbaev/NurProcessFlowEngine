@@ -46,7 +46,7 @@
     <string name="nur_process_flow_photo_instruction_passport_back">Take a photo of the back side of your passport</string>
     <string name="nur_process_flow_photo_instructiin_passports_subtitle">Make sure the details are seen clearly and kept within the frame.</string>
     <string name="nur_process_flow_photo_instruction_selfie">Make a selfie with passport</string>
-    <string name="nur_process_flow_photo_instruction_selfie_description">Picture must be clear, and passport and face seen in full</string>
+    <string name="nur_process_flow_photo_instruction_selfie_description">Your face and the whole passport must be seen clearly on the photo.</string>
     <string name="nur_process_flow_photo_instruction_simple_selfie">Make a photo without glasses, with good lighting and looking straight to camera</string>
     <string name="nur_process_flow_photo_instruction_simple_selfie_title">Make a selfie</string>
     <string name="nur_process_flow_photo_instruction_simple_selfie_subtitle">Take off unnecessary accessories so that \nface features can be seen clearly</string>

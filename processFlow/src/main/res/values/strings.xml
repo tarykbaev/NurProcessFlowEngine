@@ -47,7 +47,7 @@
     <string name="nur_process_flow_photo_instruction_passport_back">Сделайте фото оборотной\nстороны паспорта</string>
     <string name="nur_process_flow_photo_instructiin_passports_subtitle">Убедитесь, что данные хорошо видны\nи находятся в рамках границ.</string>
     <string name="nur_process_flow_photo_instruction_selfie">Сделайте фото с паспортом</string>
-    <string name="nur_process_flow_photo_instruction_selfie_description">Фото должно быть отчётливым, а паспорт и лицо видны полностью</string>
+    <string name="nur_process_flow_photo_instruction_selfie_description">На фото должны чётко отображаться лицо и весь паспорт</string>
     <string name="nur_process_flow_photo_instruction_simple_selfie">Сделайте фото без очков, при хорошем освещении, смотря прямо в камеру</string>
     <string name="nur_process_flow_photo_instruction_simple_selfie_title">Сделайте селфи</string>
     <string name="nur_process_flow_photo_instruction_simple_selfie_subtitle">Снимите лишние аксессуары, \nчерты лица должны быть хорошо видны</string>

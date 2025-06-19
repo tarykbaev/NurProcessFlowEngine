@@ -46,7 +46,7 @@
     <string name="nur_process_flow_photo_instruction_passport_back">Паспорттун арткы бетин сүрөткө тартыңыз</string>
     <string name="nur_process_flow_photo_instructiin_passports_subtitle">Маалыматтар жакшы көрүнүп турганын жана чектен тышкары чыкпаганын текшериңиз</string>
     <string name="nur_process_flow_photo_instruction_selfie">Паспорт менен сүрөткө түшүңүз</string>
-    <string name="nur_process_flow_photo_instruction_selfie_description">Сүрөт так болууга тийиш, ал эми паспорт жана жүзүңүз толугу менен көрүнүшү керек</string>
+    <string name="nur_process_flow_photo_instruction_selfie_description">Сүрөттө жүзүңүз жана паспорт толук көрүнүшү керек.</string>
     <string name="nur_process_flow_photo_instruction_simple_selfie">Жарык жерден камерага түз карап, сүрөткө көз айнексиз түшүңүз</string>
     <string name="nur_process_flow_photo_instruction_simple_selfie_title">Селфи тартыңыз</string>
     <string name="nur_process_flow_photo_instruction_simple_selfie_subtitle">Ашыкча аксессуарларды алып салыңыз, жүзүңүз \nжакшы көрүнүп турууга тийиш</string>
