@@ -35,12 +35,12 @@ import kg.nurtelecom.processflow.ui.camera.instruction.photo.PassportFrontInstru
 import kg.nurtelecom.processflow.ui.camera.instruction.photo.SelfieOnlyPhotoInstructionFragment
 import kg.nurtelecom.processflow.ui.camera.instruction.photo.SelfiePhotoInstructionFragment
 import kg.nurtelecom.processflow.ui.camera.instruction.photo.SimpleSelfiePhotoInstructionFragment
-import kg.nurtelecom.text_recognizer.RecognizedMrz
-import kg.nurtelecom.text_recognizer.photo_capture.OverlayType
-import kg.nurtelecom.text_recognizer.photo_capture.PhotoRecognizerActivity
-import kg.nurtelecom.text_recognizer.photo_capture.RecognizePhotoContract
-import kg.nurtelecom.text_recognizer.photo_capture.ScreenLabels
-import kg.nurtelecom.text_recognizer.photo_capture.TextRecognizerConfig
+import kg.nurtelecom.nur_text_recognizer.RecognizedMrz
+import kg.nurtelecom.nur_text_recognizer.photo_capture.OverlayType
+import kg.nurtelecom.nur_text_recognizer.photo_capture.PhotoRecognizerActivity
+import kg.nurtelecom.nur_text_recognizer.photo_capture.RecognizePhotoContract
+import kg.nurtelecom.nur_text_recognizer.photo_capture.ScreenLabels
+import kg.nurtelecom.nur_text_recognizer.photo_capture.TextRecognizerConfig
 
 class PhotoFlowFragment : BaseProcessScreenFragment<NurProcessFlowFragmentPhotoFlowBinding>() {
 

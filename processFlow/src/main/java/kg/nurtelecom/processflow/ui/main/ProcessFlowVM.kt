@@ -18,7 +18,7 @@ import kg.nurtelecom.processflow.model.request.FlowResponse
 import kg.nurtelecom.processflow.network.parser.ProcessFlowResponseParser
 import kg.nurtelecom.processflow.repository.ProcessFlowRepository
 import kg.nurtelecom.processflow.util.PictureUtil
-import kg.nurtelecom.text_recognizer.RecognizedMrz
+import kg.nurtelecom.nur_text_recognizer.RecognizedMrz
 import java.io.File
 
 abstract class ProcessFlowVM<T: ProcessFlowRepository>(protected val _repository: T) : BaseVM() {

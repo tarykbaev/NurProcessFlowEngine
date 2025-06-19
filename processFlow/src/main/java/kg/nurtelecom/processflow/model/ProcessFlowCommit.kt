@@ -3,7 +3,7 @@ package kg.nurtelecom.processflow.model
 import kg.nurtelecom.processflow.model.common.Content
 import kg.nurtelecom.processflow.model.component.FlowButton
 import kg.nurtelecom.processflow.model.input_form.FormResponse
-import kg.nurtelecom.text_recognizer.RecognizedMrz
+import kg.nurtelecom.nur_text_recognizer.RecognizedMrz
 import java.io.File
 
 open class ProcessFlowCommit {
