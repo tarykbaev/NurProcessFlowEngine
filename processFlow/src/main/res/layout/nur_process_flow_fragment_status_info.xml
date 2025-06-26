@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     android:background="?ChiliSurfaceBackground">
 
+    <ImageView
+        android:id="@+id/iv_top_image"
+        android:layout_width="match_parent"
+        android:layout_height="215dp"
+        android:contentDescription="@null"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"/>
+
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
@@ -17,7 +27,7 @@
         android:textSize="22sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_top_image"
         tools:text="Title" />
 
     <TextView

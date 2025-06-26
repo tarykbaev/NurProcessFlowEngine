@@ -57,6 +57,7 @@ open class ProcessStatusInfoFragment : BaseProcessScreenFragment<NurProcessFlowF
             } else vb.tvSubtitle.text = description ?: ""
             vb.tvSubtitle.isVisible = description != null
             setupStatusIcon(status, statusImageUrl, animationUrl)
+            setupTopImage(topImageUrl)
             setupTimer(state)
             setupScreenClosureAvailability(state.isScreenCloseDisabled ?: false)
         }
@@ -73,6 +74,13 @@ open class ProcessStatusInfoFragment : BaseProcessScreenFragment<NurProcessFlowF
     protected fun getOrCreateLottieAnimationHandler(): LottieAnimationHandler {
         return lottieAnimationHandler ?: LottieAnimationHandler(vb.lavStatus).also {
             lottieAnimationHandler = it
+        }
+    }
+
+    protected open fun setupTopImage(topImageUrl: String?) = with(vb.ivTopImage) {
+        isVisible = !topImageUrl.isNullOrEmpty()
+        topImageUrl?.let {
+            loadImage(it)
         }
     }
 

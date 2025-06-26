@@ -18,6 +18,7 @@ data class ScreenState(
     val timerText: String? = null,
     val isScreenCloseDisabled: Boolean? = false,
     val isUncancellable: Boolean? = null,
+    val topImageUrl: String? = null
 ) {
 
     fun isBottomSheetAvailable(): Boolean = !infoTitle.isNullOrEmpty() && !infoDescHtml.isNullOrEmpty()

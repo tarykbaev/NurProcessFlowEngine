@@ -15,6 +15,12 @@ class DescriptionBottomSheet : BottomSheetDialogFragment() {
 
     private lateinit var binding: NurProcessFlowDescriptionBottomSheetBinding
 
+    private var onActionButtonClickListener: (() -> Unit)? = null
+
+    fun setOnActionButtonClickListener(listener: (() -> Unit)?) {
+        onActionButtonClickListener = listener
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -27,7 +33,10 @@ class DescriptionBottomSheet : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         with(binding) {
-            btnAction.setOnClickListener { dismiss() }
+            btnAction.setOnClickListener {
+                onActionButtonClickListener?.invoke()
+                dismiss()
+            }
             ivClose.setOnClickListener { dismiss() }
         }
 
