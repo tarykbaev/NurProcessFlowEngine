@@ -9,7 +9,7 @@ import android.widget.LinearLayout
 import androidx.core.view.isVisible
 import androidx.viewbinding.ViewBinding
 import com.design2.chili2.R
-import com.design2.chili2.view.buttons.LoaderButton
+import com.design2.chili2.view.buttons.ChiliButton
 import com.design2.chili2.view.input.BaseInputView
 import com.design2.chili2.view.input.otp.OtpInputView
 import kg.nurtelecom.processflow.base.process.ProcessFlowScreen
@@ -52,7 +52,7 @@ abstract class BaseProcessScreenFragment<VB: ViewBinding> : BaseFragment<VB>(), 
     override fun handleShowLoading(isLoading: Boolean): Boolean {
         if (selectedButtonId == null) return false
         try {
-            buttonsLinearLayout?.findViewWithTag<LoaderButton>(selectedButtonId)?.setIsLoading(isLoading) ?: return false
+            buttonsLinearLayout?.findViewWithTag<ChiliButton>(selectedButtonId)?.setIsLoading(isLoading) ?: return false
             unclickableMask?.isVisible = isLoading
         } catch (ex: Throwable) {
             return false
