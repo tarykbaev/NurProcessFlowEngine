@@ -9,10 +9,10 @@
     <ImageView
         android:id="@+id/iv_top_image"
         android:layout_width="match_parent"
-        android:layout_height="215dp"
+        android:layout_height="wrap_content"
         android:contentDescription="@null"
         android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
+        android:scaleType="fitXY"
         android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent"/>
 
