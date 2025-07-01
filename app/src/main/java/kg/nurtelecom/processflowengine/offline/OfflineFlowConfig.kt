@@ -29,6 +29,7 @@ class OfflineFlowConfig : AppCompatActivity() {
         vb.btnStartCallWebView.setOnClickListener { openFlow("VIDEO_IDENT_BUTTON") }
         vb.btnStartOtp.setOnClickListener { openFlow("OTP") }
         vb.btnStartTimer.setOnClickListener { openFlow("ANY_WEB_VIEW_ID") }
+        vb.btnStartAgreemrntStatusInfo.setOnClickListener { openFlow("AGREEMENT_STATUS_INFO") }
 
     }
 

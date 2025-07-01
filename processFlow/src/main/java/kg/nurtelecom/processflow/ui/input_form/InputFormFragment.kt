@@ -143,7 +143,6 @@ class InputFormFragment : BaseProcessScreenFragment<NurProcessFlowFragmentInputF
         return GroupButtonsCreator.create(requireContext(), groupInfo, onLinkClick = ::onLinkClick, onSelectedChanged = { values, isValid ->
             result[groupInfo.fieldId] = if (isValid) values else null
         })
-
     }
 
     private fun createLabelFormItem(labelFormItem: LabelFormItem): View {

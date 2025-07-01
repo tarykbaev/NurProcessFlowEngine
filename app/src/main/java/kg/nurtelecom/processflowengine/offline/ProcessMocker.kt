@@ -1052,6 +1052,51 @@ object ProcessMocker {
         )
 
         put(
+            "AGREEMENT_STATUS_INFO", """
+                {
+                    "definition_key": "SCREEN_ESIM_PERS",
+                    "process_id": "werq-rqwew-rwer-fser",
+                    "process_key": null,
+                    "process_status": "RUNNING",
+                    "messages": [],
+                    "allowed_answers": [
+                        {
+                            "responseType": "BUTTON",
+                            "responseItem": {
+                                "disabled": false,
+                                "style": "SECONDARY",
+                                "properties": null,
+                                "buttonId": "OTHER",
+                                "text": "Гражданин другой страны"
+                            }
+                        },
+                        {
+                            "responseType": "BUTTON",
+                            "responseItem": {
+                                "disabled": false,
+                                "style": "ACCENT",
+                                "properties": null,
+                                "buttonId": "KG",
+                                "text": "Гражданин Кыргызстана"
+                            }
+                        }
+                    ],
+                    "screen_code": "STATUS_INFO",
+                    "screen_state": {
+                        "app_bar_text": null,
+                        "title": "Пройдите персонификацию, подготовьте паспорт",
+                        "description": "Для заключения договора(ов) и/или предоставления услуг связи и/или финансовых сервисов и использования приложения необходимо пройти персонификацию и/или идентификацию",
+                        "status": null,
+                        "infoTitle": "Что такое персонификация номера?",
+                        "infoDescHtml": "Это когда SIM-карта или eSIM привязывается к вашим паспортным данным — номер становится официально вашим.\r\nЗачем это нужно:\r\nЧтобы защитить номер от мошенников.\r\nЧтобы вы могли восстановить его при утере.\r\nС 2024 года в Кыргызстане все новые номера нужно персонифицировать. Вы введёте свои данные, произведёте оплату за выбранные номер и тариф — и номер полностью активируется.\r\nБез этого можно только позвонить в поддержку и экстренные службы.",
+                        "bottomDescriptionHtml": "<p>Нажимая кнопку, вы даете свое согласие <a href=\"AGREEMENT\">на сбор и обработку данных, предоставление услуг и сервисов.</a></p>",
+                        "statusImageUrl": "https://minio.o.kg/lkab/personification/passport.png"
+                    },
+                    "variables": {}
+                }
+            """.trimIndent()
+        )
+        put(
             "CREATE_qweqwew_APPLICATION", """
     {
        "process_id":"werq-rqwew-rwer-fser",

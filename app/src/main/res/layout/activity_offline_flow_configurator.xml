@@ -110,6 +110,15 @@
                     android:layout_marginHorizontal="@dimen/padding_16dp"
                     android:text="Open Status Timer"/>
 
+                <Button
+                    android:id="@+id/btn_start_agreemrnt_status_info"
+                    style="@style/Chili.ButtonStyle.NewAdditional"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/padding_16dp"
+                    android:layout_marginHorizontal="@dimen/padding_16dp"
+                    android:text="Open Status Agreement"/>
+
             </com.design2.chili2.view.container.ExpandableContainer>
 
         </LinearLayout>
