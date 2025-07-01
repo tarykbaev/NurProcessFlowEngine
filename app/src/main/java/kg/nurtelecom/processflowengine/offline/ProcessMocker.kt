@@ -402,6 +402,8 @@ object ProcessMocker {
           "status":null,
           "app_bar_text":"Идентификация",
           "title":"",
+          "infoTitle": "esim_push_title",
+          "infoDescHtml": "esim_push_desc",
           "description":"Подтвердите заявку.\n SMS с кодом отправлено на номер \n+996 700 000 999"
        },
        "messages":[],

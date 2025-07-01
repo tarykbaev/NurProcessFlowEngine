@@ -9,12 +9,12 @@
         android:id="@+id/sv_container"
         android:layout_width="match_parent"
         android:layout_height="@dimen/view_0dp"
-        android:paddingTop="@dimen/view_40dp"
         android:clipToPadding="false"
-        app:layout_constraintStart_toStartOf="parent"
+        android:paddingTop="@dimen/view_40dp"
+        app:layout_constraintBottom_toTopOf="@id/tv_bottom_description"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/tv_bottom_description">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,20 +26,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/padding_16dp"
-                android:paddingBottom="@dimen/padding_12dp"
                 android:gravity="center"
+                android:paddingBottom="@dimen/padding_12dp"
                 android:textAppearance="@style/Chili.H5.Marked.Bold"
                 android:textSize="22sp"
                 android:visibility="gone"
-                tools:text="Title"/>
+                tools:text="Title" />
 
             <TextView
                 android:id="@+id/tv_description"
                 style="@style/Chili.H7.Primary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_marginHorizontal="@dimen/padding_16dp"
+                android:gravity="center"
                 tools:text="Подтвердите заявку.\nSMS с кодом отправлено на номер\n+996 700 000 999" />
 
             <FrameLayout
@@ -57,22 +57,34 @@
         android:id="@+id/tv_bottom_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/Chili.H9.Primary"
         android:layout_marginHorizontal="@dimen/padding_16dp"
         android:layout_marginBottom="@dimen/padding_16dp"
+        android:textAppearance="@style/Chili.H9.Primary"
         android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/btn_info"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/btn_confirm"
         app:layout_constraintTop_toBottomOf="@id/sv_container"
         app:layout_constraintVertical_bias="1" />
 
     <com.design2.chili2.view.buttons.ChiliButton
-        android:id="@+id/btn_confirm"
-        android:layout_height="wrap_content"
+        android:id="@+id/btn_info"
+        style="@style/ProcessFlowAdditionalButtonStyle"
         android:layout_width="match_parent"
-        android:text="@string/nur_process_flow_confirm"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/padding_16dp"
+        android:text="@string/nur_process_flow_can_not_find"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/btn_confirm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.design2.chili2.view.buttons.ChiliButton
+        android:id="@+id/btn_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="@dimen/padding_16dp"
         android:enabled="false"
+        android:text="@string/nur_process_flow_confirm"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -83,6 +95,6 @@
         android:layout_height="match_parent"
         android:clickable="true"
         android:focusable="true"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

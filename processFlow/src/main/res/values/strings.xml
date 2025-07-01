@@ -10,6 +10,7 @@
     <string name="nur_process_flow_permission_request_title">Для использования данного функционала необходимо соответствующее разрешение.</string>
     <string name="nur_process_flow_no_available_free_space">На телефоне недостаточно свободного места для сохранения и обработки фото. Освободите немного места на телефоне, и повторите попытку</string>
     <string name="nur_process_flow_confirm">Подтвердить</string>
+    <string name="nur_process_flow_can_not_find">Не могу найти код</string>
     <string name="nur_process_flow_repeat_after">Повторить через %s</string>
     <string name="nur_process_flow_resend">Отправить повторно</string>
     <string name="nur_process_flow_warning_exit">Вы уверены, что хотите прервать процесс?</string>

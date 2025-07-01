@@ -125,17 +125,6 @@ abstract class BaseProcessScreenFragment<VB: ViewBinding> : BaseFragment<VB>(), 
     //Screen state handler
     open fun renderScreenState(state: ScreenState? = null) {
         getProcessFlowHolder().setToolbarTitle(state?.appBarText ?: "")
-        setupToolbarEndIcon(state)
-    }
-
-    private fun setupToolbarEndIcon(state: ScreenState?) {
-        if (state?.isBottomSheetAvailable() != true) return
-        getProcessFlowHolder().setupToolbarEndIcon(kg.nurtelecom.processflow.R.drawable.nur_process_flow_ic_faq_24dp) {
-            DescriptionBottomSheet.newInstance(
-                state.infoTitle,
-                state.infoDescHtml.orEmpty()
-            ).show(childFragmentManager, null)
-        }
     }
 
     // Button Handler

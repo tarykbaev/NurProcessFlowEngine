@@ -29,6 +29,7 @@ import kg.nurtelecom.processflow.model.common.ScreenState
 import kg.nurtelecom.processflow.model.component.FlowButton
 import kg.nurtelecom.processflow.model.component.FlowInputField
 import kg.nurtelecom.processflow.model.component.FlowRetryInfo
+import kg.nurtelecom.processflow.ui.bottomsheet.DescriptionBottomSheet
 import kg.nurtelecom.processflow.util.SmsBroadcastReceiver
 
 class ProcessFlowInputFieldFragment :
@@ -79,6 +80,7 @@ class ProcessFlowInputFieldFragment :
                 }
             } }
         }
+        setupToolbarEndIcon(state)
     }
 
     override fun renderOtpInputView(
@@ -162,6 +164,18 @@ class ProcessFlowInputFieldFragment :
                 }
             } catch (_: Throwable) {}
         })
+    }
+
+    private fun setupToolbarEndIcon(state: ScreenState?) {
+        if (state?.isBottomSheetAvailable() != true) return
+        val bsh = DescriptionBottomSheet.newInstance(
+            state.infoTitle,
+            state.infoDescHtml.orEmpty()
+        )
+        vb.btnInfo.apply {
+            visible()
+            setOnSingleClickListener { bsh.show(childFragmentManager, null) }
+        }
     }
 
     override fun inputFieldChanged(result: List<String>, isValid: Boolean) {

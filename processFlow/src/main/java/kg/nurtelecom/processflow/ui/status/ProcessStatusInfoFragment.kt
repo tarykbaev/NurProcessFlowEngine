@@ -26,6 +26,7 @@ import kg.nurtelecom.processflow.model.input_form.GroupButtonFormItem
 import kg.nurtelecom.processflow.model.input_form.Option
 import kg.nurtelecom.processflow.model.input_form.Validation
 import kg.nurtelecom.processflow.model.input_form.ValidationType
+import kg.nurtelecom.processflow.ui.bottomsheet.DescriptionBottomSheet
 import kg.nurtelecom.processflow.util.AnimationData
 import kg.nurtelecom.processflow.util.LottieAnimationHandler
 
@@ -71,6 +72,7 @@ open class ProcessStatusInfoFragment : BaseProcessScreenFragment<NurProcessFlowF
             setupTimer(state)
             setupScreenClosureAvailability(state.isScreenCloseDisabled ?: false)
             setupBottomAgreement(state.bottomDescriptionHtml)
+            setupToolbarEndIcon(state)
         }
     }
 
@@ -160,6 +162,16 @@ open class ProcessStatusInfoFragment : BaseProcessScreenFragment<NurProcessFlowF
                 { vb.tvTimer.text = "$timerText ${it.toTimeFromMillis}" })
         } else {
             vb.tvTimer.gone()
+        }
+    }
+
+    private fun setupToolbarEndIcon(state: ScreenState?) {
+        if (state?.isBottomSheetAvailable() != true) return
+        getProcessFlowHolder().setupToolbarEndIcon(R.drawable.nur_process_flow_ic_faq_24dp) {
+            DescriptionBottomSheet.newInstance(
+                state.infoTitle,
+                state.infoDescHtml.orEmpty()
+            ).show(childFragmentManager, null)
         }
     }
 

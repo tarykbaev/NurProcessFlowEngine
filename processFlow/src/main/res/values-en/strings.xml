@@ -10,6 +10,7 @@
     <string name="nur_process_flow_permission_request_title">To use this functionality, you need to provide the appropriate permission.</string>
     <string name="nur_process_flow_no_available_free_space">There is not enough free space on the phone to save and process photos. Free up some space on your phone, and try again.</string>
     <string name="nur_process_flow_confirm">Confirm</string>
+    <string name="nur_process_flow_can_not_find"></string>
     <string name="nur_process_flow_repeat_after">Repeat in %s</string>
     <string name="nur_process_flow_resend">Resend</string>
     <string name="nur_process_flow_warning_exit">Are you sure you want to abort the process?</string>
