@@ -26,7 +26,6 @@ import kg.nurtelecom.processflow.model.component.FlowButton
 import kg.nurtelecom.processflow.model.component.FlowInputField
 import kg.nurtelecom.processflow.model.component.FlowMessage
 import kg.nurtelecom.processflow.model.component.FlowRetryInfo
-import kg.nurtelecom.processflow.ui.bottomsheet.DescriptionBottomSheet
 import java.util.Date
 
 abstract class BaseProcessScreenFragment<VB: ViewBinding> : BaseFragment<VB>(), ProcessFlowScreen {

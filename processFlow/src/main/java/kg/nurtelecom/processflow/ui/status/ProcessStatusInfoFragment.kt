@@ -6,6 +6,7 @@ import android.widget.LinearLayout
 import androidx.core.text.HtmlCompat
 import androidx.core.text.parseAsHtml
 import androidx.core.view.isVisible
+import com.design2.chili2.view.modals.bottom_sheet.DetailedInfoBottomSheet
 import kg.nurtelecom.processflow.R
 import kg.nurtelecom.processflow.base.BaseProcessScreenFragment
 import kg.nurtelecom.processflow.base.process.BackPressHandleState
@@ -26,7 +27,6 @@ import kg.nurtelecom.processflow.model.input_form.GroupButtonFormItem
 import kg.nurtelecom.processflow.model.input_form.Option
 import kg.nurtelecom.processflow.model.input_form.Validation
 import kg.nurtelecom.processflow.model.input_form.ValidationType
-import kg.nurtelecom.processflow.ui.bottomsheet.DescriptionBottomSheet
 import kg.nurtelecom.processflow.util.AnimationData
 import kg.nurtelecom.processflow.util.LottieAnimationHandler
 
@@ -56,6 +56,7 @@ open class ProcessStatusInfoFragment : BaseProcessScreenFragment<NurProcessFlowF
 
     override fun renderScreenState(state: ScreenState?) {
         super.renderScreenState(state)
+        clearPrevToolbarState()
         state?.run {
             vb.tvTitle.text = title ?: ""
             vb.tvTitle.isVisible = title != null
@@ -97,6 +98,7 @@ open class ProcessStatusInfoFragment : BaseProcessScreenFragment<NurProcessFlowF
     ): Unit = with(vb) {
         vb.lavStatus.gone()
         vb.ivStatus.gone()
+        vb.ivTopImage.gone()
         when {
             animationUrl != null -> {
                 getOrCreateLottieAnimationHandler().addToAnimationQueue(
@@ -163,13 +165,23 @@ open class ProcessStatusInfoFragment : BaseProcessScreenFragment<NurProcessFlowF
     }
 
     private fun setupToolbarEndIcon(state: ScreenState?) {
-        if (state?.isBottomSheetAvailable() != true) return
-        getProcessFlowHolder().setupToolbarEndIcon(R.drawable.nur_process_flow_ic_faq_24dp) {
-            DescriptionBottomSheet.newInstance(
-                state.infoTitle,
-                state.infoDescHtml.orEmpty()
-            ).show(childFragmentManager, null)
+        if (state?.isBottomSheetAvailable() == true) {
+            getProcessFlowHolder().setupToolbarEndIcon(R.drawable.nur_process_flow_ic_faq_24dp) {
+                showInfoBSH(state.infoTitle.orEmpty(), state.infoDescHtml.orEmpty())
+            }
         }
+    }
+
+    private fun showInfoBSH(title: String, message: String) {
+        DetailedInfoBottomSheet.Builder()
+            .setTitleCentered(true)
+            .setTitle(title.parseAsHtml())
+            .setMessage(message.parseAsHtml())
+            .setPrimaryButton(getString(R.string.nur_process_flow_clearly) to {
+                dismiss()
+            })
+            .build()
+            .show(childFragmentManager)
     }
 
     private fun setupScreenClosureAvailability(isScreenCloseDisabled: Boolean) {

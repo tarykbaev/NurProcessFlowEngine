@@ -12,12 +12,14 @@ import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.view.input.BaseInputView
 import com.design2.chili2.view.input.MaskedInputView
 import com.design2.chili2.view.input.otp.OtpInputView
+import com.design2.chili2.view.modals.bottom_sheet.DetailedInfoBottomSheet
 import com.google.android.gms.auth.api.phone.SmsRetriever
 import kg.nurtelecom.processflow.R
 import kg.nurtelecom.processflow.base.BaseProcessScreenFragment
 import kg.nurtelecom.processflow.databinding.NurProcessFlowFragmentInputFieldBinding
 import kg.nurtelecom.processflow.extension.getProcessFlowHolder
 import kg.nurtelecom.processflow.extension.getThemeColor
+import kg.nurtelecom.processflow.extension.gone
 import kg.nurtelecom.processflow.extension.handleUrlClicks
 import kg.nurtelecom.processflow.extension.hideKeyboard
 import kg.nurtelecom.processflow.extension.toTimeFromMillis
@@ -29,7 +31,6 @@ import kg.nurtelecom.processflow.model.common.ScreenState
 import kg.nurtelecom.processflow.model.component.FlowButton
 import kg.nurtelecom.processflow.model.component.FlowInputField
 import kg.nurtelecom.processflow.model.component.FlowRetryInfo
-import kg.nurtelecom.processflow.ui.bottomsheet.DescriptionBottomSheet
 import kg.nurtelecom.processflow.util.SmsBroadcastReceiver
 
 class ProcessFlowInputFieldFragment :
@@ -167,15 +168,28 @@ class ProcessFlowInputFieldFragment :
     }
 
     private fun setupToolbarEndIcon(state: ScreenState?) {
-        if (state?.isBottomSheetAvailable() != true) return
-        val bsh = DescriptionBottomSheet.newInstance(
-            state.infoTitle,
-            state.infoDescHtml.orEmpty()
-        )
-        vb.btnInfo.apply {
-            visible()
-            setOnSingleClickListener { bsh.show(childFragmentManager, null) }
+        if (state?.isBottomSheetAvailable() == true) {
+            vb.btnInfo.apply {
+                visible()
+                setOnSingleClickListener {
+                    showInfoBSH(state.infoTitle.orEmpty(), state.infoDescHtml.orEmpty())
+                }
+            }
+        } else {
+            vb.btnInfo.gone()
         }
+    }
+
+    private fun showInfoBSH(title: String, message: String) {
+        DetailedInfoBottomSheet.Builder()
+            .setTitleCentered(true)
+            .setTitle(title.parseAsHtml())
+            .setMessage(message.parseAsHtml())
+            .setPrimaryButton(getString(R.string.nur_process_flow_clearly) to {
+                dismiss()
+            })
+            .build()
+            .show(childFragmentManager)
     }
 
     override fun inputFieldChanged(result: List<String>, isValid: Boolean) {
