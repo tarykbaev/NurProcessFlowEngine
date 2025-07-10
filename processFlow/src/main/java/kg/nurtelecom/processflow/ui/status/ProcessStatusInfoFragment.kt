@@ -67,8 +67,7 @@ open class ProcessStatusInfoFragment : BaseProcessScreenFragment<NurProcessFlowF
                 }
             } else vb.tvSubtitle.text = description ?: ""
             vb.tvSubtitle.isVisible = description != null
-            setupStatusIcon(status, statusImageUrl, animationUrl)
-            setupTopImage(topImageUrl)
+            setupStatusIcon(status, topImageUrl, statusImageUrl, animationUrl)
             setupTimer(state)
             setupScreenClosureAvailability(state.isScreenCloseDisabled ?: false)
             setupBottomAgreement(state.bottomDescriptionHtml)
@@ -90,15 +89,9 @@ open class ProcessStatusInfoFragment : BaseProcessScreenFragment<NurProcessFlowF
         }
     }
 
-    protected open fun setupTopImage(topImageUrl: String?) = with(vb.ivTopImage) {
-        isVisible = !topImageUrl.isNullOrEmpty()
-        topImageUrl?.let {
-            loadImage(it)
-        }
-    }
-
     protected open fun setupStatusIcon(
         stateScreenStatus: StateScreenStatus?,
+        topImageUrl: String?,
         statusImageUrl: String?,
         animationUrl: String?
     ): Unit = with(vb) {
@@ -113,6 +106,10 @@ open class ProcessStatusInfoFragment : BaseProcessScreenFragment<NurProcessFlowF
                     )
                 )
                 lavStatus.visible()
+            }
+            topImageUrl != null -> vb.ivTopImage.apply {
+                loadImage(topImageUrl)
+                visible()
             }
             statusImageUrl != null -> ivStatus.apply {
                 loadImage(statusImageUrl)

@@ -9,6 +9,7 @@ class VideoPromoStatusFragment : ProcessStatusInfoFragment() {
 
     override fun setupStatusIcon(
         stateScreenStatus: StateScreenStatus?,
+        topImageUrl: String?,
         statusImageUrl: String?,
         animationUrl: String?
     ) {

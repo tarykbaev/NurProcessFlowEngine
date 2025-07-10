@@ -10,24 +10,25 @@
         android:id="@+id/iv_top_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:contentDescription="@null"
         android:adjustViewBounds="true"
+        android:contentDescription="@null"
         android:scaleType="fitXY"
         android:visibility="gone"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/padding_16dp"
-        android:layout_marginTop="@dimen/padding_16dp"
+        android:layout_marginTop="@dimen/padding_62dp"
         android:gravity="center"
         android:textAppearance="@style/Chili.H4.Marked.Bold"
         android:textSize="22sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iv_top_image"
+        app:layout_goneMarginTop="@dimen/padding_16dp"
         tools:text="Title" />
 
     <TextView
@@ -92,8 +93,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@id/ll_buttons"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/ll_buttons"

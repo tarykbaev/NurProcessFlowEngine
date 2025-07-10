@@ -30,6 +30,7 @@ class OfflineFlowConfig : AppCompatActivity() {
         vb.btnStartOtp.setOnClickListener { openFlow("OTP") }
         vb.btnStartTimer.setOnClickListener { openFlow("ANY_WEB_VIEW_ID") }
         vb.btnStartAgreemrntStatusInfo.setOnClickListener { openFlow("AGREEMENT_STATUS_INFO") }
+        vb.btnStartTopImage.setOnClickListener { openFlow("TOP_IMAGE_STATUS_INFO") }
 
     }
 

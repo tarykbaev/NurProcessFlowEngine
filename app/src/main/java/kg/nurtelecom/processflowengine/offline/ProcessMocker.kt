@@ -1098,6 +1098,48 @@ object ProcessMocker {
                 }
             """.trimIndent()
         )
+
+        put("TOP_IMAGE_STATUS_INFO", """
+            {
+                "definition_key": "SCREEN_ESIM_PERS",
+                "process_id": "werq-rqwew-rwer-fser",
+                "process_key": null,
+                "process_status": "RUNNING",
+                "messages": [],
+                "allowed_answers": [
+                    {
+                        "responseType": "BUTTON",
+                        "responseItem": {
+                            "disabled": false,
+                            "style": "SECONDARY",
+                            "properties": null,
+                            "buttonId": "OPEN_MAP",
+                            "text": "Адреса О!Store"
+                        }
+                    },
+                    {
+                        "responseType": "BUTTON",
+                        "responseItem": {
+                            "disabled": false,
+                            "style": "ACCENT",
+                            "properties": null,
+                            "buttonId": "START_ESIM_FLOW",
+                            "text": "Получить eSIM"
+                        }
+                    }
+                ],
+                "screen_code": "STATUS_INFO",
+                "screen_state": {
+                    "app_bar_text": null,
+                    "title": "Способы получения Sim-карты:",
+                    "description": "Номер с eSIM прямо сейчас, или SIM-карта в любом O!Store",
+                    "status": null,
+                    "topImageUrl": "https://minio.o.kg/lkab/personification/esim_welcome.png"
+                },
+                "variables": {}
+            }
+        """.trimIndent())
+
         put(
             "CREATE_qweqwew_APPLICATION", """
     {
