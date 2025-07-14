@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.View
 import android.widget.LinearLayout
 import com.design2.chili2.extensions.setIsSurfaceClickable
+import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.view.cells.BaseCellView
 import kg.nurtelecom.processflow.R
 import kg.nurtelecom.processflow.model.input_form.DisplayOnlyFieldItem
@@ -11,7 +12,11 @@ import com.design2.chili2.R as Chilli_R
 
 object DisplayOnlyFieldItemCreator {
 
-    fun create(context: Context, displayOnlyFieldItem: DisplayOnlyFieldItem): View {
+    fun create(
+        context: Context,
+        displayOnlyFieldItem: DisplayOnlyFieldItem,
+        onClick: (item: DisplayOnlyFieldItem) -> Unit
+    ): View {
         val padding0 = context.resources.getDimensionPixelSize(Chilli_R.dimen.padding_0dp)
         val padding4 = context.resources.getDimensionPixelSize(Chilli_R.dimen.padding_4dp)
         val padding8 = context.resources.getDimensionPixelSize(Chilli_R.dimen.padding_8dp)
@@ -33,10 +38,16 @@ object DisplayOnlyFieldItemCreator {
             setSubtitleMaxLines(Int.MAX_VALUE)
             displayOnlyFieldItem.value?.let { setSubtitle(it) }
             setBackgroundResource(R.drawable.ic_label_cell_rounded_bg)
-            setIsSurfaceClickable(false)
             this.layoutParams = layoutParams
             setDividerVisibility(false)
-            setIsChevronVisible(false)
+            if (displayOnlyFieldItem.isClickable == true) {
+                setIsChevronVisible(true)
+                setIsSurfaceClickable(true)
+                setOnSingleClickListener { onClick(displayOnlyFieldItem) }
+            } else {
+                setIsChevronVisible(false)
+                setIsSurfaceClickable(false)
+            }
         }
     }
 }

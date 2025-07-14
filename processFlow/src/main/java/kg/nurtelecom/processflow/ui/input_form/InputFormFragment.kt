@@ -154,7 +154,7 @@ class InputFormFragment : BaseProcessScreenFragment<NurProcessFlowFragmentInputF
     }
 
     private fun createDisplayOnlyFieldItem(displayOnlyFieldItem: DisplayOnlyFieldItem): View {
-        return DisplayOnlyFieldItemCreator.create(requireContext(), displayOnlyFieldItem)
+        return DisplayOnlyFieldItemCreator.create(requireContext(), displayOnlyFieldItem, ::onFieldClick)
     }
 
     private fun createDropDownField(dropDownList: DropDownFieldInfo): View {
@@ -191,6 +191,10 @@ class InputFormFragment : BaseProcessScreenFragment<NurProcessFlowFragmentInputF
         isContinueClicked = true
         requireContext().hideKeyboard()
         getProcessFlowHolder().commit(ProcessFlowCommit.CommitContentFormResponseId(currentFormId, collectResult()))
+    }
+
+    private fun onFieldClick(fieldItem: DisplayOnlyFieldItem) {
+        getProcessFlowHolder().commit(ProcessFlowCommit.OnButtonClick(FlowButton(fieldItem.fieldId)))
     }
 
     override fun handleShowLoading(isLoading: Boolean): Boolean {

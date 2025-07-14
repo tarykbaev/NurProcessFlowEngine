@@ -636,7 +636,8 @@ object ProcessMocker {
                                 "label": "ИНН",
                                 "value": "20101199100001",
                                 "disabled": false,
-                                "validations": []
+                                "validations": [],
+                                "isClickable": true
                             }
                         },
                         {
@@ -646,7 +647,8 @@ object ProcessMocker {
                                 "label": "Паспорт",
                                 "value": "AN 1234567 выдан 20.03.2015",
                                 "disabled": false,
-                                "validations": []
+                                "validations": [],
+                                "isClickable": true
                             }
                         },
                         {
