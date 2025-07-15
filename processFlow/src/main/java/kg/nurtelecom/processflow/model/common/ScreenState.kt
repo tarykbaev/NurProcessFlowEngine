@@ -20,8 +20,7 @@ data class ScreenState(
     val isUncancellable: Boolean? = null,
     val topImageUrl: String? = null,
     val instruction: String? = null,
-    val eSimUrl: String? = null,
-    val fileUrl: String? = null,
+    val esimUrl: String? = null
 ) {
 
     fun isBottomSheetAvailable(): Boolean = !infoTitle.isNullOrEmpty() && !infoDescHtml.isNullOrEmpty()
