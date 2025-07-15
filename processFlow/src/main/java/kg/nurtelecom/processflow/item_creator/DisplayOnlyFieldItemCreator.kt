@@ -37,6 +37,7 @@ object DisplayOnlyFieldItemCreator {
             setSubtitleTextAppearance(Chilli_R.style.Chili_H7_Primary)
             setSubtitleMaxLines(Int.MAX_VALUE)
             displayOnlyFieldItem.value?.let { setSubtitle(it) }
+            displayOnlyFieldItem.description?.let { setSubtitle(it) }
             setBackgroundResource(R.drawable.ic_label_cell_rounded_bg)
             this.layoutParams = layoutParams
             setDividerVisibility(false)
