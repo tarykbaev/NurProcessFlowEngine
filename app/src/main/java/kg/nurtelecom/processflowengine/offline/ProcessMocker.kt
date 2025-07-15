@@ -467,7 +467,9 @@ object ProcessMocker {
         "process_status": "RUNNING",
         "screen_code": "INPUT_FORM",
         "screen_state": {
-            "app_bar_text": "Passport data"
+            "app_bar_text": "Passport data",
+            "title": "Выберите способ оплаты",
+  "description": "Оплата возможна через любой сервис, где можно пополнить баланс мобильного оператора О!"
         },
         "messages": [],
         "allowed_answers": [

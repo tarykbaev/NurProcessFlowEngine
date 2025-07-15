@@ -16,7 +16,9 @@ import kg.nurtelecom.processflow.custom_view.drop_down_input_field.DropDownInput
 import kg.nurtelecom.processflow.custom_view.InputFormGroupButtons
 import kg.nurtelecom.processflow.databinding.NurProcessFlowFragmentInputFormBinding
 import kg.nurtelecom.processflow.extension.getProcessFlowHolder
+import kg.nurtelecom.processflow.extension.gone
 import kg.nurtelecom.processflow.extension.hideKeyboard
+import kg.nurtelecom.processflow.extension.visible
 import kg.nurtelecom.processflow.item_creator.DatePickerFieldCreator
 import kg.nurtelecom.processflow.item_creator.DisplayOnlyFieldItemCreator
 import kg.nurtelecom.processflow.item_creator.DropDownFieldCreator
@@ -29,6 +31,7 @@ import kg.nurtelecom.processflow.model.ContentTypes
 import kg.nurtelecom.processflow.model.ProcessFlowCommit
 import kg.nurtelecom.processflow.model.ProcessFlowScreenData
 import kg.nurtelecom.processflow.model.common.Content
+import kg.nurtelecom.processflow.model.common.ScreenState
 import kg.nurtelecom.processflow.model.component.FlowButton
 import kg.nurtelecom.processflow.model.component.FlowInputField
 import kg.nurtelecom.processflow.model.input_form.DatePickerFieldInfo
@@ -42,7 +45,6 @@ import kg.nurtelecom.processflow.model.input_form.LabelFormItem
 import kg.nurtelecom.processflow.model.input_form.Option
 import kg.nurtelecom.processflow.model.input_form.PairFieldItem
 import java.util.Calendar
-
 
 class InputFormFragment : BaseProcessScreenFragment<NurProcessFlowFragmentInputFormBinding>(), FragmentResultListener {
 
@@ -68,6 +70,23 @@ class InputFormFragment : BaseProcessScreenFragment<NurProcessFlowFragmentInputF
         super.onViewCreated(view, savedInstanceState)
         childFragmentManager.setFragmentResultListener(DatePickerDialog.PICKER_DIALOG_RESULT, this, this)
     }
+
+    override fun renderScreenState(state: ScreenState?) {
+        super.renderScreenState(state)
+        vb.tvTitle.gone()
+        vb.tvDescription.gone()
+        state?.run {
+            title?.let { vb.tvTitle.apply {
+                text = it
+                visible()
+            }}
+            description?.let { vb.tvDescription.apply {
+                text = it
+                visible()
+            }}
+        }
+    }
+
 
     override fun inflateViewBinging(): NurProcessFlowFragmentInputFormBinding {
         return NurProcessFlowFragmentInputFormBinding.inflate(layoutInflater)
@@ -119,10 +138,6 @@ class InputFormFragment : BaseProcessScreenFragment<NurProcessFlowFragmentInputF
                 else -> null
             }
             view?.let { container.addView(it) }
-        }
-        vb.tvTitle.apply {
-            text = inputForm.title
-            isVisible = inputForm.title != null
         }
         vb.formContainer.removeAllViews()
         vb.formContainer.addView(container)
