@@ -7,5 +7,6 @@ data class DisplayOnlyFieldItem(
     val label: String? = null,
     val value: String? = null,
     val isClickable: Boolean? = false,
-    val description: String? = null
+    val description: String? = null,
+    val isDescriptionHtml: Boolean? = null
 ): Serializable

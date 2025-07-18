@@ -4,7 +4,9 @@ import android.content.Context
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.text.parseAsHtml
 import com.design2.chili2.extensions.color
+import com.design2.chili2.extensions.setIsSurfaceClickable
 import com.design2.chili2.view.cells.BaseCellView
 import kg.nurtelecom.processflow.R
 import kg.nurtelecom.processflow.model.input_form.LabelFormItem
@@ -52,10 +54,13 @@ object LabelFormItemCreator : ValidatableItem() {
             setBackgroundResource(R.drawable.ic_label_cell_rounded_bg)
             this.layoutParams = layoutParams
 
-            labelFormItem.description?.let {
-                setSubtitle(it)
+            if (labelFormItem.isDescriptionHtml == true) {
+                labelFormItem.description?.let { setSubtitle(it.parseAsHtml()) }
+            } else {
+                labelFormItem.description?.let { setSubtitle(it) }
             }
             if (labelFormItem.hasBackground != true) setBackgroundColor(context.color(android.R.color.transparent))
+            setIsSurfaceClickable(false)
         }
     }
 }

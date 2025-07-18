@@ -3,6 +3,7 @@ package kg.nurtelecom.processflow.item_creator
 import android.content.Context
 import android.view.View
 import android.widget.LinearLayout
+import androidx.core.text.parseAsHtml
 import com.design2.chili2.extensions.setIsSurfaceClickable
 import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.view.cells.BaseCellView
@@ -37,7 +38,9 @@ object DisplayOnlyFieldItemCreator {
             setSubtitleTextAppearance(Chilli_R.style.Chili_H7_Primary)
             setSubtitleMaxLines(Int.MAX_VALUE)
             displayOnlyFieldItem.value?.let { setSubtitle(it) }
-            displayOnlyFieldItem.description?.let { setSubtitle(it) }
+            if (displayOnlyFieldItem.isDescriptionHtml == true) {
+                displayOnlyFieldItem.description?.let { setSubtitle(it.parseAsHtml()) }
+            } else displayOnlyFieldItem.description?.let { setSubtitle(it) }
             setBackgroundResource(R.drawable.ic_label_cell_rounded_bg)
             this.layoutParams = layoutParams
             setDividerVisibility(false)

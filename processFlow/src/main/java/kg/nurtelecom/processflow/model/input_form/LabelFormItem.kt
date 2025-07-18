@@ -7,5 +7,6 @@ data class LabelFormItem(
     val label: String? = null,
     val description: String? = null,
     val hasBackground: Boolean? = null,
-    val properties: Map<String, String>? = null
+    val properties: Map<String, String>? = null,
+    val isDescriptionHtml: Boolean? = null
 ): Serializable
