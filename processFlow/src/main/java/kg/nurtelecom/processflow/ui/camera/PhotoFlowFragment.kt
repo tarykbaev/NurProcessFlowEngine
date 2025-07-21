@@ -49,6 +49,10 @@ class PhotoFlowFragment : BaseProcessScreenFragment<NurProcessFlowFragmentPhotoF
 
     private var needRecognition = true
     private var recognizedMrz: RecognizedMrz? = null
+    private var overlayType: OverlayType = OverlayType.PASSPORT_OVERLAY
+    private var timeoutLimit: Int = ProcessFlowConfigurator.recognizerTimeoutLimit
+    private var timeoutMills: Long = ProcessFlowConfigurator.recognizerTimeoutMills
+    private var showCameraButtonAfterTimeout: Boolean = false
 
     override val unclickableMask: View?
         get() = vb.unclickableMask
@@ -95,21 +99,33 @@ class PhotoFlowFragment : BaseProcessScreenFragment<NurProcessFlowFragmentPhotoF
             if(cameraType == CameraType.FOREIGN_PASSPORT) R.string.nur_process_flow_photo_instruction_passport_foreigner
             else R.string.nur_process_flow_photo_capture_passport_back_title
         )
-        val overlayType = if(cameraType == CameraType.FOREIGN_PASSPORT) OverlayType.FOREIGN_PASSPORT_OVERLAY
-        else OverlayType.PASSPORT_OVERLAY
+
+        if (cameraType == CameraType.FOREIGN_PASSPORT) {
+            overlayType = OverlayType.FOREIGN_PASSPORT_OVERLAY
+            timeoutLimit = ProcessFlowConfigurator.foreignRecognizerTimeoutLimit
+            timeoutMills = ProcessFlowConfigurator.foreignRecognizerTimeoutMills
+            showCameraButtonAfterTimeout = true
+        } else {
+            overlayType = OverlayType.PASSPORT_OVERLAY
+            timeoutLimit = ProcessFlowConfigurator.recognizerTimeoutLimit
+            timeoutMills = ProcessFlowConfigurator.recognizerTimeoutMills
+            showCameraButtonAfterTimeout = false
+        }
+
         textRecognizerContract.launch(
             TextRecognizerConfig(
-                false,
-                ProcessFlowConfigurator.recognizerTimeoutLimit,
-                ProcessFlowConfigurator.recognizerTimeoutMills,
-                getString(R.string.nur_process_flow_photo_recognizer_timeout_description),
+                shouldRecognizeOnRetry = false,
+                timeoutLimit = timeoutLimit,
+                timeoutMills = timeoutMills,
+                timeoutMessage = getString(R.string.nur_process_flow_photo_recognizer_timeout_description),
                 false,
                 photoCaptureLabels = ScreenLabels(label, description = getString(R.string.nur_process_flow_photo_capture_passport_front_description)),
                 recognitionLabels = ScreenLabels(label, description = getString(R.string.nur_process_flow_photo_capture_passport_front_description)),
                 overlayType = overlayType,
                 hasCustomPhotoConfirmation = true,
-                needRecognition = false,
-                isSimplifiedRecognition = true
+                needRecognition = recognizedMrz == null,
+                isSimplifiedRecognition = true,
+                showCameraButtonAfterTimeout = showCameraButtonAfterTimeout
             )
         )
     }

@@ -9,4 +9,7 @@ object ProcessFlowConfigurator {
 
     var recognizerTimeoutLimit = 20
     var recognizerTimeoutMills = 20000L
+
+    var foreignRecognizerTimeoutLimit = 1
+    var foreignRecognizerTimeoutMills = 7000L
 }
