@@ -108,7 +108,7 @@ class PhotoFlowFragment : BaseProcessScreenFragment<NurProcessFlowFragmentPhotoF
                 recognitionLabels = ScreenLabels(label, description = getString(R.string.nur_process_flow_photo_capture_passport_front_description)),
                 overlayType = overlayType,
                 hasCustomPhotoConfirmation = true,
-                needRecognition = recognizedMrz == null,
+                needRecognition = false,
                 isSimplifiedRecognition = true
             )
         )
