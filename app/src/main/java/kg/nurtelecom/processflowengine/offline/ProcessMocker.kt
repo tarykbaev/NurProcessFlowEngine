@@ -1138,7 +1138,8 @@ object ProcessMocker {
                     "title": "Способы получения Sim-карты:",
                     "description": "Номер с eSIM прямо сейчас, или SIM-карта в любом O!Store",
                     "status": null,
-                    "topImageUrl": "https://minio.o.kg/lkab/personification/esim_welcome.png"
+                    "topImageUrl": "https://minio.o.kg/lkab/personification/esim_welcome.png",
+                    "bottomDescriptionHtml":"<p>Нажимая кнопку, вы даете свое согласие <a href=\"AGREEMENT\">на сбор и обработку данных, предоставление услуг и сервисов.</a></p>"
                 },
                 "variables": {}
             }

@@ -190,15 +190,14 @@ open class ProcessStatusInfoFragment : BaseProcessScreenFragment<NurProcessFlowF
     }
 
     private fun setupBottomAgreement(link: String?) {
-        if (link.isNullOrEmpty()) return
+        vb.bottomContainer.removeAllViews()
 
-        val container = createContainer()
-
-        container.addView(createButtonGroup(createAgreementFormItem(link)))
-
-        vb.bottomContainer.apply {
-            removeAllViews()
-            addView(container)
+        link?.takeIf { it.isNotBlank() }?.let {
+            val agreementView = createButtonGroup(createAgreementFormItem(it))
+            val container = createContainer().apply {
+                addView(agreementView)
+            }
+            vb.bottomContainer.addView(container)
         }
     }
 
