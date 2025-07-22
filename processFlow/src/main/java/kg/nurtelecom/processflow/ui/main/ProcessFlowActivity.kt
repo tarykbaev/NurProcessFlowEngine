@@ -17,6 +17,7 @@ import kg.nurtelecom.processflow.base.process.BackPressHandleState
 import kg.nurtelecom.processflow.base.process.ProcessFlowHolder
 import kg.nurtelecom.processflow.base.process.ProcessFlowScreen
 import kg.nurtelecom.processflow.databinding.NurProcessFlowActivityProcessFlowBinding
+import kg.nurtelecom.processflow.extension.getProcessFlowHolder
 import kg.nurtelecom.processflow.extension.negativeButton
 import kg.nurtelecom.processflow.extension.positiveButton
 import kg.nurtelecom.processflow.extension.showDialog
@@ -54,6 +55,7 @@ import kg.nurtelecom.processflow.model.component.FlowRetryInfo
 import kg.nurtelecom.processflow.model.component.FlowWebView
 import kg.nurtelecom.processflow.model.component.WebViewFileTypes
 import kg.nurtelecom.processflow.model.component.WebViewProperties
+import kg.nurtelecom.processflow.model.request.ProcessVariable
 import kg.nurtelecom.processflow.ui.camera.CameraType
 import kg.nurtelecom.processflow.ui.camera.PhotoFlowFragment
 import kg.nurtelecom.processflow.ui.input_field.ProcessFlowInputFieldFragment
@@ -94,7 +96,7 @@ abstract class ProcessFlowActivity<VM: ProcessFlowVM<*>> : AppCompatActivity(), 
     protected val currentScreen: ProcessFlowScreen?
         get() = (supportFragmentManager.findFragmentById(R.id.fl_container)) as? ProcessFlowScreen
 
-    private var countDownTimer: CountDownTimer? = null
+    protected var countDownTimers = mutableListOf<CountDownTimer?>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -132,6 +134,7 @@ abstract class ProcessFlowActivity<VM: ProcessFlowVM<*>> : AppCompatActivity(), 
         event.observe(this@ProcessFlowActivity) { if (it != null) resolveNewEvent(it) }
         processFlowScreenDataLive.observe(this@ProcessFlowActivity) { resolveNewScreenState(it); resolveNewScreenKey(it) }
         loaderState.observe(this@ProcessFlowActivity) { if (it) showLoading() else hideLoading() }
+        processVariable.observe(this@ProcessFlowActivity) { resolveNewScreenVariables(it) }
     }
 
     override fun setToolbarNavIcon(navIconRes: Int) {
@@ -352,6 +355,33 @@ abstract class ProcessFlowActivity<VM: ProcessFlowVM<*>> : AppCompatActivity(), 
         screenData.allowedAnswer?.filterIsInstance<FlowRetryInfo>()?.let { handleRetry(it) }
     }
 
+    open fun resolveNewScreenVariables(processVariable: ProcessVariable) {
+        setupToolbarTimer(processVariable.timer)
+    }
+
+    protected fun setupToolbarTimer(timestamp: Long?) {
+        if (timestamp != null) {
+            setupMillsTimerFor(
+                timestamp,
+                { setToolbarEndText(null) },
+                { setToolbarEndText(it.toTimeFromMillis) }
+            )
+        } else {
+            getProcessFlowHolder().setToolbarEndText(null)
+        }
+    }
+
+    open fun setupMillsTimerFor(mills: Long?, onFinish: () -> Unit, onTick: (Long) -> Unit) {
+        if (mills == null) return
+        if (mills <= 0) return onFinish.invoke()
+        countDownTimers += object : CountDownTimer(mills, 1000) {
+            override fun onTick(millisUntilFinished: Long) { onTick(millisUntilFinished) }
+            override fun onFinish() { onFinish() }
+        }.apply {
+            start()
+        }
+    }
+
     open fun navigateTo(
         fragmentClass: Class<out Fragment>,
         checkPrevFragment: Boolean = true,
@@ -492,5 +522,15 @@ abstract class ProcessFlowActivity<VM: ProcessFlowVM<*>> : AppCompatActivity(), 
     open fun closeCurrentFlowActivity() {
         hideLoading()
         finish()
+    }
+
+    override fun onDestroy() {
+        resetTimers()
+        super.onDestroy()
+    }
+
+    protected fun resetTimers() {
+        countDownTimers.forEach { it?.cancel() }
+        countDownTimers.clear()
     }
 }

@@ -8,6 +8,5 @@ data class ProcessFlowScreenData(
     val screenKey: String? = null,
     val state: ScreenState? = null,
     val allowedAnswer: List<Any?>? = null,
-    val message: List<FlowMessage?>? = null,
-    val processVariable: ProcessVariable? = null
+    val message: List<FlowMessage?>? = null
 )

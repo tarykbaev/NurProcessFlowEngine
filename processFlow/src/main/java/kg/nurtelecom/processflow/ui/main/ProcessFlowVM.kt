@@ -18,6 +18,7 @@ import kg.nurtelecom.processflow.network.parser.ProcessFlowResponseParser
 import kg.nurtelecom.processflow.repository.ProcessFlowRepository
 import kg.nurtelecom.processflow.util.PictureUtil
 import kg.nurtelecom.nur_text_recognizer.RecognizedMrz
+import kg.nurtelecom.processflow.model.request.ProcessVariable
 import java.io.File
 
 abstract class ProcessFlowVM<T: ProcessFlowRepository>(protected val _repository: T) : BaseVM() {
@@ -39,6 +40,8 @@ abstract class ProcessFlowVM<T: ProcessFlowRepository>(protected val _repository
     }
 
     val processFlowScreenDataLive = MutableLiveData<ProcessFlowScreenData>()
+
+    val processVariable = MutableLiveData<ProcessVariable>()
 
     fun requireProcessFlowId(): String = processFlowId ?: throw Exception("Process flow id is null")
 
@@ -257,10 +260,10 @@ abstract class ProcessFlowVM<T: ProcessFlowRepository>(protected val _repository
                 screenKey = response.screenKey,
                 state = response.screenState,
                 allowedAnswer = allowedAnswers,
-                message = response.messages,
-                processVariable = response.processVariable
+                message = response.messages
             )
             processFlowScreenDataLive.postValue(screenData)
+            processVariable.postValue(response.processVariable)
             response
         }.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

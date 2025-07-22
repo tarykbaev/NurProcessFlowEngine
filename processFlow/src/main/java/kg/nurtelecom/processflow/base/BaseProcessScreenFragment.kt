@@ -15,7 +15,6 @@ import com.design2.chili2.view.input.otp.OtpInputView
 import kg.nurtelecom.processflow.base.process.ProcessFlowScreen
 import kg.nurtelecom.processflow.extension.getProcessFlowHolder
 import kg.nurtelecom.processflow.extension.setMargins
-import kg.nurtelecom.processflow.extension.toTimeFromMillis
 import kg.nurtelecom.processflow.item_creator.FlowButtonCreator
 import kg.nurtelecom.processflow.item_creator.InputFieldCreator
 import kg.nurtelecom.processflow.item_creator.OtpInputViewCreator
@@ -27,7 +26,6 @@ import kg.nurtelecom.processflow.model.component.FlowButton
 import kg.nurtelecom.processflow.model.component.FlowInputField
 import kg.nurtelecom.processflow.model.component.FlowMessage
 import kg.nurtelecom.processflow.model.component.FlowRetryInfo
-import kg.nurtelecom.processflow.model.request.ProcessVariable
 import java.util.Date
 
 abstract class BaseProcessScreenFragment<VB: ViewBinding> : BaseFragment<VB>(), ProcessFlowScreen {
@@ -67,7 +65,6 @@ abstract class BaseProcessScreenFragment<VB: ViewBinding> : BaseFragment<VB>(), 
         parseAllowedAnswers(data?.allowedAnswer)
         renderScreenState(data?.state)
         renderMessages(data?.message)
-        parseProcessVariables(data?.processVariable)
     }
 
     open fun setThemeAndLocale(isLightTheme: Boolean, appLocale: String) {
@@ -85,22 +82,6 @@ abstract class BaseProcessScreenFragment<VB: ViewBinding> : BaseFragment<VB>(), 
                     else inputFieldContainer?.let { renderInputField(it, allowedAnswer) }
                 }
             }
-        }
-    }
-
-    private fun parseProcessVariables(processVariable: ProcessVariable?) {
-        setupToolbarTimer(processVariable?.timer)
-    }
-
-    protected fun setupToolbarTimer(timestamp: Long?) {
-        if (timestamp != null) {
-            setupMillsTimerFor(
-                timestamp,
-                { getProcessFlowHolder().setToolbarEndText(null) },
-                { getProcessFlowHolder().setToolbarEndText(it.toTimeFromMillis) }
-            )
-        } else {
-            getProcessFlowHolder().setToolbarEndText(null)
         }
     }
 
