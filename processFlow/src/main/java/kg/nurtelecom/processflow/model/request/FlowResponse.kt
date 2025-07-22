@@ -21,4 +21,6 @@ data class FlowResponse(
     val allowedAnswer: List<FlowAllowedAnswer>? = null,
     @SerializedName("definition_key")
     val processType: String? = null,
+    @SerializedName("processExposedVariables")
+    val processVariable: ProcessVariable? = null
 ): Serializable

@@ -33,11 +33,6 @@ class PersonificationTestProcessFlow : ProcessFlowActivity<PersonificationTestVM
         if (button?.buttonId == "EXIT_NAVIGATE_TO_WALLET_MAIN") finish()
         else super.resolveButtonClickCommit(button, additionalContent)
     }
-
-    override fun observeLiveData() {
-        super.observeLiveData()
-        observeRemainingTime()
-    }
 }
 
 object MyCommit : ProcessFlowCommit()

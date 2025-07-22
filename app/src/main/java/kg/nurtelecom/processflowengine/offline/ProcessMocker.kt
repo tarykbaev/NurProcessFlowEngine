@@ -1141,6 +1141,9 @@ object ProcessMocker {
                     "topImageUrl": "https://minio.o.kg/lkab/personification/esim_welcome.png",
                     "bottomDescriptionHtml":"<p>Нажимая кнопку, вы даете свое согласие <a href=\"AGREEMENT\">на сбор и обработку данных, предоставление услуг и сервисов.</a></p>"
                 },
+                "processExposedVariables": {
+                    "timer": 120000
+                },
                 "variables": {}
             }
         """.trimIndent())

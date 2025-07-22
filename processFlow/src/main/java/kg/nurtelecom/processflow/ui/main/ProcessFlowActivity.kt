@@ -158,6 +158,8 @@ abstract class ProcessFlowActivity<VM: ProcessFlowVM<*>> : AppCompatActivity(), 
 
     override fun setToolbarTitle(title: String) { vb.chiliToolbar.setTitle(title) }
 
+    override fun setToolbarEndText(text: String?) { vb.chiliToolbar.setAdditionalText(text) }
+
     override fun setToolbarTitleCentered(isCentered: Boolean) {
         vb.chiliToolbar.setIsTitleCentered(isCentered)
     }
@@ -487,34 +489,8 @@ abstract class ProcessFlowActivity<VM: ProcessFlowVM<*>> : AppCompatActivity(), 
         } catch (_: Exception) {}
     }
 
-    open fun observeRemainingTime() {
-        vm.remainingTime.observe(this@ProcessFlowActivity) { setRemainingTime(it) }
-    }
-
-    private fun setRemainingTime(remainingTime: Long?) {
-        countDownTimer?.cancel()
-        if (remainingTime != null) {
-            countDownTimer = startCountDownTimer(
-                remainingTime,
-                COUNTDOWN_INTERVAL,
-                onTick = {
-                    vb.chiliToolbar.setAdditionalText(it.toTimeFromMillis)
-                }
-            )
-        }
-    }
-
     open fun closeCurrentFlowActivity() {
         hideLoading()
         finish()
-    }
-
-    override fun onDestroy() {
-        countDownTimer?.cancel()
-        super.onDestroy()
-    }
-
-    companion object {
-        private const val COUNTDOWN_INTERVAL = 1000L
     }
 }
