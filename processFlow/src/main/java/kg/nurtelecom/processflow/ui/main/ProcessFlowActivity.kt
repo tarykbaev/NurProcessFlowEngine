@@ -17,7 +17,6 @@ import kg.nurtelecom.processflow.base.process.BackPressHandleState
 import kg.nurtelecom.processflow.base.process.ProcessFlowHolder
 import kg.nurtelecom.processflow.base.process.ProcessFlowScreen
 import kg.nurtelecom.processflow.databinding.NurProcessFlowActivityProcessFlowBinding
-import kg.nurtelecom.processflow.extension.getProcessFlowHolder
 import kg.nurtelecom.processflow.extension.negativeButton
 import kg.nurtelecom.processflow.extension.positiveButton
 import kg.nurtelecom.processflow.extension.showDialog
@@ -66,7 +65,6 @@ import kg.nurtelecom.processflow.ui.web_view.ProcessFlowLinksWebView
 import kg.nurtelecom.processflow.ui.web_view.ProcessFlowPdfWebViewFragment
 import kg.nurtelecom.processflow.ui.web_view.ProcessFlowWebViewFragment
 import kg.nurtelecom.processflow.ui.web_view.VideoCallWebViewFragment
-import kg.nurtelecom.processflow.util.TimerUtils.startCountDownTimer
 import java.io.File
 
 abstract class ProcessFlowActivity<VM: ProcessFlowVM<*>> : AppCompatActivity(), ProcessFlowHolder {
@@ -96,7 +94,7 @@ abstract class ProcessFlowActivity<VM: ProcessFlowVM<*>> : AppCompatActivity(), 
     protected val currentScreen: ProcessFlowScreen?
         get() = (supportFragmentManager.findFragmentById(R.id.fl_container)) as? ProcessFlowScreen
 
-    protected var countDownTimers = mutableListOf<CountDownTimer?>()
+    protected var countDownTimer: CountDownTimer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -360,25 +358,16 @@ abstract class ProcessFlowActivity<VM: ProcessFlowVM<*>> : AppCompatActivity(), 
     }
 
     protected fun setupToolbarTimer(timestamp: Long?) {
+        countDownTimer?.cancel()
         if (timestamp != null) {
-            setupMillsTimerFor(
-                timestamp,
-                { setToolbarEndText(null) },
-                { setToolbarEndText(it.toTimeFromMillis) }
-            )
+            countDownTimer = object : CountDownTimer(timestamp, 1000) {
+                override fun onTick(millisUntilFinished: Long) {
+                    setToolbarEndText(millisUntilFinished.toTimeFromMillis)
+                }
+                override fun onFinish() { setToolbarEndText(null) }
+            }.start()
         } else {
-            getProcessFlowHolder().setToolbarEndText(null)
-        }
-    }
-
-    open fun setupMillsTimerFor(mills: Long?, onFinish: () -> Unit, onTick: (Long) -> Unit) {
-        if (mills == null) return
-        if (mills <= 0) return onFinish.invoke()
-        countDownTimers += object : CountDownTimer(mills, 1000) {
-            override fun onTick(millisUntilFinished: Long) { onTick(millisUntilFinished) }
-            override fun onFinish() { onFinish() }
-        }.apply {
-            start()
+            setToolbarEndText(null)
         }
     }
 
@@ -525,12 +514,7 @@ abstract class ProcessFlowActivity<VM: ProcessFlowVM<*>> : AppCompatActivity(), 
     }
 
     override fun onDestroy() {
-        resetTimers()
+        countDownTimer?.cancel()
         super.onDestroy()
-    }
-
-    protected fun resetTimers() {
-        countDownTimers.forEach { it?.cancel() }
-        countDownTimers.clear()
     }
 }
