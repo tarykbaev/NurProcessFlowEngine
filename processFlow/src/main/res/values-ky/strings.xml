@@ -10,7 +10,7 @@
     <string name="nur_process_flow_permission_request_title">Бул функцияны колдонуу үчүн тиешелүү уруксат керек.</string>
     <string name="nur_process_flow_no_available_free_space">Телефондо сүрөттөрдү сактоо жана иштеп чыгуу үчүн бош орун жетишсиз. Телефондон бираз орун бошотуңуз жана аракетиңизди кайталаңыз.</string>
     <string name="nur_process_flow_confirm">Ырастоо</string>
-    <string name="nur_process_flow_can_not_find"></string>
+    <string name="nur_process_flow_can_not_find">Кодду таба албай жатам</string>
     <string name="nur_process_flow_repeat_after">%s аркылуу кайталоо</string>
     <string name="nur_process_flow_resend">Кайрадан жөнөтүү</string>
     <string name="nur_process_flow_warning_exit">Процессти токтотууну чындап каалайсызбы?</string>
