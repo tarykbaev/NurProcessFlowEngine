@@ -353,8 +353,8 @@ abstract class ProcessFlowActivity<VM: ProcessFlowVM<*>> : AppCompatActivity(), 
         screenData.allowedAnswer?.filterIsInstance<FlowRetryInfo>()?.let { handleRetry(it) }
     }
 
-    open fun resolveNewScreenVariables(processVariable: ProcessVariable) {
-        setupToolbarTimer(processVariable.timer)
+    open fun resolveNewScreenVariables(processVariable: ProcessVariable?) {
+        setupToolbarTimer(processVariable?.timer)
     }
 
     protected fun setupToolbarTimer(timestamp: Long?) {

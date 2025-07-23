@@ -41,7 +41,7 @@ abstract class ProcessFlowVM<T: ProcessFlowRepository>(protected val _repository
 
     val processFlowScreenDataLive = MutableLiveData<ProcessFlowScreenData>()
 
-    val processVariable = MutableLiveData<ProcessVariable>()
+    val processVariable = MutableLiveData<ProcessVariable?>()
 
     fun requireProcessFlowId(): String = processFlowId ?: throw Exception("Process flow id is null")
 
