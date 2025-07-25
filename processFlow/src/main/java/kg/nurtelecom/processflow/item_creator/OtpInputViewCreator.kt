@@ -36,7 +36,7 @@ object OtpInputViewCreator : ValidatableItem() {
 
                 override fun onOtpInputComplete(otp: String) {
                     val input = listOf(otp.trim())
-                    val isValid = validateItem(fieldInfo.validations, input)
+                    val isValid = validateItem(fieldInfo.validations, input) && fieldInfo.disabled != true
                     onInputComplete(input, isValid)
                 }
             })

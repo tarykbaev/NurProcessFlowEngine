@@ -419,7 +419,8 @@ object ProcessMocker {
                        "value":"true"
                     }
                 ],
-                "enableActionAfterMills":10000,
+                "disabled": true,
+                "enableActionAfterMills":12000,
                 "additionalActionResolutionCode":"RESEND_OTP",
                 "isOtpView":"true",
                 "errorMessage":"Неверный код"
@@ -433,6 +434,43 @@ object ProcessMocker {
 
         put(
             "RESEND_OTP", """
+                {
+       "process_id":"werq-rqwew-rwer-fser",
+       "process_status":"RUNNING",
+       "screen_code":"INPUT_OTP",
+       "screen_state":{
+          "status":null,
+          "app_bar_text":"Идентификация",
+          "title":"",
+          "infoTitle": "esim_push_title",
+          "infoDescHtml": "esim_push_desc",
+          "description":"Подтвердите заявку.\n SMS с кодом отправлено на номер \n+996 700 000 999"
+       },
+       "messages":[],
+       "allowed_answers":[
+          {
+             "responseType":"INPUT_FIELD",
+             "responseItem":{
+                "fieldId":"OTP_INPUT",
+                "inputType":"NUMBER",
+                "validations":[
+                    {
+                       "type":"REQUIRED",
+                       "value":"true"
+                    }
+                ],
+                "enableActionAfterMills":12000,
+                "additionalActionResolutionCode":"RESEND_OTP",
+                "isOtpView":"true"
+             }
+          }
+       ]
+    }
+            """.trimIndent()
+        )
+
+        put(
+            "RESEND_OTP_2", """
     {
        "process_id":"werq-rqwew-rwer-fser",
        "process_status":"RUNNING",
