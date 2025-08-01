@@ -13,6 +13,7 @@ object ScreenKey {
     const val FOREIGN_PASSPORT_PHOTO = "FOREIGN_PASSPORT_PHOTO"
     const val PASSPORT_BACK_PHOTO = "PASSPORT_BACK_PHOTO"
     const val SELFIE_PHOTO = "SELFIE_PHOTO"
+    const val FOREIGN_SELFIE_PHOTO = "FOREIGN_SELFIE_PHOTO"
     const val INPUT_FORM = "INPUT_FORM"
     const val WEB_VIEW = "WEB_VIEW"
     const val INPUT_FIELD = "INPUT_FIELD"
