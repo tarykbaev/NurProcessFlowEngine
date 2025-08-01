@@ -11,6 +11,7 @@ import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.util.GlideBitmapScaleTransformation
 import kg.nurtelecom.processflow.base.BaseFragment
 import kg.nurtelecom.processflow.databinding.NurProcessFlowFragmentPassportCardConfirmationBinding
+import kg.nurtelecom.processflow.extension.getProcessFlowHolder
 import kg.nurtelecom.processflow.ui.camera.PhotoFlowFragment
 import java.io.File
 
@@ -32,6 +33,7 @@ open class PhotoConfirmationFragment : BaseFragment<NurProcessFlowFragmentPasspo
             (parentFragment as PhotoFlowFragment).onPhotoConfirmed(filePath)
         }
         ivCapturedPhoto.scaleType = scaleType
+        getProcessFlowHolder().setToolbarEndText(null)
         loadImage(filePath)
     }
 
