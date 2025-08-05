@@ -2,6 +2,7 @@
 <resources>
     <string name="nur_process_flow_unexpected_error">Unexpected error</string>
     <string name="nur_process_flow_next">Next</string>
+    <string name="nur_process_flow_ready">Done</string>
     <string name="nur_process_flow_continue">Continue</string>
     <string name="nur_process_flow_invalid_input">Invalid data</string>
     <string name="nur_process_flow_share_with">Share by</string>

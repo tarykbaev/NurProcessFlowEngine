@@ -2,6 +2,7 @@
 <resources>
     <string name="nur_process_flow_unexpected_error">Непредвиденная ошибка</string>
     <string name="nur_process_flow_next">Далее</string>
+    <string name="nur_process_flow_ready">Готово</string>
     <string name="nur_process_flow_continue">Продолжить</string>
     <string name="nur_process_flow_invalid_input">Неверно введенные данные</string>
     <string name="nur_process_flow_share_with">Поделиться с помощью</string>

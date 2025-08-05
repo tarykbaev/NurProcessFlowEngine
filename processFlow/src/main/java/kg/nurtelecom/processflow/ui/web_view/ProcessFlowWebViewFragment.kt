@@ -24,6 +24,7 @@ import kg.nurtelecom.processflow.extension.getProcessFlowHolder
 import kg.nurtelecom.processflow.model.ContentTypes
 import kg.nurtelecom.processflow.model.ProcessFlowCommit
 import kg.nurtelecom.processflow.model.ProcessFlowScreenData
+import kg.nurtelecom.processflow.model.WebViewIds
 import kg.nurtelecom.processflow.model.common.Content
 import kg.nurtelecom.processflow.model.component.FlowWebView
 import kg.nurtelecom.processflow.model.component.WebViewProperties
@@ -134,9 +135,11 @@ open class ProcessFlowWebViewFragment :
     }
 
     open fun updateBackIcon() {
-        val iconRes =
-            if (getWebView().canGoBack()) com.design2.chili2.R.drawable.chili_ic_back
-            else com.design2.chili2.R.drawable.chili_ic_close
+        val iconRes = when {
+            getWebView().canGoBack() -> com.design2.chili2.R.drawable.chili_ic_back
+            webViewId == WebViewIds.BANK_GATEWAY_PAGE -> com.design2.chili2.R.drawable.chili_ic_back
+            else -> com.design2.chili2.R.drawable.chili_ic_close
+        }
         getProcessFlowHolder().setToolbarNavIcon(iconRes)
     }
 
@@ -192,11 +195,16 @@ open class ProcessFlowWebViewFragment :
     override fun getLocale(): String = appLocale
 
     override fun handleBackPress(): BackPressHandleState {
-        return getWebView().run {
-            if (canGoBack()) {
+        return when {
+            webViewId == WebViewIds.BANK_GATEWAY_PAGE -> {
+                setStringResultAndClose(MANUAL_CLOSE_WEB_VIEW_STATUS)
+                BackPressHandleState.HANDLED
+            }
+            getWebView().canGoBack() -> {
                 getWebView().goBack()
                 BackPressHandleState.HANDLED
-            } else BackPressHandleState.NOT_HANDLE
+            }
+            else -> BackPressHandleState.NOT_HANDLE
         }
     }
 

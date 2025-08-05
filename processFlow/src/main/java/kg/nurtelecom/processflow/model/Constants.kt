@@ -2,6 +2,7 @@ package kg.nurtelecom.processflow.model
 
 object WebViewIds {
     const val WEB_VIEW_VIDEO_IDENT = "VIDEO_IDENT"
+    const val BANK_GATEWAY_PAGE = "BANK_GATEWAY_PAGE"
 }
 
 object ScreenKey {

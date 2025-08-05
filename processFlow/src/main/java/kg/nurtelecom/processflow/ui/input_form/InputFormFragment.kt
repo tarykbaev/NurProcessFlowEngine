@@ -192,7 +192,7 @@ class InputFormFragment : BaseProcessScreenFragment<NurProcessFlowFragmentInputF
                 this.clearError()
                 currentOpenedDatePickerId = datePickerFieldInfo.fieldId
                 DatePickerDialog.create(
-                    getString(R.string.nur_process_flow_next),
+                    getString(R.string.nur_process_flow_ready),
                     datePickerFieldInfo.label ?: "",
                     startLimitDate = datePickerFieldInfo.startDateLimit?.let { Calendar.getInstance().apply { timeInMillis = it } },
                     endLimitDate = datePickerFieldInfo.endDateLimit?.let { Calendar.getInstance().apply { timeInMillis = it } }

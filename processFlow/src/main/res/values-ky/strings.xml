@@ -2,6 +2,7 @@
 <resources>
     <string name="nur_process_flow_unexpected_error">Күтүүсүз жаңылыштык</string>
     <string name="nur_process_flow_next">Андан ары</string>
+    <string name="nur_process_flow_ready">Даяр</string>
     <string name="nur_process_flow_continue">Улантуу</string>
     <string name="nur_process_flow_invalid_input">Туура эмес киргизилген маалыматтар</string>
     <string name="nur_process_flow_share_with">Жардамы менен бөлүшүү</string>
