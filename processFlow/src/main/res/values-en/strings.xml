@@ -29,7 +29,7 @@
     <string name="nur_process_flow_photo_confirmation_selfile_passport">Make sure your face and passport can be seen clearly</string>
     <string name="nur_process_flow_photo_confirmation_simple_selfie">Is your face seen clearly?</string>
 
-    <string name="nur_process_flow_photo_confirmation_retake_photo">New photo</string>
+    <string name="nur_process_flow_photo_confirmation_retake_photo">Retake</string>
     <string name="nur_process_flow_photo_confirmation_send_photo">Send photo</string>
 
     <!--    Flow Photo Capture-->
