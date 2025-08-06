@@ -17,7 +17,7 @@
     <string name="nur_process_flow_warning_exit">Процессти токтотууну чындап каалайсызбы?</string>
     <string name="nur_process_flow_no">ЖОК</string>
     <string name="nur_process_flow_yes">ООБА</string>
-    <string name="nur_process_flow_clearly">Макул</string>
+    <string name="nur_process_flow_clearly">Түшүнүктүү</string>
 
     <!--    Flow Photo confirmation-->
     <string name="nur_process_flow_photo_confirmation_retake">Жок, кайра тартуу керек</string>
