@@ -733,6 +733,26 @@ object ProcessMocker {
                             }
                         },
                         {
+                          "formItemType": "DROP_DOWN_FORM_ITEM",
+                          "formItem": {
+                            "fieldId": "SUB_GENDER",
+                            "label": "Пол",
+                            "validations": [
+                              {
+                                "type": "REQUIRED",
+                                "value": "true"
+                              }
+                            ],
+                            "chooseType": "SINGLE",
+                            "options": [],
+                            "value": null,
+                            "disabled": false,
+                            "isSearchEnabled": false,
+                            "parentFieldId": null,
+                            "isNeedToFetchOptions": true
+                          }
+                        },
+                        {
                             "formItemType": "GROUP_BUTTON_FORM_ITEM",
                             "formItem": {
                                 "fieldId": "agreement",

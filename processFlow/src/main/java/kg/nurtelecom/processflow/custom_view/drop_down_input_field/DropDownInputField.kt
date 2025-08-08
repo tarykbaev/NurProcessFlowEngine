@@ -9,6 +9,7 @@ import com.design2.chili2.extensions.setOnSingleClickListener
 import kg.nurtelecom.processflow.custom_view.drop_down_input_field.bottom_sheet.DropDownFieldBottomSheet
 import kg.nurtelecom.processflow.databinding.NurProcessFlowViewFormItemDropDownBinding
 import kg.nurtelecom.processflow.extension.getThemeColor
+import kg.nurtelecom.processflow.extension.hideKeyboard
 import kg.nurtelecom.processflow.item_creator.DropDownFieldCreator
 import kg.nurtelecom.processflow.model.input_form.ChooseType
 import kg.nurtelecom.processflow.model.input_form.DropDownFieldInfo
@@ -43,6 +44,7 @@ class DropDownInputField @JvmOverloads constructor(context: Context, attributeSe
     }
 
     fun showOptionsBS() {
+        context.hideKeyboard()
         val bs = DropDownFieldBottomSheet(
             mContext = context,
             optionsList = options,

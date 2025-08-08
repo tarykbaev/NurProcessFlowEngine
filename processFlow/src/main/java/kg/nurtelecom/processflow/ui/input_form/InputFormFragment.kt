@@ -191,6 +191,7 @@ class InputFormFragment : BaseProcessScreenFragment<NurProcessFlowFragmentInputF
             setOnClickListener {
                 this.clearError()
                 currentOpenedDatePickerId = datePickerFieldInfo.fieldId
+                activity?.hideKeyboard()
                 DatePickerDialog.create(
                     getString(R.string.nur_process_flow_ready),
                     datePickerFieldInfo.label ?: "",
