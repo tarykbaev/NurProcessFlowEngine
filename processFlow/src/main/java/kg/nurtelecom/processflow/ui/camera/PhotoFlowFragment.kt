@@ -239,6 +239,7 @@ class PhotoFlowFragment : BaseProcessScreenFragment<NurProcessFlowFragmentPhotoF
         return when(childFragmentManager.findFragmentById(R.id.container)) {
             is BasePhotoInstructionFragment -> BackPressHandleState.NOT_HANDLE
             is SelfiePhotoInstructionFragment -> BackPressHandleState.NOT_HANDLE
+            is ForeignSelfiePhotoInstructionFragment -> BackPressHandleState.NOT_HANDLE
             is SimpleSelfiePhotoInstructionFragment -> BackPressHandleState.NOT_HANDLE
             is SelfieOnlyPhotoInstructionFragment -> BackPressHandleState.NOT_HANDLE
             is PhotoConfirmationFragment -> BackPressHandleState.NOT_HANDLE
