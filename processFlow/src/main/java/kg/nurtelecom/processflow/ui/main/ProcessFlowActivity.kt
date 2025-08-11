@@ -32,6 +32,7 @@ import kg.nurtelecom.processflow.model.ContentTypes
 import kg.nurtelecom.processflow.model.Event
 import kg.nurtelecom.processflow.model.ProcessFlowCommit
 import kg.nurtelecom.processflow.model.ProcessFlowScreenData
+import kg.nurtelecom.processflow.model.ScreenKey.ADDITIONAL_PHOTO
 import kg.nurtelecom.processflow.model.ScreenKey.FOREIGN_PASSPORT_PHOTO
 import kg.nurtelecom.processflow.model.ScreenKey.FOREIGN_SELFIE_PHOTO
 import kg.nurtelecom.processflow.model.ScreenKey.INPUT_FIELD
@@ -239,6 +240,7 @@ abstract class ProcessFlowActivity<VM: ProcessFlowVM<*>> : AppCompatActivity(), 
             PASSPORT_BACK_PHOTO -> openCameraFlow(CameraType.BACK_PASSPORT_WITH_RECOGNIZER, data.allowedAnswer?.filterIsInstance<FlowButton>()?.first()?.buttonId ?: "")
             SELFIE_PHOTO -> openCameraFlow(CameraType.SELFIE, data.allowedAnswer?.filterIsInstance<FlowButton>()?.first()?.buttonId ?: "")
             FOREIGN_SELFIE_PHOTO -> openCameraFlow(CameraType.FOREIGN_SELFIE, data.allowedAnswer?.filterIsInstance<FlowButton>()?.first()?.buttonId ?: "")
+            ADDITIONAL_PHOTO -> openCameraFlow(CameraType.ADDITIONAL_PHOTO, data.allowedAnswer?.filterIsInstance<FlowButton>()?.first()?.buttonId ?: "")
             INPUT_FORM -> openInputForm(data)
             SIMPLE_CAMERA -> openCameraFlow(CameraType.SIMPLE_CAMERA, data.allowedAnswer?.filterIsInstance<FlowButton>()?.first()?.buttonId ?: "")
             SIMPLE_SELFIE_PHOTO -> openCameraFlow(CameraType.SIMPLE_SELFIE_PHOTO, data.allowedAnswer?.filterIsInstance<FlowButton>()?.first()?.buttonId ?: "")

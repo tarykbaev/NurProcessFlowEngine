@@ -57,6 +57,8 @@
     <string name="nur_process_flow_photo_instruction_selfie_only_button">Сделать фото</string>
     <string name="nur_process_flow_photo_instruction_selfie_only_subtitle">Держите камеру на уровне глаз и снимите аксессуары, которые закрывают лицо.</string>
     <string name="nur_process_flow_photo_instruction_passport_button">Сделать фото с паспортом</string>
+    <string name="nur_process_flow_photo_instruction_additional_photo">Дополнительное фото</string>
+    <string name="nur_process_flow_photo_instruction_additional_photo_description">Сделайте фото дополнительных страниц или документов, необходимых для фотографирования</string>
 
     <string name="nur_process_flow_exit_video_call">Вы уверены, что хотите завершить звонок?</string>
 </resources>

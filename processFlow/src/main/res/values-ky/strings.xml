@@ -56,6 +56,8 @@
     <string name="nur_process_flow_photo_instruction_selfie_only_button">Сүрөткө түшүү</string>
     <string name="nur_process_flow_photo_instruction_selfie_only_subtitle">Камераны көзүңүздүн тушуна келтирип, жүзүңүздү жаап турган аксессуарларды чечип коюңуз.</string>
     <string name="nur_process_flow_photo_instruction_passport_button">Паспорт менен сүрөткө түшүү</string>
+    <string name="nur_process_flow_photo_instruction_additional_photo">Кошумча сүрөт</string>
+    <string name="nur_process_flow_photo_instruction_additional_photo_description">Сүрөткө түшүү үчүн керектүү кошумча беттерди же  документтерди сүрөткө тартыңыз</string>
 
     <string name="nur_process_flow_exit_video_call">Чалууну бүтүрөрүңүз аныкпы?</string>
 </resources>

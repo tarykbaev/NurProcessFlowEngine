@@ -56,6 +56,8 @@
     <string name="nur_process_flow_photo_instruction_selfie_only_button">Take a photo</string>
     <string name="nur_process_flow_photo_instruction_selfie_only_subtitle">Hold the camera at your eye level and take off accessories that may cover your face</string>
     <string name="nur_process_flow_photo_instruction_passport_button">Take a photo with your passport</string>
+    <string name="nur_process_flow_photo_instruction_additional_photo">Additional photo</string>
+    <string name="nur_process_flow_photo_instruction_additional_photo_description">Take photo of the additional pages or other documents required for photographing</string>
 
     <string name="nur_process_flow_exit_video_call">Are you sure you want to end the call?</string>
 </resources>
