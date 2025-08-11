@@ -497,6 +497,98 @@ object ProcessMocker {
         )
 
 
+        put(
+            "FORM_DISPLAY", """
+                {
+    "definition_key": "SCREEN_ESIM_PERS",
+    "process_id": "d11d792d-76a0-11f0-b7c6-00505680d773",
+    "process_key": null,
+    "process_status": "RUNNING",
+    "messages": [],
+    "allowed_answers": [
+      {
+        "responseType": "BUTTON",
+        "responseItem": {
+          "disabled": false,
+          "style": "SECONDARY",
+          "properties": null,
+          "buttonId": "TO_OTHER_PAYMENT_METHODS",
+          "text": "Другие способы оплаты"
+        }
+      },
+      {
+        "responseType": "BUTTON",
+        "responseItem": {
+          "disabled": false,
+          "style": "ACCENT",
+          "properties": null,
+          "buttonId": "TO_BANK_CARD_PAYMENT",
+          "text": "Оплатить картой"
+        }
+      },
+      {
+        "responseType": "INPUT_FORM",
+        "responseItem": {
+          "formId": "CLICKABLE_FIELD",
+          "title": null,
+          "formItems": [
+            {
+              "formItemType": "LABEL",
+              "formItem": {
+                "fieldId": "INPUT_GROUP_LABLE",
+                "label": "К оплате:",
+                "validations": [],
+                "inputType": "LABEL",
+                "value": null,
+                "disabled": true,
+                "description": "675 <u>с</u>",
+                "isDescriptionHtml": true
+              }
+            },
+            {
+              "formItemType": "DISPLAY_ONLY_FIELD",
+              "formItem": {
+                "fieldId": "CLICK_MSISDN_FIELD",
+                "label": "Номер:",
+                "validations": [],
+                "value": null,
+                "disabled": true,
+                "description": "996500773373 <br> СЕРЕБРО - 175 <u>с</u>",
+                "isClickable": true,
+                "isDescriptionHtml": true
+              }
+            },
+            {
+              "formItemType": "DISPLAY_ONLY_FIELD",
+              "formItem": {
+                "fieldId": "CLICK_TARIFF_FIELD",
+                "label": "Тариф:",
+                "validations": [],
+                "value": null,
+                "disabled": true,
+                "description": "Переходи на О! БЕЗЛИМИТ НА ВСЁ! 500 <br> 500 сом/4 нед.",
+                "isClickable": true,
+                "isDescriptionHtml": true
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "screen_code": "INPUT_FORM",
+    "screen_state": {
+      "app_bar_text": null,
+      "title": "Выберите способ оплаты",
+      "description": "Оплата возможна через любой сервис, где можно пополнить баланс мобильного оператора О!",
+      "status": null
+    },
+    "processExposedVariables": {
+      "timer": 69767
+    },
+    "variables": {}
+  }
+            """.trimIndent()
+        )
 
         put(
             "OTP_INPUT", """

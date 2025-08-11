@@ -45,7 +45,7 @@ object LabelFormItemCreator : ValidatableItem() {
 
         return BaseCellView(context, null, 0, com.design2.chili2.R.style.Chili_InputViewStyle).apply {
             tag = labelFormItem.fieldId
-            setTitleTextAppearance(com.design2.chili2.R.style.Chili_H7_Primary_Bold)
+            setTitleTextAppearance(com.design2.chili2.R.style.Chili_H5_Primary_Bold)
             setSubtitleTextAppearance(com.design2.chili2.R.style.Chili_H8_Primary)
             setIsChevronVisible(false)
             setDividerVisibility(false)
