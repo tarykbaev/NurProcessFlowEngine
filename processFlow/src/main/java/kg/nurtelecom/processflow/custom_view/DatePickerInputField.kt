@@ -22,6 +22,7 @@ class DatePickerInputField @JvmOverloads constructor(context: Context, attribute
     private val vb: NurProcessFlowViewFormItemDatePickerBinding = NurProcessFlowViewFormItemDatePickerBinding.inflate(LayoutInflater.from(context), this, true)
 
     fun setupViews(datePickerFieldInfo: DatePickerFieldInfo, onSetNewValue: (List<String>, Boolean) -> Unit) {
+        this.datePickerFieldInfo = datePickerFieldInfo
         this.onNewValueListener = onSetNewValue
         datePickerFieldInfo.hint?.let { setHelperText(it) }
         datePickerFieldInfo.placeHolder?.let { setHint(it) }
