@@ -14,7 +14,7 @@ class SelfieWithPassportConfirmation : PhotoConfirmationFragment() {
 
     override fun setupViews() {
         super.setupViews()
-        vb.tvConfirmTitle.setText(R.string.nur_process_flow_photo_confirmation_selfile_passport)
+        vb.tvConfirmTitle.setText(R.string.nur_process_flow_photo_confirmation_passport_back)
     }
 
     override fun loadImage(filePath: String) {

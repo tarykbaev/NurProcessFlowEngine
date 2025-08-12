@@ -41,7 +41,7 @@
             android:layout_marginBottom="@dimen/padding_16dp"
             android:gravity="center"
             android:textSize="@dimen/text_16sp"
-            tools:text="@string/nur_process_flow_photo_confirmation_title" />
+            android:text="@string/nur_process_flow_photo_confirmation_passport_back" />
 
         <Button
             android:id="@+id/btn_recapture"
