@@ -24,7 +24,6 @@
     <string name="nur_process_flow_photo_confirmation_title">Данные отчетливо видны?</string>
     <string name="nur_process_flow_photo_confirmation_yes_visible">Да, видны</string>
     <string name="nur_process_flow_photo_recognizer_timeout_description">Убедитесь, что паспорт полностью в кадре.</string>
-    <string name="nur_process_flow_photo_confirmation_passport">Убедитесь, что фотография и данные видны отчётливо</string>
     <string name="nur_process_flow_photo_confirmation_passport_back">Убедитесь, что данные видны отчётливо</string>
     <string name="nur_process_flow_photo_confirmation_selfile_passport">Убедитесь, что лицо и паспорт видны отчётливо</string>
     <string name="nur_process_flow_photo_confirmation_simple_selfie">Лицо отчетливо видно?</string>

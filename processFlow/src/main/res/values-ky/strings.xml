@@ -24,7 +24,6 @@
     <string name="nur_process_flow_photo_confirmation_title">Маалыматтар так көрүнүп жатабы?</string>
     <string name="nur_process_flow_photo_confirmation_yes_visible">Ооба, көрүндү</string>
     <string name="nur_process_flow_photo_recognizer_timeout_description">Паспорт кадрда толук көрүнүп тураарына ынаныңыз.</string>
-    <string name="nur_process_flow_photo_confirmation_passport">Фотосүрөт жана маалыматтар даана көрүнүп турганына ынаныңыз</string>
     <string name="nur_process_flow_photo_confirmation_passport_back">Маалыматтар даана көрүнүп турганына ынаныңыз</string>
     <string name="nur_process_flow_photo_confirmation_selfile_passport">Жүзүңүз жана паспорт даана көрүнүп турганына ынаныңыз</string>
     <string name="nur_process_flow_photo_confirmation_simple_selfie">Жүзүңүз даана көрүнүп турабы?</string>
