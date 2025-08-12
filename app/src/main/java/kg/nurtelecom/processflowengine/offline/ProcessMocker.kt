@@ -746,7 +746,7 @@ object ProcessMocker {
                             "formItem": {
                                 "fieldId": "testField",
                                 "label": "ФИО",
-                                "value": "Асаналиев Асан Асаналиевич",
+                                "value": "АСАНАЛИЕВ АСАН АСАНАЛИЕВИЧ",
                                 "disabled": false,
                                 "validations": []
                             }

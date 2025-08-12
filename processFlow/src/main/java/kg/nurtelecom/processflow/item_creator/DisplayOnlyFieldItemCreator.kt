@@ -35,7 +35,7 @@ object DisplayOnlyFieldItemCreator {
             setTitleMaxLines(Int.MAX_VALUE)
             displayOnlyFieldItem.label?.let { setTitle(it) }
 
-            setSubtitleTextAppearance(Chilli_R.style.Chili_H7_Primary)
+            setSubtitleTextAppearance(Chilli_R.style.Chili_H8_Primary)
             setSubtitleMaxLines(Int.MAX_VALUE)
             displayOnlyFieldItem.value?.let { setSubtitle(it) }
             if (displayOnlyFieldItem.isDescriptionHtml == true) {

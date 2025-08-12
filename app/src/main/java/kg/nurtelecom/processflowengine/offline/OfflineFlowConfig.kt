@@ -23,7 +23,7 @@ class OfflineFlowConfig : AppCompatActivity() {
             ProcessFlowApiImpl.REQUESTS_DELAY = vb.delay.getInputText().toLongOrNull() ?: 300L
             openFlow(vb.startCode.getInputText().takeIf { it.isNotBlank() } ?: ProcessFlowApiImpl.FIRST_STEP_KEY)
         }
-        vb.btnStartForm.setOnClickListener { openFlow("OTP_INPUT") }
+        vb.btnStartForm.setOnClickListener { openFlow("FORM_DISPLAY") }
         vb.btnStartAgreemrnt.setOnClickListener { openFlow("passport_form") }
         vb.btnStartOferta.setOnClickListener { openFlow("WEB_VIEW_OFERTA") }
         vb.btnStartCallWebView.setOnClickListener { openFlow("VIDEO_IDENT_BUTTON") }
