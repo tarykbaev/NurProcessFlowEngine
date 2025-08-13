@@ -1427,7 +1427,7 @@ object ProcessMocker {
         put("input_fields", """
             {
     "definition_key": "SCREEN_ESIM_PERS",
-    "process_id": "c0024c2a-776a-11f0-b7c6-00505680d773",
+    "process_id": "8754153a-781b-11f0-b7c6-00505680d773",
     "process_key": null,
     "process_status": "RUNNING",
     "messages": [],
@@ -1438,155 +1438,21 @@ object ProcessMocker {
           "disabled": false,
           "style": "ACCENT",
           "properties": null,
-          "buttonId": "SUBMIT",
-          "text": "Отправить"
-        }
-      },
-      {
-        "responseType": "INPUT_FORM",
-        "responseItem": {
-          "formId": "manualPassportForm",
-          "title": "Ввести данные вручную.",
-          "formItems": [
-            {
-              "formItemType": "INPUT_FIELD",
-              "formItem": {
-                "fieldId": "passportLastName",
-                "label": "Фамилия",
-                "validations": [
-                  {
-                    "type": "REQUIRED",
-                    "value": "true"
-                  }
-                ],
-                "inputType": "TEXT",
-                "value": null,
-                "disabled": false
-              }
-            },
-            {
-              "formItemType": "INPUT_FIELD",
-              "formItem": {
-                "fieldId": "passportFirstName",
-                "label": "Имя",
-                "validations": [
-                  {
-                    "type": "REQUIRED",
-                    "value": "true"
-                  }
-                ],
-                "inputType": "TEXT",
-                "value": null,
-                "disabled": false
-              }
-            },
-            {
-              "formItemType": "INPUT_FIELD",
-              "formItem": {
-                "fieldId": "passportMiddleName",
-                "label": "Отчество (при наличии)",
-                "validations": [],
-                "inputType": "TEXT",
-                "value": null,
-                "disabled": false
-              }
-            },
-            {
-              "formItemType": "DATE_PICKER_FORM_ITEM",
-              "formItem": {
-                "fieldId": "passportBirhDate",
-                "label": "Дата рождения",
-                "validations": [
-                  {
-                    "type": "REQUIRED",
-                    "value": "true"
-                  }
-                ],
-                "value": null,
-                "disabled": false,
-                "endDateLimit": 1250074521628
-              }
-            },
-            {
-              "formItemType": "INPUT_FIELD",
-              "formItem": {
-                "fieldId": "docNum",
-                "label": "№ паспорта",
-                "validations": [
-                  {
-                    "type": "REQUIRED",
-                    "value": "true"
-                  }
-                ],
-                "inputType": "TEXT",
-                "value": null,
-                "disabled": false
-              }
-            },
-            {
-              "formItemType": "DATE_PICKER_FORM_ITEM",
-              "formItem": {
-                "fieldId": "passportIssueDateLong",
-                "label": "Дата выдачи",
-                "validations": [
-                  {
-                    "type": "REQUIRED",
-                    "value": "true"
-                  }
-                ],
-                "value": null,
-                "disabled": false
-              }
-            },
-            {
-              "formItemType": "INPUT_FIELD",
-              "formItem": {
-                "fieldId": "passportAuthority",
-                "label": "Кем выдан",
-                "validations": [
-                  {
-                    "type": "REQUIRED",
-                    "value": "true"
-                  }
-                ],
-                "inputType": "TEXT",
-                "value": null,
-                "disabled": false
-              }
-            },
-            {
-              "formItemType": "DROP_DOWN_FORM_ITEM",
-              "formItem": {
-                "fieldId": "SUB_GENDER",
-                "label": "Пол",
-                "validations": [
-                  {
-                    "type": "REQUIRED",
-                    "value": "true"
-                  }
-                ],
-                "chooseType": "SINGLE",
-                "options": [],
-                "value": null,
-                "disabled": false,
-                "isSearchEnabled": false,
-                "parentFieldId": null,
-                "isNeedToFetchOptions": true
-              }
-            }
-          ]
+          "buttonId": "SELFIE_PHOTO",
+          "text": "Сделать фото"
         }
       }
     ],
-    "screen_code": "INPUT_FORM",
+    "screen_code": "FOREIGN_SELFIE_PHOTO",
     "screen_state": {
       "app_bar_text": null,
-      "title": "Ввести данные вручную",
-      "description": null,
-      "status": null
+      "title": "Сделайте фото с паспортом",
+      "description": "Фото должно быть отчётливым, а паспорт и лицо видны полностью",
+      "status": null,
+      "selfie_image_sample_url": "https://minio.o.kg/lkab/personification/foreign_selfie.png"
     },
     "processExposedVariables": {
-      "timer": 1172701
+      "timer": 1050119
     },
     "variables": {}
   }

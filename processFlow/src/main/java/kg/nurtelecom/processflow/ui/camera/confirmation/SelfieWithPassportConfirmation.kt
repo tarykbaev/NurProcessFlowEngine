@@ -5,7 +5,6 @@ import androidx.core.os.bundleOf
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.Target
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.design2.chili2.util.GlideBitmapMirrorTransformation
 import com.design2.chili2.util.GlideBitmapScaleTransformation
 import kg.nurtelecom.processflow.R
 import java.io.File
@@ -21,7 +20,7 @@ class SelfieWithPassportConfirmation : PhotoConfirmationFragment() {
         Glide.with(requireContext())
             .load(File(filePath))
             .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
-            .transform(GlideBitmapScaleTransformation(), GlideBitmapMirrorTransformation())
+            .transform(GlideBitmapScaleTransformation())
             .override(Target.SIZE_ORIGINAL)
             .into(vb.ivCapturedPhoto)
     }
