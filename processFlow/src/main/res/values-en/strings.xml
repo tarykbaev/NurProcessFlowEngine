@@ -12,8 +12,8 @@
     <string name="nur_process_flow_no_available_free_space">There is not enough free space on the phone to save and process photos. Free up some space on your phone, and try again.</string>
     <string name="nur_process_flow_confirm">Confirm</string>
     <string name="nur_process_flow_can_not_find">I cannot find the code</string>
-    <string name="nur_process_flow_repeat_after">Repeat in %s</string>
-    <string name="nur_process_flow_resend">Resend</string>
+    <string name="nur_process_flow_repeat_after">Repeat after %s</string>
+    <string name="nur_process_flow_resend">Send again</string>
     <string name="nur_process_flow_warning_exit">Are you sure you want to abort the process?</string>
     <string name="nur_process_flow_no">NO</string>
     <string name="nur_process_flow_yes">YES</string>

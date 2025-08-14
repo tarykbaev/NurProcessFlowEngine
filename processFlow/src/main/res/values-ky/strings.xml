@@ -12,7 +12,7 @@
     <string name="nur_process_flow_no_available_free_space">Телефондо сүрөттөрдү сактоо жана иштеп чыгуу үчүн бош орун жетишсиз. Телефондон бираз орун бошотуңуз жана аракетиңизди кайталаңыз.</string>
     <string name="nur_process_flow_confirm">Ырастоо</string>
     <string name="nur_process_flow_can_not_find">Кодду таба албай жатам</string>
-    <string name="nur_process_flow_repeat_after">%s аркылуу кайталоо</string>
+    <string name="nur_process_flow_repeat_after">%s кийин кайталоо</string>
     <string name="nur_process_flow_resend">Кайрадан жөнөтүү</string>
     <string name="nur_process_flow_warning_exit">Процессти токтотууну чындап каалайсызбы?</string>
     <string name="nur_process_flow_no">ЖОК</string>
@@ -43,9 +43,9 @@
     <!--    Flow Photo Instruction -->
     <string name="nur_process_flow_photo_instruction_passport_front">Паспорттун башкы бетин сүрөткө тартыңыз</string>
     <string name="nur_process_flow_photo_instruction_passport_foreigner">Паспорттун эки бетин сүрөткө тартыңыз</string>
-    <string name="nur_process_flow_photo_instruction_passport_foreigner_subtitle">Маалыматтар жакшы көрүнүп турганын жана \nчектен тышкары чыкпаганын текшериңиз</string>
+    <string name="nur_process_flow_photo_instruction_passport_foreigner_subtitle">Маалыматтар жакшы көрүнүп турганын жана \nчектен тышкары чыкпаганын текшериңиз.</string>
     <string name="nur_process_flow_photo_instruction_passport_back">Паспорттун арткы бетин сүрөткө тартыңыз</string>
-    <string name="nur_process_flow_photo_instructiin_passports_subtitle">Маалыматтар жакшы көрүнүп турганын жана чектен тышкары чыкпаганын текшериңиз</string>
+    <string name="nur_process_flow_photo_instructiin_passports_subtitle">Маалыматтар жакшы көрүнүп турганын жана чектен тышкары чыкпаганын текшериңиз.</string>
     <string name="nur_process_flow_photo_instruction_selfie">Паспорт менен сүрөткө түшүңүз</string>
     <string name="nur_process_flow_photo_instruction_selfie_description">Сүрөттө жүзүңүз жана паспорт толук көрүнүшү керек.</string>
     <string name="nur_process_flow_photo_instruction_simple_selfie">Жарык жерден камерага түз карап, сүрөткө көз айнексиз түшүңүз</string>
